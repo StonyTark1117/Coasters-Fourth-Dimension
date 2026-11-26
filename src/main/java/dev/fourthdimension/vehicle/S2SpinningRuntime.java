@@ -25,7 +25,7 @@ public final class S2SpinningRuntime {
   private static final Map<ServerSubLevel,Motion> MOTION=new WeakHashMap<>();
   private S2SpinningRuntime(){}
   public static FoundationData.Rail rail(ServerLevel level,FoundationData.Vehicle v){
-    return FoundationData.get(level).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
+    return dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
   }
   public static void fault(ServerLevel level,FoundationData.Vehicle selected,String reason){
     var ids=new HashSet<>(selected.s2.consist);ids.add(selected.chassis);
@@ -129,7 +129,7 @@ public final class S2SpinningRuntime {
     double signed=velocity.dot(basis.forward().x,basis.forward().y,basis.forward().z);
     if(Math.abs(signed)>.01&&(signed>=0?table.length()-at:at)<=look){
       var endpoint=signed>=0?edge.to():edge.from();
-      var next=FoundationData.get(level).rails.stream().filter(r->r!=rail&&(r.from.equals(endpoint)||r.to.equals(endpoint))).toList();
+      var next=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r!=rail&&(r.from.equals(endpoint)||r.to.equals(endpoint))).toList();
       if(next.size()!=1)return "Launched Inverting Spinning end or ambiguous route; stop and inspect";
       var following=TrackGeometry.resolve(level,next.getFirst());
       if(following==null||S2SpinningTrack.rejection(level,following)!=null)return "Launched Inverting Spinning incompatible route ahead";

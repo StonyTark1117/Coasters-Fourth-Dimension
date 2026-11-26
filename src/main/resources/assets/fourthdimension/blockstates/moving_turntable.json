@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "fourthdimension:block/moving_turntable"
+    },
+    "facing=east": {
+      "model": "fourthdimension:block/moving_turntable",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "fourthdimension:block/moving_turntable",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "fourthdimension:block/moving_turntable",
+      "y": 270
+    },
+    "facing=up": {
+      "model": "fourthdimension:block/moving_turntable",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "fourthdimension:block/moving_turntable",
+      "x": 90
+    }
+  }
+}

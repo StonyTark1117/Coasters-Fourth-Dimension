@@ -24,6 +24,16 @@ public final class VehicleLifecycle {
               @Override
               public void onSubLevelRemoved(SubLevel body, SubLevelRemovalReason reason) {
                 if (reason != SubLevelRemovalReason.REMOVED) return;
+                var moving=FoundationData.get(level).moving.retaining(body.getUniqueId());
+                if(moving!=null){moving.fault("Retained native body removed: repair before recovery");FoundationData.get(level).setDirty();return;}
+                for(var assembly:FoundationData.get(level).moving.assemblies.values()){
+                  var id=body.getUniqueId();
+                  if(assembly.service.cars.containsKey(id)||assembly.service.cars.values().stream()
+                      .anyMatch(c->c.holds.stream().anyMatch(h->h.child().equals(id)||h.parent().equals(id)))){
+                    assembly.fault("Released service body removed: retain surviving bodies for service evacuation");
+                    FoundationData.get(level).setDirty();return;
+                  }
+                }
                 dev.fourthdimension.shuttle.ShuttleRuntime.onBodyRemoved(level, body.getUniqueId());
                 for (var vehicle : FoundationData.get(level).vehicles.values()) {
                   if (body.getUniqueId().equals(vehicle.recoveryCart)) {

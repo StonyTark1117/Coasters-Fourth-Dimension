@@ -47,7 +47,7 @@ public final class ShuttleRoute {
           level, node.getX() >> 4, node.getZ() >> 4))
         throw new IllegalArgumentException(
             "Shuttle route chunk is unavailable for physics; load the complete route");
-      var legs = data.rails.stream().filter(r -> r.from.equals(at) || r.to.equals(at)).toList();
+      var legs = dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r -> r.from.equals(at) || r.to.equals(at)).toList();
       int expected = node.equals(start) || node.equals(end) ? 1 : 2;
       if (legs.size() != expected)
         throw new IllegalArgumentException(

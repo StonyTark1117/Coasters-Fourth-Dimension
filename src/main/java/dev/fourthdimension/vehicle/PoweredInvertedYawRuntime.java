@@ -27,7 +27,7 @@ public final class PoweredInvertedYawRuntime {
   private PoweredInvertedYawRuntime(){}
   private static ServerSubLevel body(ServerLevel l,UUID id){var b=id==null?null:SubLevelContainer.getContainer(l).getSubLevel(id);return b instanceof ServerSubLevel s&&!s.isRemoved()?s:null;}
   private static double speed(ServerLevel l,ServerSubLevel b){return SubLevelContainer.getContainer(l).physicsSystem().getPipeline().getLinearVelocity(b,new Vector3d()).length();}
-  public static FoundationData.Rail rail(ServerLevel l,FoundationData.Vehicle v){return FoundationData.get(l).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);}
+  public static FoundationData.Rail rail(ServerLevel l,FoundationData.Vehicle v){return dev.fourthdimension.moving.MovingRouteContext.rails(l).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);}
   public static PoweredInvertedYawGovernorEntity governor(ServerLevel l,FoundationData.Vehicle v){var p=v.poweredYaw.controller;return p!=null&&l.hasChunkAt(p)&&l.getBlockEntity(p) instanceof PoweredInvertedYawGovernorEntity g&&g.authorizesRide(v.chassis)?g:null;}
   private static List<FoundationData.Vehicle> cars(ServerLevel l,FoundationData.Vehicle v){return VehicleOperations.consist(l,v);}
   private static void changed(ServerLevel l){FoundationData.get(l).setDirty();}
@@ -79,7 +79,7 @@ public final class PoweredInvertedYawRuntime {
     var b=body(l,v.chassis);if(b==null)return;var m=MOTION.get(b);if(m!=null&&m.hold!=null&&m.hold.isValid())return;
     var pipeline=SubLevelContainer.getContainer(l).physicsSystem().getPipeline();var velocity=pipeline.getLinearVelocity(b,new Vector3d());double speed=velocity.length();if(speed>0)pipeline.addLinearAndAngularVelocity(b,velocity.mul(-Math.min(1,(v.fault.isEmpty()?2:6)*dt/speed)),new Vector3d());
   }
-  private static void releaseHold(ServerLevel l,FoundationData.Vehicle v){var b=body(l,v.chassis);var m=b==null?null:MOTION.get(b);if(m!=null&&m.hold!=null){if(m.hold.isValid())m.hold.remove();m.hold=null;}}
+  public static void releaseHold(ServerLevel l,FoundationData.Vehicle v){var b=body(l,v.chassis);var m=b==null?null:MOTION.get(b);if(m!=null&&m.hold!=null){if(m.hold.isValid())m.hold.remove();m.hold=null;}}
   private static void hold(ServerLevel l,FoundationData.Vehicle v){
     var parent=body(l,v.chassis);if(parent==null||speed(l,parent)>.05)return;var m=MOTION.get(parent);if(m==null)return;
     if(m.hold==null||!m.hold.isValid()){var anchor=new Vector3d(parent.getMassTracker().getCenterOfMass());var world=parent.logicalPose().transformPosition(new Vector3d(anchor));m.hold=SubLevelContainer.getContainer(l).physicsSystem().getPipeline().addConstraint(null,parent,new GenericConstraintConfiguration(world,anchor,new Quaterniond(parent.logicalPose().orientation()),new Quaterniond(),EnumSet.allOf(ConstraintJointAxis.class)));}

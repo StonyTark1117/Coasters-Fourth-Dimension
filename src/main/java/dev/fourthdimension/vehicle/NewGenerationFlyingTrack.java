@@ -16,7 +16,7 @@ public final class NewGenerationFlyingTrack {
   public static String rejection(Level level,CoasterPathEdge edge){
     if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "New-generation Flying requires fixed world track";
     var data=EligibilityHooks.data(level);
-    var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
+    var rail=data==null?null:dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null||!rail.valid||rail.family!=Family.FLYING||!NewGenerationFlyingVehicle.VARIANT.equals(rail.variant))
       return "New-generation Flying requires matching overhead track and route posture and yaw capability";
     if(!TrackDesign.NEW_GENERATION_FLYING.nativeFit().accepts(NewGenerationFlyingVehicle.FIT))return "New-generation Flying contact/mount/envelope mismatch";

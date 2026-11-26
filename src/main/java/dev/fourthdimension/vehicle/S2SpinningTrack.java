@@ -16,7 +16,7 @@ public final class S2SpinningTrack {
   public static String rejection(Level level,CoasterPathEdge edge){
     if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "Launched Inverting Spinning requires fixed world track";
     var data=EligibilityHooks.data(level);
-    var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
+    var rail=data==null?null:dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null||!rail.valid||rail.family!=Family.SPINNING||!S2SpinningVehicle.VARIANT.equals(rail.variant))
       return "Launched Inverting Spinning requires matching inversion-rated track with launch and magnetic capability";
     if(!TrackDesign.S2_SPINNING.nativeFit().accepts(S2SpinningVehicle.FIT))return "Launched Inverting Spinning contact/mount/envelope mismatch";

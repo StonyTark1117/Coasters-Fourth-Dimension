@@ -20,6 +20,7 @@ public final class ContentTabs {
                   .icon(() -> TrackItems.ARROW.get().getDefaultInstance())
                   .displayItems(
                       (parameters, output) -> {
+                        dev.fourthdimension.moving.MovingContent.ALL_ITEMS.forEach(item -> output.accept(item.get()));
                         TrackItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         dev.fourthdimension.vehicle.DiveContent.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         dev.fourthdimension.vehicle.StandingContent.ITEMS.getEntries().forEach(item -> output.accept(item.get()));

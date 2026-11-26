@@ -4,6 +4,13 @@
   "package": "dev.fourthdimension.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "MovingNativeSnapAccess",
+    "MovingNativeSnapMixin",
+    "MovingNativeGuideMixin",
+    "MovingNativeStaffGuideMixin",
+    "MovingNativeGraphMixin",
+    "MovingNativeSocketMixin",
+    "MovingNativeSocketNormalMixin",
     "ManagedPlotScanMixin",
     "BezierCurveKeyMixin",
     "PeerCurveKeyMixin",

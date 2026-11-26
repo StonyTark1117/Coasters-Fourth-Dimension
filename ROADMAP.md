@@ -64,7 +64,7 @@ a requirement to leave a fully covered task open or schedule another run.
 6. Complete FD917 production visuals and connected mechanisms across the 17 adopted vehicle styles. Resolve shared dimensions/materials and the Arrow linkage prototype before dependent final art; integrate required renderer, state and bounded mechanical changes before the freeze.
 7. Close FD1000 at 1.0 alpha with FD917's accepted production baseline. During beta/RC reconcile accumulated acceptance, fix remaining required visual defects and finish FD901–FD905; FD1001–FD1003 own documentation, packaging and stable release.
 8. Deliver the standalone preset library, colors/liveries and unified operator panel in 1.1, then ride-local multi-train operations in 1.2. These supporting tools do not postpone the vehicle families or add a blanket prerequisite to them.
-9. Develop turntables, drop tables, tilt tracks and the finite additional moving-track styles through the separate post-1.0 program. Prove moving route connections and occupied retention first; assign release numbers after feasibility. These mechanisms never block 1.0.
+9. Deliver the eight moving-track mechanisms in 1.5 through FD2001–FD2007. Prove moving route connections and occupied retention first, then the declared car/track compatibility and player guidance. Launch Systems moving-track compatibility is future FD2008 and does not block 1.5. These mechanisms never block 1.0.
 
 A [4,800-tick PAX source recovery](docs/evidence/0.9/fd401-pax-longhold-source-229e586/acceptance.md),
 its [packaged named test](docs/evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md),
@@ -106,7 +106,8 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 1.2 | FD1701B–C, FD1703 | Complete 2026-11-22 | Bounded ride-local multi-train operation using the earlier FD1701A authority; Dive is already a 1.0 requirement. |
 | 1.3 | FD2101, FD2104, FD2102, FD2103 | Complete 2026-11-22 | Repair unsupported-looking car/seat structures and add two original, selectable body variants for existing Wing and Fixed Inverted vehicles without changing their ride contracts. |
 | 1.4 | FD2201–FD2204 | Complete 2026-11-22; unpublished | Add standard and Surf-style standing configurations, plus motorbike and suspended flying-bike/Thrill Glider-inspired coasters, with distinct boarding, restraints, fit and recovery. |
-| Post-1.0 moving-track program; release numbers after feasibility | FD2001–FD2007 | Planned | Transfer platforms, turntables, drop tables, tilt tracks, elevator, teeter-totter, side-drop and compound motion-table styles. |
+| 1.5 | FD2001–FD2007 | Complete 2026-11-26 | Eight moving-track mechanisms: transfer, turntable, drop, tilt, elevator, teeter-totter, side-drop and yaw-plus-pitch table; explicit track/car compatibility, original content, player guidance and recovery. [Design and matrix](docs/specs/FD2001-moving-track-1.5.md). |
+| Future; version unassigned | FD2008 | Planned; outside 1.5 | Moving-track compatibility with sister mod Launch Systems, consuming the accepted native mechanism and external authority contracts. |
 | Independent compatibility | FD801 | Planned | Inspectable functional Track Styles Arrow 4D adapter; upstream availability never blocks standalone release. |
 
 Milestone labels are delivery targets, not dates, JAR version changes or universal
@@ -1683,14 +1684,24 @@ integrations, with standalone operation and no general scripting/animation edito
 | <a id="fd1901c"></a> **FD1901C Powered Inverted Yaw acceptance — complete** [Steps](docs/roadmap/0.8-operations.md#fd1901c) | FD1901A, FD1901B | Close the complete player cycle, declared event behavior and distinct upright pose/propulsion/interruption/persistence cases. Reuse accepted shared-yaw and operating evidence without replaying Flying acceptance. |
 | <a id="fd1902"></a> **FD1902 Powered Inverted Yaw outcome gate — complete** [Steps](docs/roadmap/0.8-operations.md#fd1902) | FD1901 | Reconcile the specified vehicle, content and profiles, then feed FD813 and 1.0. Reuse accepted evidence; final release qualification remains FD901–FD905. |
 
-### Post-1.0 moving-track program
+<a id="post-10-moving-track-program"></a>
+<a id="version-15-moving-track"></a>
+### Version 1.5 — Moving-track mechanisms
 
-Turntables, drop tables (drop tracks), tilt tracks and the additional styles below
-are explicit post-1.0 roadmap work. Their delivery versions are assigned after
-FD2001 establishes native feasibility; they are not requirements for FD1000,
-FD905, FD1003 or the fixed-track vehicle outcome gates. This is implementation scope,
-not discovery alone. Do not quietly replace a requested mechanism with research
-or a decorative animation if the required route/passenger behavior is blocked.
+All eight mechanisms below are assigned to **1.5**, adopted 2026-11-22. The
+[1.5 design and compatibility plan](docs/specs/FD2001-moving-track-1.5.md)
+defines real-coaster references, the pinned dependency seams, finite assemblies,
+track/car matrix, player guidance and recovery. Its declared pairings and limits
+are part of these packages' scope. The human authorized implementation through
+1.5 on 2026-11-22. All eight mechanisms and FD2001–FD2007 are complete
+2026-11-26; [integration and measured limits](docs/evidence/1.5/integration.md)
+record cumulative acceptance and the reproducible unpublished package.
+The preceding 1.4 baseline is `f85f4a27`.
+FD2008 Launch Systems compatibility is future work.
+
+FD2001 establishes native feasibility first. The mechanisms are not requirements
+for FD1000, FD905, FD1003 or fixed-track vehicle outcomes. Do not replace a required
+mechanism with research or decorative animation when route/retention is blocked.
 
 Start with one retained short track segment moving between two fixed endpoints.
 Prove graph disconnection while moving, exclusive destination reservation,
@@ -1700,33 +1711,65 @@ External track-provider hooks must be inspected and working; a missing hook is
 a named blocker for that mechanism, not a reason to reopen fixed-track acceptance.
 Scope mechanisms to purpose-built assemblies; arbitrary track on player-built
 moving contraptions remains a separate future feature.
-When FD2001 allocates shipping increments, give each its own permanent FD2007
-suffix gate and finite mechanism/profile list. Each increment gate closes once;
-later styles never reopen it. The FD2007 parent aggregates the complete adopted
-program while already accepted mechanisms may ship in those earlier increments.
+FD2007 is the single 1.5 reconciliation gate for this finite program. Each
+accepted child stays closed while the other mechanisms are developed; there
+are no speculative suffix gates or release allocations after feasibility.
+Publication is separate from implementation and acceptance.
+
+**Compatibility scope:** all 21 declared FD car configurations target retained
+transfer, level turntable and elevator operation on their matching rail inserts;
+the design matrix explicitly limits drop/tilt/rocking/side/compound programs.
+S1 tilt stops at 30 degrees; passive 4D, swing/Axis, Flying/yaw, Roller Ball and
+1.4 specialties receive level-deck motions only. Native ordinary service carts
+are empty-only. Wing uses ordinary N-contact rails, Pipeline its distinct P
+rails, and other cars their exact functional family/variant with required
+control/magnet/posture interfaces. No appearance choice grants eligibility.
+FD2001 supplies the new moving-support and route adapters; existing fixed-world
+guards must not simply be disabled. Consumers of 1.4 cars wait only for their
+actual family handoff, not unrelated unfinished 1.4 packages.
+
+**Player delivery:** one server-owned capability table drives car/mechanism
+tooltips, the Rotation Tool compatibility panel, full-sweep placement preview,
+admission checks and actionable refusal messages. Every mechanism includes
+recipes, original connected machinery, normal controls and a teaching example.
+Existing optional propulsion stays on qualified fixed spans with explicit
+retained handoff. CTNB moving-bed materials, arbitrary contraptions, managed
+1.2 dynamic routes and Launch Systems moving-track authority are excluded.
 
 | Package / status | Actual prerequisites | Ordered work and completion condition |
 | --- | --- | --- |
-| <a id="fd2001"></a> **FD2001 Moving-segment contracts and prototype — planned** [Steps](docs/roadmap/moving-track.md#fd2001) | Integrated provider/eligibility, passenger and persistence contracts; FD1701A authority interface | Specify one segment, two endpoints, vehicle envelope and ownership. Build a retained native/occupied prototype proving the graph/retention lifecycle above, including power loss, interrupted movement, reload and endpoint removal. Record required provider changes, finite limits and delivery allocation; discovery alone cannot close the working prototype. |
-| <a id="fd2002"></a> **FD2002 Transfer platform — planned** [Steps](docs/roadmap/moving-track.md#fd2002) | FD2001 | Deliver a lateral transfer between two fixed endpoints, capture/lock and controller requests, original platform/track assets, controls, guide and example. Complete when occupied transfer, interrupted recovery and correct graph reconnection pass. No automatic depot system is included. |
-| <a id="fd2003"></a> **FD2003 Turntable — planned** [Steps](docs/roadmap/moving-track.md#fd2003) | FD2001 | Deliver a yaw-rotating track table with full-turn geometry and a finite declared endpoint list. Reserve the chosen exit, retain the vehicle while disconnected and reconnect only when aligned/locked. Include original content, player routing controls, example and distinct occupied rotation/restart checks. |
-| <a id="fd2004"></a> **FD2004 Drop table / drop track — planned** [Steps](docs/roadmap/moving-track.md#fd2004) | FD2001 | Deliver a retained track segment with upper/lower connections, specified vertical drop/braking/reset motion and controlled recapture. Include original content, player controls, example and distinct interrupted-drop, endpoint and occupied recovery acceptance. |
-| <a id="fd2005"></a> **FD2005 Tilt track — planned** [Steps](docs/roadmap/moving-track.md#fd2005) | FD2001 | Deliver a retained segment pitching between declared entry/exit angles, controlled vehicle release only after locking, and return/reset. Include original content, player controls, example and distinct clearance, power-loss and interrupted-tilt acceptance. |
-| <a id="fd2006"></a> **FD2006 Additional moving-track styles — planned** [Steps](docs/roadmap/moving-track.md#fd2006) | FD2006A–D | Aggregate the finite A–D list below with original content, player controls, examples and distinct operating/recovery acceptance. Keep completed styles closed; arbitrary additional styles need their own scope addition. |
-| <a id="fd2007"></a> **FD2007 Moving-track release reconciliation — planned** [Steps](docs/roadmap/moving-track.md#fd2007) | FD2002, FD2003, FD2004, FD2005, FD2006; their allocated increment gates | Each increment gate freezes its supported mechanism/vehicle/provider list and reconciles graph/authority conflicts, visuals, persistence, measured workload and package/docs checks. Close this parent when all adopted packages are covered. Earlier increments may ship independently; unshipped named packages remain planned. No family × mechanism × provider product is implied without a real implementation distinction. |
+| <a id="fd2001"></a> **FD2001 Moving-segment contracts and prototype — complete 2026-11-26** [Steps](docs/roadmap/moving-track.md#fd2001) | Integrated provider/eligibility, passenger and persistence contracts; FD1701A authority; each admitted family's own accepted handoff | Freeze the pinned hook inventory, moving-support capability schema, finite limits and track/car matrix. Build a retained native/occupied Wing prototype proving capture, exclusive reservation, disconnect/move/reconnect, rider synchronization, power loss, reload, endpoint loss and recovery. Integrate distinct family retention/route adapters and player compatibility readback before their consumers; retain required rail mechanics. Discovery alone cannot close the working prototype. |
+| <a id="fd2002"></a> **FD2002 Transfer platform — complete 2026-11-26** [Steps](docs/roadmap/moving-track.md#fd2002) | FD2001 | Deliver a lateral transfer between two fixed endpoints, capture/lock and controller requests, original platform/track assets, controls, guide and example. Complete when occupied transfer, interrupted recovery and correct graph reconnection pass. No automatic depot system is included. |
+| <a id="fd2003"></a> **FD2003 Turntable — complete 2026-11-26** [Steps](docs/roadmap/moving-track.md#fd2003) | FD2001 | Deliver a yaw-rotating track table with full-turn geometry and a finite declared endpoint list. Reserve the chosen exit, retain the vehicle while disconnected and reconnect only when aligned/locked. Include original content, player routing controls, example and distinct occupied rotation/restart checks. |
+| <a id="fd2004"></a> **FD2004 Drop table / drop track — complete 2026-11-26** [Steps](docs/roadmap/moving-track.md#fd2004) | FD2001 | Deliver a retained track segment with upper/lower connections, specified vertical drop/braking/reset motion and controlled recapture. Include original content, player controls, example and distinct interrupted-drop, endpoint and occupied recovery acceptance. |
+| <a id="fd2005"></a> **FD2005 Tilt track — complete 2026-11-26** [Steps](docs/roadmap/moving-track.md#fd2005) | FD2001 | Deliver a retained segment pitching between declared entry/exit angles, controlled vehicle release only after locking, and return/reset. Include original content, player controls, example and distinct clearance, power-loss and interrupted-tilt acceptance. |
+| <a id="fd2006"></a> **FD2006 Additional moving-track styles — complete 2026-11-26** [Steps](docs/roadmap/moving-track.md#fd2006) | FD2006A–D | Aggregate the finite A–D list below with original content, player controls, examples and distinct operating/recovery acceptance. Keep completed styles closed; arbitrary additional styles need their own scope addition. |
+| <a id="fd2007"></a> **FD2007 Version 1.5 moving-track gate — complete 2026-11-26** [Steps](docs/roadmap/moving-track.md#fd2007) | FD2002, FD2003, FD2004, FD2005, FD2006 | Reconcile all eight mechanisms and the declared compatibility matrix, including player guidance, positive and denied pairings, optional fixed-span handoffs, graph/authority conflicts, original visuals, migration/restart, measured maximum admitted workload and package/docs checks. Reuse accepted children and earlier releases. No family × mechanism × provider campaign without a real implementation distinction; FD2008 is not an input. |
 
 FD2006's finite follow-on set is:
 
 | Style package / status | Prerequisites | Required result |
 | --- | --- | --- |
-| <a id="fd2006a"></a> **FD2006A Elevator track — planned** [Steps](docs/roadmap/moving-track.md#fd2006a) | FD2004 | Controlled upward/downward travel between fixed height stops with retained vehicles, endpoint locks and restart/recovery; a powered lift cycle rather than an assumed drop-table setting. |
-| <a id="fd2006b"></a> **FD2006B Teeter-totter track — planned** [Steps](docs/roadmap/moving-track.md#fd2006b) | FD2005 | Bounded repeated pitch/sway followed by a declared locked exit; retain passenger/vehicle state and accept interrupted oscillation recovery. |
-| <a id="fd2006c"></a> **FD2006C Side-drop track — planned** [Steps](docs/roadmap/moving-track.md#fd2006c) | FD2002, FD2004 | A defined combined lateral/downward trajectory with its own clearances, capture, graph endpoints and recovery; passing the two independent axes alone is insufficient. |
-| <a id="fd2006d"></a> **FD2006D Compound motion table — planned** [Steps](docs/roadmap/moving-track.md#fd2006d) | FD2003, FD2005 | One explicitly specified yaw-plus-pitch mechanism with a finite exit set; prove simultaneous transforms, swept clearance, route selection, retention and interrupted recovery. Additional axes require a separate specification. |
+| <a id="fd2006a"></a> **FD2006A Elevator track — complete 2026-11-26** [Steps](docs/roadmap/moving-track.md#fd2006a) | FD2004 | Controlled upward/downward travel between fixed height stops with retained vehicles, endpoint locks and restart/recovery; a powered lift cycle rather than an assumed drop-table setting. |
+| <a id="fd2006b"></a> **FD2006B Teeter-totter track — complete 2026-11-26** [Steps](docs/roadmap/moving-track.md#fd2006b) | FD2005 | Bounded repeated pitch/sway followed by a declared locked exit; retain passenger/vehicle state and accept interrupted oscillation recovery. |
+| <a id="fd2006c"></a> **FD2006C Side-drop track — complete 2026-11-26** [Steps](docs/roadmap/moving-track.md#fd2006c) | FD2002, FD2004 | A defined combined lateral/downward trajectory with its own clearances, capture, graph endpoints and recovery; passing the two independent axes alone is insufficient. |
+| <a id="fd2006d"></a> **FD2006D Compound motion table — complete 2026-11-26** [Steps](docs/roadmap/moving-track.md#fd2006d) | FD2003, FD2005 | One explicitly specified yaw-plus-pitch mechanism with a finite exit set; prove simultaneous transforms, swept clearance, route selection, retention and interrupted recovery. Additional axes require a separate specification. |
 
-[Intamin's Multi Dimension catalog](https://www.intamin.com/product/multi-dimension-coaster/)
-provides references for turntables, drop, tilt, lift and compound-motion concepts;
-our bounded implementations and original assets do not claim exact replicas.
-Research and independent content concepts may proceed early. Dependent runtime
-work consumes the integrated FD2001 contract; no moving-track package requires
-an unfinished unrelated Flying or Powered Inverted checkout.
+Implement FD2001 first, then FD2002–FD2005, then their FD2006A–D consumers,
+FD2006 reconciliation and FD2007. Package dependencies permit independent work
+after the shared handoff; this plan does not assign parallel owners. The
+[reference table](docs/specs/FD2001-moving-track-1.5.md#real-coaster-basis)
+distinguishes installed examples (including TH13TEEN, Gravity Max, Cobra's Curse,
+Voltron and Uncharted) from manufacturer concepts. Our assets and game-scale
+limits are original, and real-world examples do not certify cross-family support.
+
+### Future — Launch Systems moving-track compatibility
+
+| Package / status | Actual prerequisites | Ordered work and completion condition |
+| --- | --- | --- |
+| <a id="fd2008"></a> **FD2008 Launch Systems moving-track interoperability — planned; future, outside 1.5** [Steps](docs/roadmap/external-compatibility.md#fd2008) | Accepted FD2001 contract and consuming mechanism(s); inspectable Launch Systems controller/authority handoff | Specify a finite controller/car/track list, approach and exit force ownership, retained handoff, stale-token rejection, power-loss/restart and missing-mod behavior. Implement the adapter in both consuming projects and prove actual propulsion plus occupied handoff before advertising compatibility. No release number assigned; never blocks FD2007. |
+
+The [existing external longitudinal bridge](docs/evidence/launch-systems-authority-20261122/README.md)
+remains accepted within its recorded scope. FD2008 concerns new moving-track
+compatibility; it neither reopens that bridge nor claims it already provides
+moving-segment ownership, specialty expansion or managed multi-train routing.

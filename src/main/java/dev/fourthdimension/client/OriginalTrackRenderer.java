@@ -29,7 +29,7 @@ public final class OriginalTrackRenderer {
                       BlockPos lightAt, float width, float length, float phase, int color, String material) {}
 
   private static final RenderType TRANSLUCENT = RenderType.entityTranslucent(TextureAtlas.LOCATION_BLOCKS);
-  private record Transparent(List<Quad> quads,float alpha) {}
+  private record Transparent(List<Quad> quads,float alpha,dev.ryanhcode.sable.companion.math.Pose3dc host) {}
   private static final Map<BlockPos, Integer> FRAME_LIGHT = new HashMap<>();
   private static final Map<String, TextureAtlasSprite> FRAME_SPRITES = new HashMap<>();
 
@@ -138,10 +138,11 @@ public final class OriginalTrackRenderer {
     var transparent = new ArrayList<Transparent>();
     var data = EligibilityHooks.data(mc.level);
     if (data != null)
-      for (var rail : data.rails)
-        if (rail.original()
-            && Math.min(rail.from.distToCenterSqr(camera), rail.to.distToCenterSqr(camera))
-                < 160 * 160) {
+      for (var rail : data.rails) {
+        if (!rail.original()) continue;
+        var host=hostPose(rail.from);
+        if (Math.min(worldPoint(Vec3.atCenterOf(rail.from),host).distanceToSqr(camera),
+            worldPoint(Vec3.atCenterOf(rail.to),host).distanceToSqr(camera)) >= 160*160) continue;
           var edge = TrackGeometry.resolve(mc.level, rail);
           if (edge == null) continue;
           long hash = TrackGeometry.fingerprint(mc.level, edge);
@@ -153,7 +154,7 @@ public final class OriginalTrackRenderer {
               || mesh.modelGeneration != generation) {
             long buildStart = System.nanoTime();
             var decoration =
-                STYLE_DRAW_FAILURES.quarantines(rail.id, generation, rail.revision)
+                host != null || STYLE_DRAW_FAILURES.quarantines(rail.id, generation, rail.revision)
                     ? null
                     : dev.fourthdimension.client.integration.TrackStylesRenderer.build(edge, rail);
             var ownership =
@@ -187,9 +188,9 @@ public final class OriginalTrackRenderer {
             MESHES.put(rail.id, mesh);
             TrackRenderMetrics.meshBuilt(System.nanoTime() - buildStart);
           }
-          if (!event.getFrustum().isVisible(mesh.bounds)) continue;
-          if(rail.valid)draw(consumer, pose.last(), mesh.quads, 1f);
-          else transparent.add(new Transparent(mesh.quads,.4f));
+          if (!event.getFrustum().isVisible(worldBounds(mesh.bounds,host))) continue;
+          if(rail.valid)draw(consumer, pose.last(), mesh.quads, 1f,host);
+          else transparent.add(new Transparent(mesh.quads,.4f,host));
           if (rail.profile.keys().stream().anyMatch(key -> Math.abs(key.angle()) >= .25))
             TrackRenderMetrics.renderedNonzeroProfile(rail.id);
           inRangeRails++;
@@ -203,7 +204,7 @@ public final class OriginalTrackRenderer {
     // blending/sorting; putting every tube in the translucent batch adds avoidable cost.
     buffers.endBatch(surface);
     var translucentConsumer=buffers.getBuffer(TRANSLUCENT);
-    for(var part:transparent)draw(translucentConsumer,pose.last(),part.quads,part.alpha);
+    for(var part:transparent)draw(translucentConsumer,pose.last(),part.quads,part.alpha,part.host);
     var held = mc.player.getMainHandItem();
     if (held.getItem() instanceof FamilyTrackItem item
         && mc.hitResult instanceof BlockHitResult hit) {
@@ -236,7 +237,7 @@ public final class OriginalTrackRenderer {
                     item.design.color);
             ghostKey = key;
           }
-          draw(translucentConsumer, pose.last(), ghost, .35f);
+          draw(translucentConsumer, pose.last(), ghost, .35f,hostPose(first.pos()));
         } catch (IllegalArgumentException ignored) {
           /* Invalid hover has no placeable ghost. */
         }
@@ -293,9 +294,9 @@ public final class OriginalTrackRenderer {
     Vec3 oldUp = null, oldRight = null;
     for (int i = 0; i <= count; i++) {
       double distance = table.length() * i / count, t = table.parameterAt(distance);
-      Vec3 center = CoasterPathGraphManager.sampleEdgePosition(level, edge, t);
+      Vec3 center = CoasterPathGraphManager.sampleEdgePositionPlotLocal(level, edge, t);
       var basis =
-          CoasterPathTrackFrame.trackBasisAtHit(
+          CoasterPathTrackFrame.trackBasisPlotLocalAtHit(
               level, new CoasterPathTrackFrame.GraphHit(center, edge, t));
       Vec3 right = basis.right(), up = basis.up();
       double control = design.controlHeight(profile.angleAt(distance));
@@ -432,9 +433,9 @@ public final class OriginalTrackRenderer {
       for (int n = 0; n <= panels; n++) {
         double d = span.start() + (span.end() - span.start()) * n / panels;
         double t = table.parameterAt(canonical ? d : table.length() - d);
-        var p = CoasterPathGraphManager.sampleEdgePosition(level, edge, t);
+        var p = CoasterPathGraphManager.sampleEdgePositionPlotLocal(level, edge, t);
         var basis =
-            CoasterPathTrackFrame.trackBasisAtHit(
+            CoasterPathTrackFrame.trackBasisPlotLocalAtHit(
                 level, new CoasterPathTrackFrame.GraphHit(p, edge, t));
         Vec3[] points = {
           p.add(basis.right().scale(-TrackDesign.MAGNET_HALF_GAUGE))
@@ -498,9 +499,9 @@ public final class OriginalTrackRenderer {
     Vec3 previous = null, oldUp = null, oldRight = null;
     for (int i = 0; i <= count; i++) {
       double distance = table.length() * i / count;
-      Vec3 center = CoasterPathGraphManager.sampleEdgePosition(level, edge, table.parameterAt(distance));
+      Vec3 center = CoasterPathGraphManager.sampleEdgePositionPlotLocal(level, edge, table.parameterAt(distance));
       var basis =
-          CoasterPathTrackFrame.trackBasisAtHit(
+          CoasterPathTrackFrame.trackBasisPlotLocalAtHit(
               level, new CoasterPathTrackFrame.GraphHit(center, edge, table.parameterAt(distance)));
       Vec3 right = basis.right(), up = basis.up();
       Vec3 current = center.add(up.scale(TrackDesign.SPINE_HEIGHT));
@@ -573,7 +574,28 @@ public final class OriginalTrackRenderer {
     }
   }
 
+  /** Cached vertices remain in exact plot coordinates; only the live render pose moves them. */
+  private static dev.ryanhcode.sable.companion.math.Pose3dc hostPose(BlockPos anchor) {
+    var body=dev.ryanhcode.sable.Sable.HELPER.getContaining(Minecraft.getInstance().level,anchor);
+    return body instanceof dev.ryanhcode.sable.sublevel.ClientSubLevel client
+        ? new dev.ryanhcode.sable.companion.math.Pose3d().set(client.renderPose()) : null;
+  }
+  private static Vec3 worldPoint(Vec3 point,dev.ryanhcode.sable.companion.math.Pose3dc host) {
+    return host==null?point:host.transformPosition(point);
+  }
+  private static AABB worldBounds(AABB box,dev.ryanhcode.sable.companion.math.Pose3dc host) {
+    if(host==null)return box;
+    AABB result=null;
+    for(double x:new double[]{box.minX,box.maxX})for(double y:new double[]{box.minY,box.maxY})for(double z:new double[]{box.minZ,box.maxZ}){
+      var p=worldPoint(new Vec3(x,y,z),host);var corner=new AABB(p,p);result=result==null?corner:result.minmax(corner);
+    }
+    return result;
+  }
   private static void draw(VertexConsumer buffer, PoseStack.Pose pose, List<Quad> quads, float alpha) {
+    draw(buffer,pose,quads,alpha,null);
+  }
+  private static void draw(VertexConsumer buffer, PoseStack.Pose pose, List<Quad> quads, float alpha,
+                           dev.ryanhcode.sable.companion.math.Pose3dc host) {
     var mc=Minecraft.getInstance();
     var writer=new TrackVertexWriter(buffer,pose);
     String material=null;
@@ -588,13 +610,15 @@ public final class OriginalTrackRenderer {
         sprite=FRAME_SPRITES.computeIfAbsent(material, name->mc.getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
             .apply(ResourceLocation.fromNamespaceAndPath("fourthdimension","block/fd917/"+name)));
       }
-      if(!q.lightAt.equals(lightAt)) {
-        lightAt=q.lightAt;
+      var worldLight=host==null?q.lightAt:BlockPos.containing(worldPoint(Vec3.atCenterOf(q.lightAt),host));
+      if(!worldLight.equals(lightAt)) {
+        lightAt=worldLight;
         light=FRAME_LIGHT.computeIfAbsent(lightAt, pos->LevelRenderer.getLightColor(mc.level,pos));
       }
       // Geometry is subdivided before caching, so no UV reaches a neighboring atlas sprite.
       float u=sprite.getU(Math.min(1,q.width)), v=sprite.getV(Math.min(1,q.phase+q.length));
-      writer.quad(q.a,q.b,q.c,q.d,q.normal,q.color,
+      writer.quad(worldPoint(q.a,host),worldPoint(q.b,host),worldPoint(q.c,host),worldPoint(q.d,host),
+          host==null?q.normal:host.transformNormal(q.normal).normalize(),q.color,
           sprite.getU0(),u,sprite.getV(q.phase),v,light,alpha);
     }
   }

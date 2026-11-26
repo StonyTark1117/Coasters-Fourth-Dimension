@@ -106,7 +106,7 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
       if (!visited.add(node)) continue;
       if (visited.size() > 257)
         throw new IllegalArgumentException("Shuttle route exceeds capacity");
-      var legs = data.rails.stream().filter(r -> r.from.equals(node) || r.to.equals(node)).toList();
+      var legs = dev.fourthdimension.moving.MovingRouteContext.rails(server).stream().filter(r -> r.from.equals(node) || r.to.equals(node)).toList();
       if (legs.size() == 1) terminals.add(node);
       if (legs.size() > 2 || legs.stream().anyMatch(r -> r.family != Family.PAX))
         throw new IllegalArgumentException(
@@ -251,11 +251,7 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
           || (boarding && !Boarding.ready(server, car)))
         throw new IllegalArgumentException(
             "Every shuttle car must be available, retained on matching track, and restrained");
-      var rail =
-          data.rails.stream()
-              .filter(r -> r.matches(car.boundFrom, car.boundTo))
-              .findFirst()
-              .orElse(null);
+      var rail = dev.fourthdimension.moving.MovingRouteContext.rail(server,car.boundFrom,car.boundTo);
       if (rail == null
           || !rail.valid
           || !rail.variant.equals(car.variant)

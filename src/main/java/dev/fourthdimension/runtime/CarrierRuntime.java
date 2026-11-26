@@ -75,6 +75,7 @@ public final class CarrierRuntime {
     if (container == null) return;
     var physics = container.physicsSystem();
     var pipeline = physics.getPipeline();
+    for(var assembly:data.moving.assemblies.values())if(assembly.bed!=null&&container.getSubLevel(assembly.bed)!=null)dev.fourthdimension.moving.MovingNativeAdapter.readback(level,assembly);
     for (var vehicle : data.vehicles.values()) {
       if (!(container.getSubLevel(vehicle.chassis) instanceof ServerSubLevel parent)
           || parent.isRemoved()) continue;
@@ -124,6 +125,19 @@ public final class CarrierRuntime {
     var container = SubLevelContainer.getContainer(level);
     if (container == null) return;
     var data = FoundationData.get(level);
+    // Retention replaces family guide/drive updates, not passenger mass maintenance. On a cold
+    // load NativeLoading also reconciles Sable's saved occupied origin with its rebuilt mass.
+    // Do that before restoring joints so their saved plot-local anchors keep world geometry fixed.
+    for (var vehicle : data.vehicles.values()) {
+      if (data.moving.retaining(vehicle.chassis) == null) continue;
+      for (var carrier : vehicle.carriers) {
+        if (container.getSubLevel(carrier.body) instanceof ServerSubLevel child
+            && !child.isRemoved())
+          dev.fourthdimension.vehicle.NativeLoading.update(child, vehicle, carrier);
+      }
+    }
+    dev.fourthdimension.moving.MovingNativeRestoreSupport.prepareAll(level);
+    dev.fourthdimension.moving.MovingRuntime.tick(level,event.getTimeStep());
     if (level.getGameTime() % 20 == 0 && !data.rideLocal.routeId.isEmpty())
       dev.fourthdimension.integration.RideLocalOperations.reconcile(level);
     var pipeline = physics.getPipeline();
@@ -139,9 +153,10 @@ public final class CarrierRuntime {
         continue;
       for (var id : winch.cars) {
         var car = data.vehicles.get(id);
+        if(data.moving.retaining(id)!=null||dev.fourthdimension.moving.MovingNativeRestoreSupport.held(level,id))continue;
         if (car == null || !(container.getSubLevel(id) instanceof ServerSubLevel parent)
             || parent.isRemoved()) continue;
-        var rail = matchingRail(data, car);
+        var rail = matchingRail(level,data, car);
         if (rail == null || !rail.valid
             || dev.fourthdimension.track.TrackGeometry.resolve(level, rail) == null) {
           dev.fourthdimension.vehicle.VehicleOperations.failForLostSupport(level, car);
@@ -152,10 +167,13 @@ public final class CarrierRuntime {
     dev.fourthdimension.shuttle.ShuttleRuntime.tick(level, event.getTimeStep());
     dev.fourthdimension.vehicle.RecoveryOperations.tick(level, event.getTimeStep());
     for (var vehicle : data.vehicles.values()) {
+      if(dev.fourthdimension.moving.MovingNativeRestoreSupport.held(level,vehicle.chassis)){vehicle.boardingReady=false;continue;}
+      if(data.moving.retaining(vehicle.chassis)!=null){vehicle.boardingReady=false;continue;}
       var parentRaw = container.getSubLevel(vehicle.chassis);
       if (!(parentRaw instanceof ServerSubLevel parent) || parent.isRemoved()) continue;
       vehicleUpdates++;
       physics.updatePose(parent);
+      if(dev.fourthdimension.moving.MovingServiceRuntime.tick(level,parent,vehicle,event.getTimeStep()))continue;
       dev.fourthdimension.integration.RideAuthority.tick(level, vehicle, event.getTimeStep());
       if (dev.fourthdimension.vehicle.StandingVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.StandingRuntime.tick(level,parent,vehicle,event.getTimeStep());
@@ -189,7 +207,7 @@ public final class CarrierRuntime {
         dev.fourthdimension.vehicle.WingRuntime.tick(level, parent, vehicle, event.getTimeStep());
         continue;
       }
-      FoundationData.Rail rail = matchingRail(data, vehicle);
+      FoundationData.Rail rail = matchingRail(level,data, vehicle);
       boolean content = !FoundationData.VARIANT.equals(vehicle.variant);
       boolean supportLost =
           content
@@ -392,8 +410,8 @@ public final class CarrierRuntime {
   }
 
   private static FoundationData.Rail matchingRail(
-      FoundationData data, FoundationData.Vehicle vehicle) {
-    for (var rail : data.rails)
+      net.minecraft.server.level.ServerLevel level,FoundationData data, FoundationData.Vehicle vehicle) {
+    for (var rail : dev.fourthdimension.moving.MovingRouteContext.rails(level))
       if (rail.matches(vehicle.boundFrom, vehicle.boundTo)) return rail;
     return null;
   }

@@ -1,0 +1,18 @@
+{
+  "verified_at": "2026-11-26T18:29:32.043073+00:00",
+  "units": {
+    "fd15-occupied-20261122-server.service": "ActiveState=inactive\nMainPID=0",
+    "fd15-occupied-20261122-client.service": "ActiveState=inactive\nMainPID=0",
+    "fd15-occupied-20261122-xvfb.service": "ActiveState=inactive\nMainPID=0",
+    "fd15-occupied-observer-20261122-client.service": "ActiveState=inactive\nMainPID=0",
+    "fd15-occupied-observer-20261122-xvfb.service": "ActiveState=inactive\nMainPID=0",
+    "fd15-content-20261122-server.service": "ActiveState=inactive\nMainPID=0",
+    "fd15-content-20261122-client.service": "ActiveState=inactive\nMainPID=0",
+    "fd15-content-20261122-xvfb.service": "ActiveState=inactive\nMainPID=0",
+    "fd15-content-observer-20261126-client.service": "ActiveState=inactive\nMainPID=0",
+    "fd15-content-observer-20261126-xvfb.service": "ActiveState=inactive\nMainPID=0"
+  },
+  "fd15_java_or_xvfb_processes": [],
+  "headless": "Native, routes, root limits/endpoint and maximum-workload run processes exited; no Java or Xvfb process references fd15 in command line or cgroup.",
+  "preservation": "All recorded worlds/logs retained. Historical worktrees and unrelated runtimes untouched."
+}

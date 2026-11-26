@@ -396,7 +396,8 @@ sequence is:
 | 1.2 | FD1701B–C, FD1703 | Ride-local multi-train operation, consuming the earlier FD1701A authority. |
 | 1.3 | FD2101, FD2104, FD2102, FD2103 | Repair model defects, review/refine existing base models against references, then deliver two selectable original body variants on Wing and Fixed Inverted. |
 | 1.4 | FD2201–FD2204 | Standard and Surf-style standing configurations, plus motorbike and suspended flying-bike vehicles, with complete player and recovery behavior. |
-| Post-1.0; versions after feasibility | FD2001–FD2007 | Transfer platforms, turntables, drop tables, tilt tracks and the finite additional moving-track styles. |
+| 1.5 | FD2001–FD2007 | Eight moving-track mechanisms with explicit rail/car eligibility, player compatibility guidance, occupied retention and recovery; see [design and matrix](docs/specs/FD2001-moving-track-1.5.md). |
+| Future; version unassigned | FD2008 | Launch Systems moving-track interoperability; outside 1.5. |
 | Independent | FD801 | Inspectable functional Track Styles adapter; unavailable upstream work does not block release. |
 
 Milestone 0.5 is complete: [FD503 reconciliation](docs/evidence/0.5/acceptance.md).
@@ -554,14 +555,17 @@ example demonstrates moving scenery tracking, a yaw-changing show stop, reverse
 travel and normal station capture/unload. Shared yaw acceptance carries forward;
 new upright pose, drive and failure behavior receives its distinct checks.
 
-## D20 Post-1.0 moving-track mechanisms
+<a id="d20-post-10-moving-track-mechanisms"></a>
+## D20 Version 1.5 moving-track mechanisms
 
-FD2001–FD2007 deliver a separate moving-track program after 1.0. Turntables, drop
-tables and tilt tracks are explicitly included. The finite additional set is
-transfer platforms, elevator tracks, teeter-totter tracks, side-drop tracks and
-one yaw-plus-pitch compound motion-table style. References include
-[Intamin's Multi Dimension elements](https://www.intamin.com/product/multi-dimension-coaster/).
-Additional arbitrary styles or axes require an explicit scope addition.
+FD2001–FD2007 deliver **1.5**: transfer platforms, turntables, drop tracks, tilt
+tracks, elevator, teeter-totter, side-drop and one yaw-plus-pitch compound table.
+The adopted [1.5 design](docs/specs/FD2001-moving-track-1.5.md) specifies real
+ride/manufacturer references, dependency seams, finite motion presets, rail/car
+compatibility and player controls. The finite matrix and all eight mechanisms
+are accepted 2026-11-26 in the [integration record](docs/evidence/1.5/integration.md),
+including measured limits and the unpublished reproducible package. Additional styles or axes need their own
+scope addition. Launch Systems moving-track interoperability is future FD2008.
 
 FD2001 first proves a retained track segment moving between two fixed endpoints.
 Disconnect traversable graph edges before motion, retain and capture the vehicle,
@@ -578,10 +582,24 @@ and compound tables need their own combined-motion clearance and recovery proof.
 Each supplies original content, player controls, an example and completed player
 acceptance. A visual animation with unchanged graph/retention is insufficient.
 
-Assign release numbers and finite shipping increments after the native prototype.
-Accepted mechanisms may ship without waiting for the entire catalog; outstanding
-named styles remain roadmap work. Each increment receives its own permanent
-FD2007 suffix gate, closed once; the parent aggregates the adopted program.
+FD2007 reconciles the complete eight-mechanism 1.5 release; feasibility precedes
+implementation rather than assigning its version later. Accepted child cases
+stay closed while the other mechanisms proceed. Every admitted car preserves its
+functional track/mount/gear and retention contract. Level-deck transfer, yaw and
+lift target all declared FD configurations; stronger effects use the finite
+matrix, with unsupported combinations explicitly refused. A native ordinary
+service cart is empty-only. Existing fixed-world validators gain a narrowly
+scoped moving-assembly adapter, not a blanket exemption.
+
+One server-owned capability table drives admission, translated tooltips,
+Rotation Tool compatibility details, full-sweep placement previews and refusal
+reasons. Cosmetic choices never grant mechanical support. A stationary Create
+drive powers the table; qualified optional propulsion stays on fixed spans with
+an explicit retained handoff. Managed 1.2 dynamic routes, arbitrary contraptions
+and Launch Systems moving-track ownership are excluded from 1.5. The accepted
+external longitudinal bridge remains intact; FD2008 separately proves its new
+consumer handoff and never blocks FD2007.
+
 No moving-track package blocks 1.0 or the fixed-track vehicle outcomes,
 and no arbitrary moving-contraption support is implied. Reuse prototypes,
 shared graph/retention evidence and per-axis checks; test additional combined

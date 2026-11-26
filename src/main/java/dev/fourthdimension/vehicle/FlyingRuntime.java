@@ -35,7 +35,7 @@ public final class FlyingRuntime {
   public static Map<String,Double> motorObservation(ServerSubLevel child){
     var m=MOTION.get(child);return m==null?Map.of():Map.of("reference",m.lastGoal,"referenceVelocity",m.lastVelocity,"motorTarget",m.motorGoal);
   }
-  public static FoundationData.Rail rail(ServerLevel l,FoundationData.Vehicle v){return FoundationData.get(l).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);}
+  public static FoundationData.Rail rail(ServerLevel l,FoundationData.Vehicle v){return dev.fourthdimension.moving.MovingRouteContext.rails(l).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);}
   public static GenericConstraintHandle createJoint(ServerSubLevel parent,ServerSubLevel child,FoundationData.Carrier c){
     var p=parent.getPlot().getCenterBlock();var b=child.getPlot().getCenterBlock();
     var joint=SubLevelContainer.getContainer(parent.getLevel()).physicsSystem().getPipeline().addConstraint(parent,child,
@@ -151,11 +151,19 @@ public final class FlyingRuntime {
     }
   }
   public static void restraints(ServerLevel l,FoundationData.Vehicle selected,boolean body,boolean closed){
-    requireDock(l,selected,false);
-    for(var v:VehicleOperations.consist(l,selected))if(v.flying.lock!=SEATED||v.flying.transitioning()||!v.fault.isEmpty())
-      throw new IllegalArgumentException("Only the settled seated endpoint permits body/leg restraint operation");
-    for(var v:VehicleOperations.consist(l,selected)){var s=v.flying;if(body)s.body=closed;else s.legs=closed;
-      v.restraints=s.body||s.legs;s.phase=s.retained()?SEATED_SECURED:SEATED_OPEN;v.revision++;
+    boolean authorizedSurvivor=dev.fourthdimension.moving.MovingEvacuation.authorized(l,selected);
+    var cars=authorizedSurvivor?List.of(selected):VehicleOperations.consist(l,selected);
+    boolean service=authorizedSurvivor||cars.stream().anyMatch(v->dev.fourthdimension.moving.MovingRuntime.retained(l,v.chassis)
+        ||dev.fourthdimension.moving.MovingServiceRuntime.applies(l,v));
+    if(service&&cars.stream().anyMatch(v->!dev.fourthdimension.moving.MovingEvacuation.authorized(l,v)))
+      throw new IllegalArgumentException("Enable stationary moving-assembly service access before operating restraints");
+    if(!service)requireDock(l,selected,false);
+    for(var v:cars)if(v.flying.transitioning()||(service
+        ?v.flying.lock==NONE||v.carriers.stream().anyMatch(c->Math.abs(c.omega)>.05)
+        :v.flying.lock!=SEATED||!v.fault.isEmpty()))
+      throw new IllegalArgumentException("Only a settled held posture permits body/leg restraint operation");
+    for(var v:cars){var s=v.flying;if(body)s.body=closed;else s.legs=closed;
+      v.restraints=s.body||s.legs;if(!service)s.phase=s.retained()?SEATED_SECURED:SEATED_OPEN;v.revision++;
     }changed(l);
   }
   public static void requestPosture(ServerLevel l,FoundationData.Vehicle selected,boolean prone,boolean resume){

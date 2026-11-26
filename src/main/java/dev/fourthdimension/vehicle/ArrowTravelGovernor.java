@@ -25,7 +25,8 @@ public final class ArrowTravelGovernor {
     var pipeline=container.physicsSystem().getPipeline();
     var visited=new HashSet<UUID>();
     for(var vehicle:data.vehicles.values()) {
-      if(vehicle.family!=Family.ARROW||FoundationData.VARIANT.equals(vehicle.variant)
+      if(dev.fourthdimension.moving.MovingRuntime.retained(level,vehicle.chassis)
+          ||vehicle.family!=Family.ARROW||FoundationData.VARIANT.equals(vehicle.variant)
           ||vehicle.stopping||vehicle.maintenance||!visited.add(vehicle.chassis))continue;
       List<FoundationData.Vehicle> cars;
       try { cars=VehicleOperations.consist(level,vehicle); }
@@ -33,7 +34,7 @@ public final class ArrowTravelGovernor {
       var frames=new ArrayList<Frame>();double limit=Double.POSITIVE_INFINITY;
       for(var car:cars) {
         visited.add(car.chassis);
-        if(car.stopping||!car.fault.isEmpty())continue;
+        if(dev.fourthdimension.moving.MovingRuntime.retained(level,car.chassis)||car.stopping||!car.fault.isEmpty())continue;
         var body=container.getSubLevel(car.chassis);
         var rail=data.rails.stream().filter(r->r.matches(car.boundFrom,car.boundTo)).findFirst().orElse(null);
         if(!(body instanceof ServerSubLevel parent)||rail==null||!rail.valid)continue;

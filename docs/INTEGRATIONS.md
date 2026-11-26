@@ -60,9 +60,14 @@ variants including New-generation scenery-facing yaw in seated/prone postures
 in 0.7, and Dive plus upright-seated Powered Inverted Yaw in 0.8. FD1802A owns
 the shared targeting handoff consumed by FD1901A; FD1701A provides required
 hold/dispatch authority in 0.8. Independent builder tools retain 1.1 and full
-multi-train management retains 1.2. The separate FD2001–FD2007 program adds transfer platforms,
-turntables, drop tables, tilt tracks and the finite additional styles after native
-route/retention feasibility after 1.0. Moving-track packages never feed the 1.0
+multi-train management retains 1.2. The FD2001–FD2007 program is assigned to
+**1.5**: transfer, turntable, drop, tilt, elevator, teeter-totter, side-drop and
+yaw-plus-pitch table. The [design/matrix](specs/FD2001-moving-track-1.5.md)
+defines accepted finite car/track eligibility and native moving-support adapters,
+player guidance and retained optional fixed-span handoffs. Launch Systems
+moving-track interoperability is future FD2008, outside 1.5; its existing
+external longitudinal bridge keeps its separately accepted scope. Native
+route/retention feasibility comes first. Moving-track packages never feed the 1.0
 gate; the added vehicle outcomes do. Existing evidence does not certify new
 capabilities. See the [package allocation](../ROADMAP.md#additional-vehicle-and-supporting-feature-packages) for finite scope.
 

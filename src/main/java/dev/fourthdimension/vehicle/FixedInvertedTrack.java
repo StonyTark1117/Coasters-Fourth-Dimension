@@ -16,7 +16,7 @@ public final class FixedInvertedTrack {
   public static String rejection(Level level,CoasterPathEdge edge){
     if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "Fixed Inverted requires fixed world track";
     var data=EligibilityHooks.data(level);
-    var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
+    var rail=data==null?null:dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null||!rail.valid||rail.family!=Family.FIXED_INVERTED||!FixedInvertedVehicle.VARIANT.equals(rail.variant))
       return "Fixed Inverted requires matching overhead track and dock capability";
     if(!TrackDesign.FIXED_INVERTED.nativeFit().accepts(FixedInvertedVehicle.FIT))return "Fixed Inverted contact/mount/envelope mismatch";

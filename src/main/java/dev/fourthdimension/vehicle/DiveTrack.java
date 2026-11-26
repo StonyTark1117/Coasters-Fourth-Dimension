@@ -16,7 +16,7 @@ public final class DiveTrack {
   public static String rejection(Level level,CoasterPathEdge edge){
     if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "Dive requires fixed world track";
     var data=EligibilityHooks.data(level);
-    var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
+    var rail=data==null?null:dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null||!rail.valid||rail.family!=Family.DIVE||!DiveVehicle.VARIANT.equals(rail.variant))
       return "Dive requires matching wide-row track and hold capability";
     if(!TrackDesign.DIVE.nativeFit().accepts(DiveVehicle.FIT))return "Dive contact/mount/envelope mismatch";

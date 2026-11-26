@@ -10,7 +10,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = CoasterCartChainLiftDrive.class, remap = false)
+// Let the pinned optional HEAD callbacks run their independently guarded motor first.
+// Cancelling native Chain before those callbacks also cancelled the authorized Engineered drive.
+@Mixin(value = CoasterCartChainLiftDrive.class, priority = 1100, remap = false)
 public abstract class ChainDriveGuardMixin {
   @Inject(method = "applySpeedMatch", at = @At("HEAD"), cancellable = true)
   private static void fourthdimension$stationHold(

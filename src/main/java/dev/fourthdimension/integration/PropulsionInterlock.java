@@ -15,6 +15,7 @@ public final class PropulsionInterlock {
 
   public static boolean holds(ServerSubLevel body, ServerLevel level) {
     var data = FoundationData.get(level);
+    if (data.moving.retaining(body.getUniqueId()) != null) return true;
     var vehicle = data.vehicles.get(body.getUniqueId());
     if (vehicle == null) {
       var recoveryCars =

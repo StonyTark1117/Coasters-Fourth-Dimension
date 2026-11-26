@@ -1,0 +1,9 @@
+# Two-table receiving contention and bounded workload
+
+Primary main, root owner; Java21, two constructed transfer beds, two registered Wing cars, real motors, normal production Capture/Move actions invoked through disclosed fake operators. The fixture supplies world geometry and cars; it is not player construction or occupied evidence.
+
+`/mnt/NVME4/fourthdimension-runs/fd15-root-20261122/contention-2.log` passed1/1 and saved all dimensions before exit. Table810fc5ae-2a3f-4e94-b82c-078fc0492a06 reserved the actual shared receiving span8a096640-d56e-3026-bbd7-5e2b1e82dd87. Tablef6f92e0c-a599-415c-8ab6-b946f7b4f670 received the specific competing-reservation denial, preserving train identity/restraints/pose, source support and the first table’s complete claims, with no partial second claim. The winner then physically translated8m to a measured locked destination while the loser remained supported.
+
+The first fixture attempt used parallel receiving spans4m away. The second table’s body legitimately occupied that clearance, so admission refused before reservation contention. The corrected disclosed layout uses8m transverse travel to clear the other stationary bed; occupancy checks remain unchanged. Failed log/world retained.
+
+Across the winner movement,1080 addon pre-physics callbacks consumed182056656ns, averaging168570ns per invocation (two tables/two trains/one moving). This is addon callback time including shared family work, not full physics/server tick time, FPS or a maximum-capacity benchmark. It exceeds the historical120000ns FD904 target; that prior fixed-track target is not silently relabeled as a pass here. The raw measurement and finite workload remain explicit for final1.5 review. Maximum admitted train/one-beyond is separately owned by the family adapter agent.

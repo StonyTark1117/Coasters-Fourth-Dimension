@@ -21,9 +21,13 @@ public final class MotorbikeRuntime {
   private static final Map<ServerSubLevel, Long> CHECKED = new WeakHashMap<>();
   private static final Map<ServerSubLevel,dev.ryanhcode.sable.api.physics.constraint.GenericConstraintHandle> HOLDS=new WeakHashMap<>();
   private MotorbikeRuntime() {}
+  /** Transfer only the fixed-world chassis hold after a moving bed has retained every body. */
+  public static void releaseMovingWorldHold(ServerSubLevel parent) {
+    var hold=HOLDS.remove(parent);if(hold!=null&&hold.isValid())hold.remove();
+  }
   private static boolean vRestored(FoundationData.Vehicle v){return v.motorbike.restored;}
   private static FoundationData.Rail rail(ServerLevel l,FoundationData.Vehicle v){
-    return FoundationData.get(l).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
+    return dev.fourthdimension.moving.MovingRouteContext.rails(l).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
   }
   /** Measured safe platform on each side; no generic world-spawn fallback qualifies a dock. */
   private static boolean platforms(ServerLevel l,ServerSubLevel p,Vec3 graph){

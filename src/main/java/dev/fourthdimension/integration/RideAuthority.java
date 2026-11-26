@@ -204,10 +204,12 @@ public final class RideAuthority {
     FoundationData.get(l).setDirty();
   }
   public static boolean deniesProvider(ServerLevel level, FoundationData.Vehicle v, String provider) {
+    if (FoundationData.get(level).moving.retaining(v.chassis) != null) return true;
     if (v.family.specialty() && !NATIVE_CHAIN.equals(provider)) return true;
     return v.authority.owner!=null && (!provider.equals(v.authority.provider)||holds(level,v));
   }
   public static boolean holds(ServerLevel level, FoundationData.Vehicle v) {
+    if (FoundationData.get(level).moving.retaining(v.chassis) != null) return true;
     if(v.authority.owner==null)return false;
     refresh(level,v);
     return v.authority.held||v.authority.suspended;
@@ -281,6 +283,8 @@ public final class RideAuthority {
   }
   private static FoundationData.Vehicle vehicle(ServerLevel l,UUID id) {
     var v=FoundationData.get(l).vehicles.get(id);
+    if (FoundationData.get(l).moving.retaining(id) != null)
+      throw new IllegalArgumentException("Moving assembly owns this train; operate its controller");
     if(v==null||FoundationData.VARIANT.equals(v.variant)||v.family==Family.PAX||v.recoveryCart!=null)
       throw new IllegalArgumentException("Ride-local authority requires a supported non-recovery vehicle");
     return v;
@@ -303,7 +307,7 @@ public final class RideAuthority {
       if(!car.restraints||car.maintenance||car.alignmentRequired||car.recoveryCart!=null||!car.fault.isEmpty())
         throw new IllegalArgumentException("Release requires closed restraints, supported ride and no fault/recovery");
       if(!dev.fourthdimension.vehicle.WingVehicle.is(car)) {
-        var rail=FoundationData.get(l).rails.stream().filter(r->r.matches(car.boundFrom,car.boundTo)).findFirst().orElse(null);
+        var rail=dev.fourthdimension.moving.MovingRouteContext.rail(l,car.boundFrom,car.boundTo);
         if(rail==null||!rail.valid||!rail.variant.equals(car.variant)||TrackGeometry.resolve(l,rail)==null)
           throw new IllegalArgumentException("Matching support unavailable");
       }

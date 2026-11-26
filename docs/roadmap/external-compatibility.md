@@ -3,6 +3,8 @@
 [Guide index and execution rules](README.md) · [Canonical roadmap](../../ROADMAP.md) · [Active assignments](../CURRENT-QUALIFICATION.md#current-work-queue)
 
 FD801 depends on an inspectable functional upstream release and applicable terms. Its availability never blocks standalone 1.0.
+FD2008 is future Launch Systems moving-track interoperability, outside 1.5;
+the already accepted fixed-track external authority bridge retains its scope.
 
 Card order helps navigation; actual prerequisites determine readiness. These are
 procedures, not a second status tracker. Apply the index's evidence and stopping
@@ -11,6 +13,7 @@ rules to every step; already-covered steps do not require another run.
 ## Packages
 
 - [FD801 — Integrate a released Track Styles Arrow 4D](#fd801)
+- [FD2008 — Future Launch Systems moving-track interoperability](#fd2008)
 
 ## FD801
 
@@ -31,3 +34,36 @@ rules to every step; already-covered steps do not require another run.
 **Validation:** Targeted native contacts/eligibility/provider checks plus uncovered player/control/render behavior. Certification is for the inspected functional release only.
 
 **Finish and handoff:** Close the independent adapter when its canonical criteria pass; unavailable upstream functionality never becomes a hidden 1.0 prerequisite. Record evidence and closure in the canonical package/current queue as applicable, then stop.
+
+## FD2008
+
+**Outcome:** Explicitly supported Launch Systems handoff to/from the named
+moving-track mechanisms. Future task; no release number and no 1.5 dependency.
+
+**Start conditions:** Accepted FD2001 moving-support contract and consuming
+mechanism(s), plus an inspectable Launch Systems controller/authority contract.
+Implementation needs its own assignment in the current queue.
+
+**Read first:** [Canonical scope](../../ROADMAP.md#fd2008),
+[1.5 boundaries](../specs/FD2001-moving-track-1.5.md#future-launch-systems-compatibility)
+and [existing external authority evidence](../evidence/launch-systems-authority-20261122/README.md).
+
+**Ordered steps:**
+
+1. Specify a finite supported controller/car/rail/mechanism list and inspect the
+   actual authority API on both sides. Existing fixed-track bridge acceptance
+   does not establish moving-segment support.
+2. Implement whole-consist retained handoff, fixed-span force inhibition,
+   destination reservation and explicit return of ownership. Reject stale or
+   competing commands and unsupported specialty/managed-route combinations.
+3. Prove actual consumer force, power-loss/restart, controller/mod removal and
+   occupied transition/recovery. Reuse the accepted native moving lifecycle and
+   unchanged bridge evidence rather than reopening them.
+4. Update both projects' capability metadata and player guidance to report only
+   qualified combinations; reconcile their separately owned deliverables.
+
+**Validation:** Distinct native consumer/authority checks and connected occupied
+handoff on the declared combination; no unrelated mechanism or family sweep.
+
+**Finish and handoff:** Close this future adapter only with actual integration
+evidence. FD2007 never waits for it, and publication remains separate.

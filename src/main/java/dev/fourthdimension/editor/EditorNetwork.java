@@ -151,6 +151,15 @@ public final class EditorNetwork {
   public static void apply(ServerPlayer player, Edit request) {
     if (request.value.length() > 16384)
       throw new IllegalArgumentException("Editor payload too large");
+    var moving=FoundationData.get(player.serverLevel()).moving.retaining(request.id);
+    if(moving!=null&&request.action!=10&&request.action!=11&&request.action!=12
+        &&(request.action<34||request.action>37))
+      throw new IllegalArgumentException("Moving support owns this car: use its controller; normal restraint controls require validated service access");
+    var serviceCar=FoundationData.get(player.serverLevel()).vehicles.get(request.id);
+    if(serviceCar!=null&&dev.fourthdimension.moving.MovingServiceRuntime.applies(player.serverLevel(),serviceCar)
+        &&request.action!=10&&request.action!=11&&request.action!=12&&request.action!=13&&request.action!=61
+        &&(request.action<34||request.action>37))
+      throw new IllegalArgumentException("Released service handoff owns this car: Stop, validated restraints and explicit Dispatch remain available");
     if(request.action==92||request.action==93){dev.fourthdimension.tools.OperatorPanel.shuttle(player,request.id,request.revision,request.action==93);return;}
     if(request.action==90){dev.fourthdimension.tools.PresetService.apply(player,request.id,request.revision,request.value);return;}
     if(request.action==70){PoweredInvertedYawEditor.apply(player,request.id,request.revision,request.value);return;}

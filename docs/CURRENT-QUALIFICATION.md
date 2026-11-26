@@ -1,6 +1,6 @@
 # Current qualification record
 
-Updated 2026-11-22. This is the single artifact index for the active roadmap.
+Updated 2026-11-26. This is the single artifact index for the active roadmap.
 **1.0 release readiness is complete; 1.0.0 is Beta on both platforms; stable
 promotion remains pending.** FD1000, FD901–FD905 and FD1001–FD1003 are closed
 under their stated readiness criteria. There is no remaining 1.0 acceptance
@@ -29,6 +29,37 @@ observations below are unchanged by roadmap adoption. New implementation records
 will carry unaffected acceptance forward; no new JAR or run is required here.
 
 ## Current work queue
+
+<a id="active-15--moving-track-implementation"></a>
+### Completed 1.5 — accepted 2026-11-26
+
+The human-authorized completion through 1.5 is reconciled on primary `main`,
+following 1.4 baseline `f85f4a277c7c7542a4f07a158f18f580beb41187`.
+[Integration and measured limits](evidence/1.5/integration.md) closes FD2001–FD2007:
+eight physical mechanisms, the exact 21 FD configurations plus empty ordinary
+native service, original content and player controls, occupied translation/yaw/
+drop/pitch, cold recovery, family-specific and optional fixed-span handoffs.
+Prior 1.0–1.4 remains accepted. No publication or FD2008 expansion occurred.
+
+| Completed work | Owner | Evidence |
+| --- | --- | --- |
+| Four-car PAX native full turn and original-station recovery | `/root/fd15_native_pax` | [Run 18](evidence/1.5/fd2001-native/pax-recovery.md), 1/1, exact final affected compiled classes, clean saved shutdown. |
+| Powered, Magnetized and Engineered fixed-span handoffs | `/root/fd15_routes` | [Handoffs and affected regressions](evidence/1.5/route-handoffs/README.md), original authority/identity preserved, runtime stopped. |
+| Distinct occupied axes and maximum native show | `/root/fd15_occupied_axes` | [Two clients and evacuation](evidence/1.5/occupied-axes-20261126/README.md); [48-block/four-car full show](evidence/1.5/maximum-native-show-20261126/README.md), saved and stopped. |
+| Cold occupied recovery, endpoint recovery, physical limits and integration | `/root` | [Occupied attempt 5](evidence/1.5/occupied/README.md), [endpoint](evidence/1.5/endpoint-recovery.md), [physical limits](evidence/1.5/fd2001-native/physical-limits.md), 75 unit tests and byte-identical independent packages. |
+
+Selected unpublished JAR SHA-256:
+`451b5736277fcb1331fa1616b9c613e535155395b6fd50d46f78e6b4ae092689`.
+Internal version remains 1.1.0. Inventory verifies 794 compiled classes and 880
+source resources. No outstanding 1.5 acceptance case or owned runtime remains.
+Maximum workload measured 388,097 ns/addon callback and a 3,124.662182 ms maximum
+server tick including synchronous geometry validation; this is not a legacy
+FD904-budget or client-smoothness pass. The integration record preserves the
+unchanged benchmark budgets and the finite workload distinction.
+
+Earlier failed attempts and per-run pending summaries remain historical evidence.
+Pre-existing untracked `logs/`, saved worlds, raw diagnostics and historical
+worktrees remain preserved. Publication and future compatibility work are separate.
 
 <a id="active-14--specialty-vehicles"></a>
 ### Completed 1.4 — accepted 2026-11-22

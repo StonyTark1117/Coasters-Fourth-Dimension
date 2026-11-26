@@ -16,7 +16,7 @@ public final class PoweredInvertedYawTrack {
   public static String rejection(Level level,CoasterPathEdge edge){
     if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "Powered Inverted Yaw requires fixed world track";
     var data=EligibilityHooks.data(level);
-    var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
+    var rail=data==null?null:dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null||!rail.valid||rail.family!=Family.POWERED_INVERTED||!PoweredInvertedYawVehicle.VARIANT.equals(rail.variant))
       return "Powered Inverted Yaw requires matching powered overhead track, yaw and dock capability";
     if(!TrackDesign.POWERED_INVERTED_YAW.nativeFit().accepts(PoweredInvertedYawVehicle.FIT))return "Powered Inverted Yaw contact/mount/envelope mismatch";

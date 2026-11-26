@@ -11,7 +11,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 
 /** World-owned authoritative bindings. Native Sable bodies persist poses and velocities. */
 public final class FoundationData extends SavedData {
-  public static final int SCHEMA = 8;
+  public static final int SCHEMA = 9;
   // Keep full functional snapshots below Minecraft's one-megabyte custom-payload limit.
   public static final int MAX_PROFILE_KEYS = 8192;
   public static final String VARIANT = "foundation_v1";
@@ -19,6 +19,7 @@ public final class FoundationData extends SavedData {
   public final Map<UUID, Vehicle> vehicles = new LinkedHashMap<>();
   public final List<Rail> rails = new ArrayList<>();
   public final RideLocalState rideLocal = new RideLocalState();
+  public final dev.fourthdimension.moving.MovingWorldState moving = new dev.fourthdimension.moving.MovingWorldState();
   private ServerLevel owner;
 
   public void checkProfileCapacity(int additionalKeys) {
@@ -383,6 +384,7 @@ public final class FoundationData extends SavedData {
       carts.add(tag);
     }
     root.put("vehicles", carts);
+    root.put("moving_assemblies", moving.save(includeOriginalCurves));
     if (!rideLocal.routeId.isEmpty()) {
       CompoundTag route = new CompoundTag(); route.putString("id", rideLocal.routeId); route.putBoolean("restored", true);
       ListTag ids = new ListTag(); for (var id : rideLocal.rails) ids.add(NbtUtils.createUUID(id)); route.put("rails", ids);
@@ -397,6 +399,7 @@ public final class FoundationData extends SavedData {
 
   public static FoundationData load(CompoundTag root, HolderLookup.Provider registries) {
     if (root.getInt("schema") != SCHEMA
+        && root.getInt("schema") != 8
         && root.getInt("schema") != 7
         && root.getInt("schema") != 6
         && root.getInt("schema") != 5
@@ -710,6 +713,7 @@ public final class FoundationData extends SavedData {
         data.rideLocal.reserve(train.nextBlock, train.chassis);
       }
     }
+    data.moving.read(root.getList("moving_assemblies", Tag.TAG_COMPOUND));
     data.checkProfileCapacity(0);
     if (data.rails.stream().mapToInt(r -> r.magnets.size()).sum() > 512)
       throw new IllegalArgumentException("Magnetic equipment capacity exceeded");

@@ -51,7 +51,7 @@ public final class SpinningRuntime {
         || !(container.getSubLevel(v.chassis) instanceof ServerSubLevel parent)
         || container.physicsSystem().getPipeline().getLinearVelocity(parent,new Vector3d()).length()>.05)
       throw new IllegalArgumentException("Stop, retain riders and repair support before Classic Spinning resume");
-    var rail=FoundationData.get(level).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
+    var rail=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
     var reason=safety(level,parent,v,rail);
     if(reason!=null)throw new IllegalArgumentException(reason);
     if(dock(level,parent,v))throw new IllegalArgumentException("At the dock use Capture then Dispatch");

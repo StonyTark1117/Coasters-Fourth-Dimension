@@ -59,6 +59,10 @@ public final class VehicleOperations {
       throw new IllegalArgumentException("Select an original 4D vehicle");
     var parent = SubLevelContainer.getContainer(player.level()).getSubLevel(id);
     var center = parent == null ? null : CoasterCartResolve.cartCenterWorld(parent);
+    if(center==null&&dev.fourthdimension.moving.MovingEvacuation.authorized(player.serverLevel(),v)) {
+      for(var carrier:v.carriers){var survivor=SubLevelContainer.getContainer(player.level()).getSubLevel(carrier.body);
+        if(survivor!=null){center=new Vector3d(survivor.logicalPose().position());break;}}
+    }
     var operator = RecoveryOperations.operatorWorldPosition(player);
     if (center == null
         || center.distanceSquared(operator) > 12 * 12
@@ -92,6 +96,9 @@ public final class VehicleOperations {
   }
 
   public static void capture(ServerLevel level, FoundationData.Vehicle vehicle) {
+    var moving=FoundationData.get(level).moving.retaining(vehicle.chassis);
+    if(moving!=null){dev.fourthdimension.moving.MovingRuntime.emergencyHold(level,moving,"Operator emergency stop: explicitly Resume or enable service evacuation");return;}
+    if(dev.fourthdimension.moving.MovingServiceRuntime.applies(level,vehicle)){dev.fourthdimension.moving.MovingServiceRuntime.capture(level,vehicle);return;}
     if(PoweredInvertedYawVehicle.is(vehicle)){PoweredInvertedYawRuntime.capture(level,vehicle);return;}
     var winch = dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis);
     if (winch != null
@@ -148,15 +155,20 @@ public final class VehicleOperations {
   }
 
   public static void restraints(ServerLevel level, FoundationData.Vehicle vehicle, boolean closed) {
+    if (!closed && (FoundationData.get(level).moving.retaining(vehicle.chassis) != null
+        || dev.fourthdimension.moving.MovingServiceRuntime.applies(level,vehicle))
+        && !dev.fourthdimension.moving.MovingEvacuation.authorized(level,vehicle))
+      throw new IllegalArgumentException("Moving assembly retains this train; dock or use its validated evacuation access");
     if (FlyingVehicle.is(vehicle) || NewGenerationFlyingVehicle.is(vehicle)) throw new IllegalArgumentException("Use the separate Flying body and leg restraint controls");
     if (!closed && vehicle.recoveryCart != null)
       throw new IllegalArgumentException("Disconnect recovery before opening restraints");
-    if (!closed && dev.fourthdimension.shuttle.ShuttleRuntime.running(level, vehicle.chassis))
+    if (!closed && dev.fourthdimension.shuttle.ShuttleRuntime.running(level, vehicle.chassis)
+        && !dev.fourthdimension.moving.MovingEvacuation.authorized(level,vehicle))
       throw new IllegalArgumentException(
           "Shuttle restraints remain closed until final station capture");
-    var consist = consist(level, vehicle);
+    var consist = dev.fourthdimension.moving.MovingEvacuation.authorized(level,vehicle)?List.of(vehicle):consist(level, vehicle);
     for (var v : consist)
-      if (!Boarding.ready(level, v))
+      if (!Boarding.ready(level, v) && !dev.fourthdimension.moving.MovingEvacuation.authorized(level,v))
         throw new IllegalArgumentException(
             "Stop and align every carrier before operating restraints");
     for (var v : consist) {
@@ -168,6 +180,9 @@ public final class VehicleOperations {
 
   /** Read-only preflight shared by diagnostics and every dispatch request. */
   public static void validateDispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if(dev.fourthdimension.moving.MovingServiceRuntime.applies(level,vehicle)){dev.fourthdimension.moving.MovingServiceRuntime.validateDispatch(level,vehicle);return;}
+    if (FoundationData.get(level).moving.retaining(vehicle.chassis) != null)
+      throw new IllegalArgumentException("Moving assembly retains this train; release it through the moving-track controller");
     if (NewGenerationFlyingVehicle.is(vehicle)) { NewGenerationFlyingRuntime.validateDispatch(level,vehicle); return; }
     if (FlyingVehicle.is(vehicle)) { FlyingRuntime.validateDispatch(level,vehicle); return; }
     if (FlyingBikeVehicle.is(vehicle)) { FlyingBikeRuntime.validateDispatch(level,vehicle); return; }
@@ -191,7 +206,7 @@ public final class VehicleOperations {
         continue;
       }
       var rail =
-          data.rails.stream()
+          dev.fourthdimension.moving.MovingRouteContext.rails(level).stream()
               .filter(r -> r.matches(v.boundFrom, v.boundTo))
               .findFirst()
               .orElse(null);
@@ -214,6 +229,7 @@ public final class VehicleOperations {
   }
 
   public static void dispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if(dev.fourthdimension.moving.MovingServiceRuntime.applies(level,vehicle)){dev.fourthdimension.moving.MovingServiceRuntime.dispatch(level,vehicle);return;}
     if (dev.fourthdimension.integration.RideLocalOperations.isManaged(level, vehicle))
       dev.fourthdimension.integration.RideLocalOperations.beforeDispatch(level, vehicle);
     if(PoweredInvertedYawVehicle.is(vehicle)){validateDispatch(level,vehicle);PoweredInvertedYawRuntime.start(level,vehicle);}
@@ -274,7 +290,7 @@ public final class VehicleOperations {
         throw new IllegalArgumentException(
             "Keep restraints closed and capture every carrier before repair");
       var rail =
-          data.rails.stream()
+          dev.fourthdimension.moving.MovingRouteContext.rails(level).stream()
               .filter(candidate -> candidate.matches(v.boundFrom, v.boundTo))
               .findFirst()
               .orElseThrow(
@@ -292,7 +308,7 @@ public final class VehicleOperations {
     var repaired = new HashSet<FoundationData.Rail>();
     for (var v : consist) {
       var rail =
-          data.rails.stream().filter(candidate -> candidate.matches(v.boundFrom, v.boundTo)).findFirst().orElseThrow();
+          dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(candidate -> candidate.matches(v.boundFrom, v.boundTo)).findFirst().orElseThrow();
       if (repaired.add(rail) && !rail.valid) {
         rail.valid = true;
         rail.revision++;
@@ -328,7 +344,7 @@ public final class VehicleOperations {
       var node = nodes.remove();
       if (!seenNodes.add(node)) continue;
       var legs =
-          data.rails.stream().filter(rail -> rail.from.equals(node) || rail.to.equals(node)).toList();
+          dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(rail -> rail.from.equals(node) || rail.to.equals(node)).toList();
       int expected = node.equals(winch.routeStart) || node.equals(winch.routeEnd) ? 1 : 2;
       if (legs.size() != expected)
         throw new IllegalArgumentException("Shuttle route must have exactly two open terminals and no branches");
@@ -395,7 +411,7 @@ public final class VehicleOperations {
       if (!v.fault.isEmpty() && !BoundaryGuard.END_OF_COMPATIBLE_TRACK.equals(v.fault))
         throw new IllegalArgumentException("Repair matching track before realignment");
       var rail =
-          data.rails.stream()
+          dev.fourthdimension.moving.MovingRouteContext.rails(level).stream()
               .filter(candidate -> candidate.matches(v.boundFrom, v.boundTo))
               .findFirst()
               .orElseThrow(
@@ -555,6 +571,7 @@ public final class VehicleOperations {
   }
 
   public static void brake(ServerLevel level, FoundationData.Vehicle vehicle, double dt) {
+    if(FoundationData.get(level).moving.retaining(vehicle.chassis)!=null)return;
     if(PoweredInvertedYawVehicle.is(vehicle)&&!MATCHING_SUPPORT_LOST.equals(vehicle.fault)&&!vehicle.alignmentRequired){PoweredInvertedYawRuntime.brake(level,vehicle,dt);return;}
     var container = SubLevelContainer.getContainer(level);
     var pipeline = container.physicsSystem().getPipeline();

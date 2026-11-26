@@ -90,6 +90,7 @@ public final class Boarding {
   public static boolean canBoard(Level level, BlockPos pos) {
     var binding = at(level, pos);
     return binding != null
+        && !dev.fourthdimension.moving.MovingRuntime.retained(level,binding.vehicle.chassis)
         && !(FlyingBikeVehicle.is(binding.vehicle) && FlyingBikeRuntime.evacuation(binding.vehicle))
         && !binding.vehicle.restraints
         && (level instanceof ServerLevel server
@@ -177,7 +178,13 @@ public final class Boarding {
         && event.getEntityMounting() instanceof net.minecraft.server.level.ServerPlayer player) {
       if (!player.connection.isAcceptingMessages()) return;
       net.minecraft.world.phys.Vec3 flyingBikeExit = null;
-      if (player.isAlive() && FlyingBikeVehicle.is(binding.vehicle)
+      boolean moving=dev.fourthdimension.moving.MovingRuntime.retained(level,binding.vehicle.chassis)
+          ||dev.fourthdimension.moving.MovingServiceRuntime.applies(level,binding.vehicle);
+      if(moving&&player.isAlive()){
+        flyingBikeExit=dev.fourthdimension.moving.MovingEvacuation.exit(level,binding.vehicle,player,seat);
+        if(flyingBikeExit==null){event.setCanceled(true);return;}
+      }
+      if (!moving && player.isAlive() && FlyingBikeVehicle.is(binding.vehicle)
           && !REMOVAL_RECOVERY.contains(player.getUUID())) {
         flyingBikeExit = FlyingBikeRuntime.exit(level, binding.vehicle, seat.blockPosition());
         if (!ready(level, binding.vehicle) || flyingBikeExit == null) {

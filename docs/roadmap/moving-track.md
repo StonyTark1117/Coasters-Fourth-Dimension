@@ -1,12 +1,31 @@
-# Post-1.0 — Moving-track mechanisms
+# 1.5 — Moving-track mechanisms
 
 [Guide index and execution rules](README.md) · [Canonical roadmap](../../ROADMAP.md) · [Active assignments](../CURRENT-QUALIFICATION.md#current-work-queue)
 
-FD2001 proves graph disconnection, occupied retention and reconnection once. Purpose-built mechanisms follow; all moving-track work stays outside the 1.0 gates. Assign delivery versions and finite FD2007 suffix gates after feasibility.
+All eight mechanisms belong to **1.5**, reconciled by FD2007. FD2001 proves
+native graph disconnection, occupied retention, reconnection and the shared
+compatibility path first. Read the [design and car/track matrix](../specs/FD2001-moving-track-1.5.md)
+for real-coaster references, finite assemblies, presets, exact admitted pairs,
+family retention/route adapters, dependency boundaries and player guidance.
+The [2026-11-26 integration record](../evidence/1.5/integration.md) closes these
+canonical requirements with bounded evidence and measured support limits.
+Launch Systems moving-track compatibility is [future FD2008](external-compatibility.md#fd2008)
+and is not a 1.5 prerequisite.
 
 Card order helps navigation; actual prerequisites determine readiness. These are
 procedures, not a second status tracker. Apply the index's evidence and stopping
 rules to every step; already-covered steps do not require another run.
+
+## Common delivery procedure
+
+For each mechanism, start from its exact geometry/program and admitted car/rail
+pairs in the design. Resolve the actual family handoff before implementing that
+adapter; unrelated active families do not block independent work. Deliver the
+capability readback, full occupied sweep preview, survival content and normal
+controls with the mechanism. Confirm that the server refuses the listed
+unsupported pairs, partial/oversize trains, invalid destinations and unqualified
+owners. Every step below consumes this shared contract; it does not authorize an
+extra mechanism or a broader vehicle combination.
 
 ## Packages
 
@@ -20,24 +39,24 @@ rules to every step; already-covered steps do not require another run.
 - [FD2006C — Side-drop track](#fd2006c)
 - [FD2006D — Compound motion table](#fd2006d)
 - [FD2006 — Additional moving-track styles](#fd2006)
-- [FD2007 — Moving-track release reconciliation](#fd2007)
+- [FD2007 — Version 1.5 moving-track gate](#fd2007)
 
 ## FD2001
 
 **Outcome:** A retained working moving-segment prototype and reusable graph/retention contract.
 
-**Start conditions:** Integrated provider/eligibility, passenger and persistence contracts; [FD1701A](0.8-operations.md#fd1701a) authority interface
+**Start conditions:** Integrated provider/eligibility, passenger and persistence contracts; [FD1701A](0.8-operations.md#fd1701a) authority; each admitted family’s accepted handoff (including its own 1.4 outcome where applicable).
 
-**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2001); [moving-track design](../../PLAN.md#d20-post-10-moving-track-mechanisms), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
+**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2001); [1.5 design and compatibility](../specs/FD2001-moving-track-1.5.md), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
 
 **Ordered steps:**
 
-1. Specify one short segment, two fixed endpoints, the supported vehicle envelope and graph/pose/passenger/control owners; inspect actual provider hooks.
-2. Implement physical capture and retained vehicle/rider state, exclusive destination reservation and graph disconnection while moving.
+1. Inspect the pinned native graph/snap and Sable support hooks. Freeze the versioned capability schema, one straight segment, two docks, measured limits and graph/pose/passenger/control owners from the adopted design. Keep the 1.5 compatibility scope explicit; no blanket removal of fixed-world eligibility guards.
+2. Implement physical capture, whole-train deck fit, exclusive destination reservation and transactional disconnection. Add the listed family-specific carrier/posture/route adapters and fixed-span propulsion handoffs; preserve control/magnetic/overhead/Pipeline contacts and deny unqualified owners.
 3. Implement coordinate/pose synchronization and reconnect only at the reserved aligned/locked endpoint; preserve explicit authority and safe release.
-4. Prove the native lifecycle and representative occupied cycle, including power loss, interrupted motion, save/restart and endpoint removal.
+4. Retain a working Wing prototype and prove the native lifecycle plus representative occupied cycle, including power loss, interruption, save/restart, endpoint loss and recovery. Use two real clients for the new synchronization path; add only distinct family adapter checks, carrying their proof to consumers.
 5. Retain the working prototype and record provider changes, limits and unresolved hook blockers; a design document alone cannot close this package.
-6. Allocate delivery versions and permanent [FD2007](moving-track.md#fd2007) suffix gates with finite mechanism/profile lists; keep later unshipped styles visible without reopening accepted increments.
+6. Integrate the single server-owned capability table and player readback used by tooltips, compatibility panel, placement preview and admission/refusal. Hand off limits, native hooks, exact supported pairs and evidence for the eight 1.5 mechanisms; FD2007 is the one release gate, and FD2008 remains future.
 
 **Validation:** Native graph/reservation/retention and persistence checks plus connected-client occupied motion/synchronization for the changed path. Check only affected fixed-track behavior when shared graph code changes.
 
@@ -49,7 +68,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Start conditions:** [FD2001](moving-track.md#fd2001)
 
-**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2002); [moving-track design](../../PLAN.md#d20-post-10-moving-track-mechanisms), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
+**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2002); [1.5 design and compatibility](../specs/FD2001-moving-track-1.5.md), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
 
 **Ordered steps:**
 
@@ -62,7 +81,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Validation:** Native graph/authority/motion checks and missing player/render/synchronization observations for lateral transfer, interrupted transfer and correct graph reconnection. Reuse the shared [FD2001](moving-track.md#fd2001) proof and unchanged content/lifecycle behavior.
 
-**Finish and handoff:** Close this mechanism for [FD2006C](moving-track.md#fd2006c) and its allocated [FD2007](moving-track.md#fd2007) increment gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
+**Finish and handoff:** Close this mechanism for [FD2006C](moving-track.md#fd2006c) and the [FD2007](moving-track.md#fd2007) 1.5 gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
 
 ## FD2003
 
@@ -70,7 +89,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Start conditions:** [FD2001](moving-track.md#fd2001)
 
-**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2003); [moving-track design](../../PLAN.md#d20-post-10-moving-track-mechanisms), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
+**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2003); [1.5 design and compatibility](../specs/FD2001-moving-track-1.5.md), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
 
 **Ordered steps:**
 
@@ -83,7 +102,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Validation:** Native graph/authority/motion checks and missing player/render/synchronization observations for occupied yaw rotation, route choice and interrupted rotation/restart. Reuse the shared [FD2001](moving-track.md#fd2001) proof and unchanged content/lifecycle behavior.
 
-**Finish and handoff:** Close this mechanism for [FD2006D](moving-track.md#fd2006d) and its allocated [FD2007](moving-track.md#fd2007) increment gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
+**Finish and handoff:** Close this mechanism for [FD2006D](moving-track.md#fd2006d) and the [FD2007](moving-track.md#fd2007) 1.5 gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
 
 ## FD2004
 
@@ -91,7 +110,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Start conditions:** [FD2001](moving-track.md#fd2001)
 
-**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2004); [moving-track design](../../PLAN.md#d20-post-10-moving-track-mechanisms), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
+**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2004); [1.5 design and compatibility](../specs/FD2001-moving-track-1.5.md), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
 
 **Ordered steps:**
 
@@ -104,7 +123,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Validation:** Native graph/authority/motion checks and missing player/render/synchronization observations for occupied drop, interrupted drop, endpoint loss and recovery/reset. Reuse the shared [FD2001](moving-track.md#fd2001) proof and unchanged content/lifecycle behavior.
 
-**Finish and handoff:** Close this mechanism for [FD2006A](moving-track.md#fd2006a) and [FD2006C](moving-track.md#fd2006c) and its allocated [FD2007](moving-track.md#fd2007) increment gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
+**Finish and handoff:** Close this mechanism for [FD2006A](moving-track.md#fd2006a) and [FD2006C](moving-track.md#fd2006c) and the [FD2007](moving-track.md#fd2007) 1.5 gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
 
 ## FD2005
 
@@ -112,7 +131,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Start conditions:** [FD2001](moving-track.md#fd2001)
 
-**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2005); [moving-track design](../../PLAN.md#d20-post-10-moving-track-mechanisms), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
+**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2005); [1.5 design and compatibility](../specs/FD2001-moving-track-1.5.md), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
 
 **Ordered steps:**
 
@@ -125,7 +144,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Validation:** Native graph/authority/motion checks and missing player/render/synchronization observations for tilt sweep/clearance, power loss and interrupted tilt recovery. Reuse the shared [FD2001](moving-track.md#fd2001) proof and unchanged content/lifecycle behavior.
 
-**Finish and handoff:** Close this mechanism for [FD2006B](moving-track.md#fd2006b) and [FD2006D](moving-track.md#fd2006d) and its allocated [FD2007](moving-track.md#fd2007) increment gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
+**Finish and handoff:** Close this mechanism for [FD2006B](moving-track.md#fd2006b) and [FD2006D](moving-track.md#fd2006d) and the [FD2007](moving-track.md#fd2007) 1.5 gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
 
 ## FD2006A
 
@@ -133,7 +152,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Start conditions:** [FD2004](moving-track.md#fd2004)
 
-**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2006a); [moving-track design](../../PLAN.md#d20-post-10-moving-track-mechanisms), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
+**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2006a); [1.5 design and compatibility](../specs/FD2001-moving-track-1.5.md), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
 
 **Ordered steps:**
 
@@ -146,7 +165,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Validation:** Native graph/authority/motion checks and missing player/render/synchronization observations for powered lift/lower cycles, stopped retention and restart/recovery. Reuse the shared [FD2001](moving-track.md#fd2001) proof and unchanged content/lifecycle behavior.
 
-**Finish and handoff:** Close this mechanism for [FD2006](moving-track.md#fd2006) and its allocated [FD2007](moving-track.md#fd2007) increment gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
+**Finish and handoff:** Close this mechanism for [FD2006](moving-track.md#fd2006) and the [FD2007](moving-track.md#fd2007) 1.5 gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
 
 ## FD2006B
 
@@ -154,7 +173,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Start conditions:** [FD2005](moving-track.md#fd2005)
 
-**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2006b); [moving-track design](../../PLAN.md#d20-post-10-moving-track-mechanisms), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
+**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2006b); [1.5 design and compatibility](../specs/FD2001-moving-track-1.5.md), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
 
 **Ordered steps:**
 
@@ -167,7 +186,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Validation:** Native graph/authority/motion checks and missing player/render/synchronization observations for occupied oscillation, retained passenger state and interrupted-oscillation recovery. Reuse the shared [FD2001](moving-track.md#fd2001) proof and unchanged content/lifecycle behavior.
 
-**Finish and handoff:** Close this mechanism for [FD2006](moving-track.md#fd2006) and its allocated [FD2007](moving-track.md#fd2007) increment gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
+**Finish and handoff:** Close this mechanism for [FD2006](moving-track.md#fd2006) and the [FD2007](moving-track.md#fd2007) 1.5 gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
 
 ## FD2006C
 
@@ -175,7 +194,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Start conditions:** [FD2002](moving-track.md#fd2002), [FD2004](moving-track.md#fd2004)
 
-**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2006c); [moving-track design](../../PLAN.md#d20-post-10-moving-track-mechanisms), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
+**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2006c); [1.5 design and compatibility](../specs/FD2001-moving-track-1.5.md), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
 
 **Ordered steps:**
 
@@ -188,7 +207,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Validation:** Native graph/authority/motion checks and missing player/render/synchronization observations for combined trajectory/swept clearance, capture and interrupted side-drop recovery. Reuse the shared [FD2001](moving-track.md#fd2001) proof and unchanged content/lifecycle behavior.
 
-**Finish and handoff:** Close this mechanism for [FD2006](moving-track.md#fd2006) and its allocated [FD2007](moving-track.md#fd2007) increment gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
+**Finish and handoff:** Close this mechanism for [FD2006](moving-track.md#fd2006) and the [FD2007](moving-track.md#fd2007) 1.5 gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
 
 ## FD2006D
 
@@ -196,7 +215,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Start conditions:** [FD2003](moving-track.md#fd2003), [FD2005](moving-track.md#fd2005)
 
-**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2006d); [moving-track design](../../PLAN.md#d20-post-10-moving-track-mechanisms), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
+**Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2006d); [1.5 design and compatibility](../specs/FD2001-moving-track-1.5.md), [TrackPlacement](../../src/main/java/dev/fourthdimension/track/TrackPlacement.java), [VehicleLifecycle](../../src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java), [FoundationData](../../src/main/java/dev/fourthdimension/runtime/FoundationData.java), [RideOperations](../../src/main/java/dev/fourthdimension/integration/RideOperations.java).
 
 **Ordered steps:**
 
@@ -209,7 +228,7 @@ rules to every step; already-covered steps do not require another run.
 
 **Validation:** Native graph/authority/motion checks and missing player/render/synchronization observations for simultaneous transforms/swept clearance, route selection, retention and interrupted recovery. Reuse the shared [FD2001](moving-track.md#fd2001) proof and unchanged content/lifecycle behavior.
 
-**Finish and handoff:** Close this mechanism for [FD2006](moving-track.md#fd2006) and its allocated [FD2007](moving-track.md#fd2007) increment gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
+**Finish and handoff:** Close this mechanism for [FD2006](moving-track.md#fd2006) and the [FD2007](moving-track.md#fd2007) 1.5 gate. No automatic depot or arbitrary player-built moving-track system is included. Record evidence and closure in the canonical package/current queue as applicable, then stop.
 
 ## FD2006
 
@@ -228,23 +247,23 @@ rules to every step; already-covered steps do not require another run.
 
 **Validation:** Evidence review only unless a named required claim is still missing or affected. An aggregate label does not require a fresh run.
 
-**Finish and handoff:** Feed [FD2007](moving-track.md#fd2007) while each completed style and earlier shipping increment stays closed. Record evidence and closure in the canonical package/current queue as applicable, then stop.
+**Finish and handoff:** Feed [FD2007](moving-track.md#fd2007) while each completed style and earlier release stays closed. Record evidence and closure in the canonical package/current queue as applicable, then stop.
 
 ## FD2007
 
-**Outcome:** Reconciled finite moving-track releases and eventual completion of the adopted program.
+**Outcome:** The complete eight-mechanism 1.5 package, including declared compatibility and player guidance.
 
-**Start conditions:** [FD2002](moving-track.md#fd2002), [FD2003](moving-track.md#fd2003), [FD2004](moving-track.md#fd2004), [FD2005](moving-track.md#fd2005), [FD2006](moving-track.md#fd2006); their allocated increment gates
+**Start conditions:** [FD2002](moving-track.md#fd2002), [FD2003](moving-track.md#fd2003), [FD2004](moving-track.md#fd2004), [FD2005](moving-track.md#fd2005), [FD2006](moving-track.md#fd2006)
 
 **Read first:** [canonical scope, status and completion criteria](../../ROADMAP.md#fd2007); [canonical status and evidence](../CURRENT-QUALIFICATION.md), [gate blockers and follow-up work](../VALIDATION-POLICY.md#gate-blockers-and-follow-up-work).
 
 **Ordered steps:**
 
-1. Use [FD2001](moving-track.md#fd2001)'s allocated permanent suffix gates and supported mechanism/vehicle/provider lists; reconcile each increment independently.
-2. For each increment, consume its mechanism evidence and close only outstanding graph/authority conflicts, visual, persistence, measured-workload and package/documentation criteria.
-3. Record an increment's completion once its finite criteria pass; publish only under separate authorization and keep later mechanisms planned.
-4. Close the [FD2007](moving-track.md#fd2007) parent when [FD2002](moving-track.md#fd2002)–[FD2006](moving-track.md#fd2006) and all allocated increment gates are covered, reusing earlier accepted releases.
+1. Freeze the eight mechanisms and the adopted design’s exact car/rail/motion matrix. Consume FD2001’s native hooks, limits and shared evidence; unsupported pairs stay explicitly denied and Launch Systems stays in FD2008.
+2. Reconcile child evidence against the matrix, family-specific adapters, player tooltips/panel/previews, recipes/examples, graph/authority conflicts, visuals and migration/restart. Close only uncovered claims, including optional fixed-span handoff and honest unsupported-provider feedback.
+3. Reconcile maximum admitted train/workload and over-limit denial, plus two independent tables contending for one exit. Reuse accepted observations; do not multiply every family by every mechanism and addon without a distinct behavior.
+4. Close FD2007 when all eight mechanisms and required compatibility/player/package criteria are covered. Keep completed children and earlier releases closed; publication is separate and no FD2008 evidence is required.
 
 **Validation:** Release reconciliation and only outstanding/affected checks. No vehicle × mechanism × provider Cartesian campaign without a demonstrated implementation distinction.
 
-**Finish and handoff:** Complete the adopted moving-track program without resetting 1.0 or accepted intermediate releases. Record evidence and closure in the canonical package/current queue as applicable, then stop.
+**Finish and handoff:** Complete the 1.5 moving-track program without resetting 1.0–1.4 acceptance. Record evidence and closure in the canonical package/current queue as applicable, then stop.

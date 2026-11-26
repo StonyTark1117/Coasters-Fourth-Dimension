@@ -16,7 +16,7 @@ public final class FlyingBikeTrack {
   public static String rejection(Level level,CoasterPathEdge edge){
     if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "Flying Bike requires fixed world track";
     var data=EligibilityHooks.data(level);
-    var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
+    var rail=data==null?null:dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null||!rail.valid||rail.family!=Family.FLYING_BIKE||!FlyingBikeVehicle.VARIANT.equals(rail.variant))
       return "Flying Bike requires matching overhead track and rigid dock and launch capability";
     if(!TrackDesign.FLYING_BIKE.nativeFit().accepts(FlyingBikeVehicle.FIT))return "Flying Bike contact/mount/envelope mismatch";

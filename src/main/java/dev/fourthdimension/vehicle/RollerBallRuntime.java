@@ -24,7 +24,7 @@ public final class RollerBallRuntime {
   private static final class Live { boolean started;long checked=Long.MIN_VALUE,lastTick=Long.MIN_VALUE,routeTick=Long.MIN_VALUE;int aligned;final DockCapture dock=new DockCapture();GenericConstraintHandle hold,activeJoint,latchJoint;boolean jointLocked;double jointTarget=Double.NaN;Vector3d travelPosition; }
   private static final Map<ServerSubLevel,Live> LIVE=new WeakHashMap<>();
   private RollerBallRuntime(){}
-  public static FoundationData.Rail rail(ServerLevel l,FoundationData.Vehicle v){return FoundationData.get(l).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);}
+  public static FoundationData.Rail rail(ServerLevel l,FoundationData.Vehicle v){return dev.fourthdimension.moving.MovingRouteContext.rails(l).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);}
   public static GenericConstraintHandle joint(ServerSubLevel parent,ServerSubLevel child,FoundationData.Carrier c){
     return joint(parent,child,c,false,0);
   }
@@ -83,7 +83,7 @@ public final class RollerBallRuntime {
       double remaining=ahead?table.length()-at:at;
       if(remaining>=look)continue;
       var endpoint=ahead?e.to():e.from();
-      var following=FoundationData.get(l).rails.stream().filter(n->n!=r&&(n.from.equals(endpoint)||n.to.equals(endpoint))).toList();
+      var following=dev.fourthdimension.moving.MovingRouteContext.rails(l).stream().filter(n->n!=r&&(n.from.equals(endpoint)||n.to.equals(endpoint))).toList();
       // A stationary newly built dock need not yet have its complete ride attached.
       if(following.isEmpty()&&v.stopping)continue;
       if(following.size()!=1)return "Roller Ball route end or ambiguous connection";

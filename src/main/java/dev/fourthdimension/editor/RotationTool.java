@@ -54,6 +54,9 @@ public final class RotationTool extends Item {
       if (VALIDATION) LOGGER.info("FD_ROTATION_GUARD player={} guard=reach result=FAIL", player.getName().getString());
       return InteractionResult.FAIL;
     }
+    if(level.getBlockEntity(context.getClickedPos()) instanceof dev.fourthdimension.moving.MovingControllerEntity){
+      dev.fourthdimension.moving.MovingNetwork.open(player,context.getClickedPos());return InteractionResult.SUCCESS;
+    }
     var body = Sable.HELPER.getContaining(level, context.getClickedPos());
     var data = FoundationData.get(level);
     if (VALIDATION)

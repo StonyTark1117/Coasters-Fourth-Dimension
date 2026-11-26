@@ -16,7 +16,7 @@ public final class PipelineTrack {
   public static String rejection(Level level,CoasterPathEdge edge){
     if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "Pipeline requires fixed world track";
     var data=EligibilityHooks.data(level);
-    var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
+    var rail=data==null?null:dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null||!rail.valid||rail.family!=Family.PIPELINE||!PipelineVehicle.VARIANT.equals(rail.variant))
       return "Pipeline requires matching side-rail track and dock capability";
     if(!TrackDesign.PIPELINE.nativeFit().accepts(PipelineVehicle.FIT))return "Pipeline contact/mount/envelope mismatch";

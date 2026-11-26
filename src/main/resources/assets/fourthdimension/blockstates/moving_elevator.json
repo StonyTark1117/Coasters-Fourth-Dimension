@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "fourthdimension:block/moving_elevator"
+    },
+    "facing=east": {
+      "model": "fourthdimension:block/moving_elevator",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "fourthdimension:block/moving_elevator",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "fourthdimension:block/moving_elevator",
+      "y": 270
+    },
+    "facing=up": {
+      "model": "fourthdimension:block/moving_elevator",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "fourthdimension:block/moving_elevator",
+      "x": 90
+    }
+  }
+}

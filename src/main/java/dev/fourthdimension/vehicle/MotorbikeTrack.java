@@ -17,7 +17,7 @@ public final class MotorbikeTrack {
     if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "Motorbike requires fixed world track";
     if(edge.bezier()==null||!edge.bezier().getMaterial().id.equals(dev.silvergold.simulatedcoasters.CoasterTrackMaterials.COASTER.id))return "Motorbike requires native Coasters N-contact material";
     var data=EligibilityHooks.data(level);
-    var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
+    var rail=data==null?null:dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null||!rail.valid||rail.family!=Family.MOTORBIKE||!MotorbikeVehicle.VARIANT.equals(rail.variant))
       return "Motorbike requires matching Motorbike Track (motorbike/straddle_v1)";
     if(!TrackDesign.MOTORBIKE.nativeFit().accepts(MotorbikeVehicle.FIT))return "Motorbike contact/mount/envelope mismatch";
@@ -25,7 +25,7 @@ public final class MotorbikeTrack {
   }
   public static CoasterPathEdge support(Level level,FoundationData.Vehicle v){
     var data=EligibilityHooks.data(level);if(data==null)return null;
-    var rail=data.rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
+    var rail=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
     var edge=rail==null?null:TrackGeometry.resolve(level,rail);
     return edge!=null&&rejection(level,edge)==null?edge:null;
   }

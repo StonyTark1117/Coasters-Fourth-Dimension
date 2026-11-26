@@ -19,7 +19,7 @@ public final class FixedInvertedRuntime {
   private static final Map<ServerSubLevel,Long> CHECKED=new WeakHashMap<>();
   private FixedInvertedRuntime(){}
   public static FoundationData.Rail rail(ServerLevel level,FoundationData.Vehicle v){
-    return FoundationData.get(level).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
+    return dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
   }
   public static void fault(ServerLevel level,FoundationData.Vehicle v,String reason){
     var ids=new HashSet<>(v.fixedConsist);ids.add(v.chassis);
@@ -109,7 +109,7 @@ public final class FixedInvertedRuntime {
     double remaining=signed>=0?table.length()-at:at;
     if(Math.abs(signed)>.01&&remaining<=look){
       var endpoint=signed>0?edge.to():edge.from();
-      var next=FoundationData.get(level).rails.stream().filter(r->r!=rail&&(r.from.equals(endpoint)||r.to.equals(endpoint))).toList();
+      var next=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r!=rail&&(r.from.equals(endpoint)||r.to.equals(endpoint))).toList();
       if(next.size()!=1)return "Fixed Inverted end or ambiguous route; stop and inspect";
       var following=TrackGeometry.resolve(level,next.getFirst());
       if(following==null||FixedInvertedTrack.rejection(level,following)!=null)return "Fixed Inverted incompatible route ahead";

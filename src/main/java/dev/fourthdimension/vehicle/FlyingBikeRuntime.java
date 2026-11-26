@@ -19,7 +19,7 @@ public final class FlyingBikeRuntime {
   private static final Map<ServerSubLevel,Long> CHECKED=new WeakHashMap<>();
   private FlyingBikeRuntime(){}
   public static FoundationData.Rail rail(ServerLevel level,FoundationData.Vehicle v){
-    return FoundationData.get(level).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
+    return dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
   }
   public static void fault(ServerLevel level,FoundationData.Vehicle v,String reason){
     var ids=new HashSet<>(java.util.List.<java.util.UUID>of());ids.add(v.chassis);
@@ -175,7 +175,7 @@ public final class FlyingBikeRuntime {
     double remaining=signed>=0?table.length()-at:at;
     if(Math.abs(signed)>.01&&remaining<=look){
       var endpoint=signed>0?edge.to():edge.from();
-      var next=FoundationData.get(level).rails.stream().filter(r->r!=rail&&(r.from.equals(endpoint)||r.to.equals(endpoint))).toList();
+      var next=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r!=rail&&(r.from.equals(endpoint)||r.to.equals(endpoint))).toList();
       if(next.size()!=1)return "Flying Bike end or ambiguous route; stop and inspect";
       var following=TrackGeometry.resolve(level,next.getFirst());
       if(following==null||FlyingBikeTrack.rejection(level,following)!=null)return "Flying Bike incompatible route ahead";
@@ -233,7 +233,7 @@ public final class FlyingBikeRuntime {
   }
   /** Finite graph proof: one unambiguous closed original route, no hidden powered span. */
   public static long validateRoute(ServerLevel l,FoundationData.Vehicle v,FlyingBikeGovernorEntity g){
-    var first=rail(l,v);if(first==null)throw new IllegalArgumentException("Flying Bike route unavailable");
+    var first=dev.fourthdimension.moving.MovingRouteContext.start(l,v);if(first==null)first=rail(l,v);if(first==null)throw new IllegalArgumentException("Flying Bike route unavailable");
     var seen=new HashSet<FoundationData.Rail>();var current=first;var entry=first.from;var start=entry;
     double total=0;long hash=1;var spans=new HashSet<Integer>();
     while(true){
@@ -244,14 +244,15 @@ public final class FlyingBikeRuntime {
       for(double distance=0;distance<=table.length();distance+=2){
         double t=table.parameterAt(distance);var point=CoasterPathGraphManager.sampleEdgePosition(l,edge,t);
         var hit=new CoasterPathTrackFrame.GraphHit(point,edge,t);
-        if(FlyingBikeTrack.obstruction(l,hit)!=null)throw new IllegalArgumentException("Flying Bike route clearance is obstructed");
+        var obstruction=FlyingBikeTrack.obstruction(l,hit);
+        if(obstruction!=null)throw new IllegalArgumentException("Flying Bike route clearance is obstructed at "+obstruction.toShortString()+" on "+current.from.toShortString()+" -> "+current.to.toShortString());
         var span=ChainLiftSpanQuery.findAtGraphHit(l,hit,0);
         if(span!=null){int which=g.spanAt(hit);if(which==0)throw new IllegalArgumentException("Only the two bound launch spans may power this route");spans.add(which);
           requireStraightApproach(l,current,entry);
           var basis=CoasterPathTrackFrame.trackBasisAtHit(l,hit);if(basis.up().y<.999||Math.abs(basis.forward().y)>.001)throw new IllegalArgumentException("Flying Bike launches must be upright and level");}
       }
       var exit=current.from.equals(entry)?current.to:current.from;
-      var previous=current;var next=FoundationData.get(l).rails.stream().filter(r->r!=previous && (r.from.equals(exit)||r.to.equals(exit))).toList();
+      var previous=current;var next=dev.fourthdimension.moving.MovingRouteContext.rails(l).stream().filter(r->r!=previous && (r.from.equals(exit)||r.to.equals(exit))).toList();
       if(next.size()!=1)throw new IllegalArgumentException("Flying Bike route branches or ends");
       if(next.getFirst()==first){if(!exit.equals(start))throw new IllegalArgumentException("Flying Bike route is not closed");break;}
       entry=exit;current=next.getFirst();
@@ -265,7 +266,7 @@ public final class FlyingBikeRuntime {
   }
   /** Native cart collision bounds need an aligned run-in before an anchor's transverse drive shaft. */
   private static void requireStraightApproach(ServerLevel level,FoundationData.Rail launch,BlockPos entry){
-    var approaches=FoundationData.get(level).rails.stream().filter(r->r!=launch&&(r.from.equals(entry)||r.to.equals(entry))).toList();
+    var approaches=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r!=launch&&(r.from.equals(entry)||r.to.equals(entry))).toList();
     if(approaches.size()!=1)throw new IllegalArgumentException("Each Flying Bike launch needs one unpowered upright straight approach of at least eight blocks");
     var prior=approaches.getFirst();var edge=TrackGeometry.resolve(level,prior);
     if(edge==null)throw new IllegalArgumentException("Flying Bike approach support unavailable");

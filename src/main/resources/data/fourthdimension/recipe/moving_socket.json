@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    "L L",
+    "BBB"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": {
+      "item": "fourthdimension:moving_lock"
+    },
+    "B": {
+      "item": "fourthdimension:moving_bed"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:moving_socket",
+    "count": 2
+  }
+}

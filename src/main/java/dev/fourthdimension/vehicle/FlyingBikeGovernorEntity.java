@@ -73,7 +73,7 @@ public final class FlyingBikeGovernorEntity extends SplitShaftBlockEntity implem
     if(path==null||!(level instanceof ServerLevel server))return 0;
     long hash=Double.doubleToLongBits(a.getChainLiftCommittedLength());
     for(var segment:path.segments()){
-      var edge=segment.edge();var r=FoundationData.get(server).rails.stream().filter(rail->rail.matches(edge.from(),edge.to())).findFirst().orElse(null);
+      var edge=segment.edge();var r=dev.fourthdimension.moving.MovingRouteContext.rails(server).stream().filter(rail->rail.matches(edge.from(),edge.to())).findFirst().orElse(null);
       if(r==null||!r.valid)return 0;hash=31*hash+edge.from().asLong();hash=31*hash+edge.to().asLong();hash=31*hash+r.geometryHash;
     }return hash;
   }

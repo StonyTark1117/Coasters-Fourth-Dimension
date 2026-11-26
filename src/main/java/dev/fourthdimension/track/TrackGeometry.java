@@ -31,6 +31,8 @@ public final class TrackGeometry {
   }
 
   public static CoasterPathEdge resolve(Level level, FoundationData.Rail rail) {
+    var candidate = dev.fourthdimension.moving.MovingRouteContext.resolve(level, rail);
+    if (candidate != null) return candidate;
     if (!level.hasChunkAt(rail.from) || !level.hasChunkAt(rail.to)) return null;
     if (!(level.getBlockEntity(rail.from) instanceof CoasterAnchorpointBlockEntity anchor))
       return null;

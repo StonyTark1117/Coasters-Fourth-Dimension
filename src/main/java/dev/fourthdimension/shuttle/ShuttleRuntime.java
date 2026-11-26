@@ -28,7 +28,7 @@ public final class ShuttleRuntime {
   private static final class Handles {
     GenericConstraintHandle guide, catchJoint;
     final Map<UUID, GenericConstraintHandle> supportHolds = new HashMap<>();
-    boolean stationRestorePending;
+    boolean stationRestorePending, movingDetached;
     Vector3d worldAnchor;
     Quaterniond worldOrientation;
     UUID body;
@@ -242,6 +242,10 @@ public final class ShuttleRuntime {
   public static void tick(ServerLevel level, double dt) {
     for (var winch : List.copyOf(winches(level))) {
       if (winch.vehicle == null) continue;
+      // The moving bed now owns the whole retained train. Keep the stationary carriage guide,
+      // but do not rebuild its catch or fixed-world car holds during this ownership interval.
+      if (winch.cars.stream().anyMatch(id->dev.fourthdimension.moving.MovingRuntime.retained(level,id)
+          ||dev.fourthdimension.moving.MovingNativeRestoreSupport.held(level,id))) continue;
       // read() turns an in-motion winch into FAULT, but loading happens before this runtime can
       // access FoundationData. Retain all persisted cars now, before any FAULT inspection/catch.
       if (winch.consumeLoadedActiveTrainRetention()) winch.fail(winch.fault);
@@ -262,6 +266,16 @@ public final class ShuttleRuntime {
             container.removeSubLevel(
                 body, dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason.REMOVED);
           WINCHES.get(level).remove(winch.getBlockPos(), winch);
+          continue;
+        }
+        boolean releasedService=FoundationData.get(level).moving.assemblies.values().stream()
+            .anyMatch(s->s.service.cars.containsKey(winch.vehicle));
+        if(releasedService&&winch.phase!=ShuttleWinchEntity.Phase.CAPTURING){
+          // A released bridge awaits explicit recovery. Restore only the empty carriage's
+          // brake after loading; never let BOARDING/FAULT rebuild a catch at its old position.
+          var container=SubLevelContainer.getContainer(level);
+          if(winch.carriage!=null&&container.getSubLevel(winch.carriage) instanceof ServerSubLevel)
+            ensureCarriage(level,winch,null,HANDLES.computeIfAbsent(winch,k->new Handles()));
           continue;
         }
         // Boarding is stationary, including a train already caught by its carriage.
@@ -357,9 +371,14 @@ public final class ShuttleRuntime {
               || winch.interrupted == ShuttleWinchEntity.Phase.RETURNING
               || winch.interrupted == ShuttleWinchEntity.Phase.CAPTURING)
             // Brakes alone can creep down a steep spike. Retain the chassis at the
-            // interruption while captured carriers settle. Explicit Recover/Resume
-            // enters CAPTURING, which positions the empty carriage before catching.
-            holdUnsupportedTrain(level, winch, false);
+            // interruption while captured carriers settle, then mechanically retain their
+            // attained captured posture too. Explicit Recover releases these locks only
+            // after the original carriage has established its real catch.
+            holdUnsupportedTrain(level, winch, winch.cars.stream().map(data.vehicles::get)
+                .allMatch(car -> car != null && car.carriers.stream().allMatch(c -> c.capture
+                    && Math.abs(c.omega) <= .03
+                    && Math.abs(Math.atan2(Math.sin(c.angle-c.captureTarget),
+                        Math.cos(c.angle-c.captureTarget))) <= .04)));
           else releaseSupportHolds(winch);
           continue;
         }
@@ -442,6 +461,7 @@ public final class ShuttleRuntime {
             var body = container.getSubLevel(winch.carriage);
             var target = handles.worldAnchor;
             if (body.logicalPose().position().distance(target) > .1) continue;
+            if (movingHandoff(level,winch,handles) && !movingCatchReady(level,winch)) continue;
             catchTrain(level, lead, winch, handles);
             releaseBrakes(level, winch, true);
           }
@@ -601,6 +621,8 @@ public final class ShuttleRuntime {
   private static void catchTrain(
       ServerLevel level, ServerSubLevel lead, ShuttleWinchEntity winch, Handles handles) {
     if (handles.catchJoint != null && handles.catchJoint.isValid()) return;
+    if (movingHandoff(level,winch,handles) && !movingCatchReady(level, winch))
+      throw new IllegalArgumentException("Recover the physical winch carriage to the transferred train before catching");
     var container = SubLevelContainer.getContainer(level);
     var carriage = (ServerSubLevel) container.getSubLevel(winch.carriage);
     var a = lead.getPlot().getCenterBlock();
@@ -622,6 +644,38 @@ public final class ShuttleRuntime {
                         ConstraintJointAxis.LINEAR_Y,
                         ConstraintJointAxis.LINEAR_Z)));
     handles.catchJoint.setContactsEnabled(false);
+    handles.movingDetached = false;
+  }
+
+  /** A moving-support handoff cannot create a catch across a physical gap. */
+  private static boolean movingHandoff(ServerLevel level,ShuttleWinchEntity winch,Handles handles){
+    return handles.movingDetached||FoundationData.get(level).moving.assemblies.values().stream()
+        .anyMatch(s->s.service.cars.containsKey(winch.vehicle));
+  }
+  public static boolean movingCatchReady(ServerLevel level, ShuttleWinchEntity winch) {
+    if (winch.vehicle == null || winch.carriage == null) return false;
+    var container = SubLevelContainer.getContainer(level);
+    if (!(container.getSubLevel(winch.vehicle) instanceof ServerSubLevel lead)
+        || !(container.getSubLevel(winch.carriage) instanceof ServerSubLevel carriage)) return false;
+    var physics = container.physicsSystem();
+    physics.updatePose(lead); physics.updatePose(carriage);
+    var a = lead.getPlot().getCenterBlock(); var b = carriage.getPlot().getCenterBlock();
+    var leadPoint = lead.logicalPose().transformPosition(new Vector3d(a.getX()+.5, a.getY()+3.5, a.getZ()+.5));
+    var carriagePoint = carriage.logicalPose().transformPosition(new Vector3d(b.getX()+.5, b.getY()+.5, b.getZ()+.5));
+    if (leadPoint.distance(carriagePoint) > .1) return false;
+    var pipeline = physics.getPipeline();
+    var leadVelocity = pipeline.getLinearVelocity(lead, new Vector3d());
+    var carriageVelocity = pipeline.getLinearVelocity(carriage, new Vector3d());
+    leadVelocity.add(pipeline.getAngularVelocity(lead,new Vector3d())
+        .cross(new Vector3d(leadPoint).sub(lead.logicalPose().position())));
+    carriageVelocity.add(pipeline.getAngularVelocity(carriage,new Vector3d())
+        .cross(new Vector3d(carriagePoint).sub(carriage.logicalPose().position())));
+    return leadVelocity.sub(carriageVelocity).length() <= .08;
+  }
+  public static boolean movingCatchEngaged(ServerLevel level, ShuttleWinchEntity winch) {
+    var handles=HANDLES.get(winch);
+    return handles!=null&&handles.catchJoint!=null&&handles.catchJoint.isValid()
+        &&movingCatchReady(level,winch);
   }
 
   /** Recreate the saved neutral carrier posture before native station holds are installed. */
@@ -689,29 +743,32 @@ public final class ShuttleRuntime {
           remove(entry.getValue());
           return true;
         });
-    // Stop the whole validated train in one callback. Holding only chassis leaves heavy
-    // carrier bodies free to drop and pull a coupled car out of station spacing.
-    for (var body : bodies.values()) pipeline.resetVelocity(body);
+    // Install one fixed native support at the interruption pose. Repeated velocity resets
+    // defeat settling by restarting a gravity impulse every physics callback.
     for (var entry : bodies.entrySet()) {
       var id = entry.getKey();
       var body = entry.getValue();
       var hold = handles.supportHolds.get(id);
       if (hold != null && hold.isValid()) continue;
       remove(hold);
-      var center = body.getPlot().getCenterBlock();
+      var localAnchor = new Vector3d(body.logicalPose().rotationPoint());
       hold =
           pipeline.addConstraint(
               null,
               body,
               new GenericConstraintConfiguration(
                   new Vector3d(body.logicalPose().position()),
-                  new Vector3d(center.getX() + .5, center.getY() + .5, center.getZ() + .5),
+                  localAnchor,
                   new Quaterniond(body.logicalPose().orientation()),
-                  new Quaterniond()));
-      for (var axis : ConstraintJointAxis.ALL)
-        hold.setMotor(axis, 0, 30000, 4000, true, 80000);
+                  new Quaterniond(), EnumSet.allOf(ConstraintJointAxis.class)));
       handles.supportHolds.put(id, hold);
     }
+  }
+
+  /** Detach the captured train from the fixed winch; retain the empty carriage's own guide. */
+  public static void releaseForMovingSupport(ShuttleWinchEntity winch) {
+    var handles=HANDLES.get(winch);if(handles==null)return;
+    removeSupportHolds(handles);remove(handles.catchJoint);handles.catchJoint=null;handles.movingDetached=true;
   }
 
   public static void releaseSupportHolds(ShuttleWinchEntity winch) {

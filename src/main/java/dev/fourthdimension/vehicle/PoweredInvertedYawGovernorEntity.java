@@ -85,19 +85,19 @@ public final class PoweredInvertedYawGovernorEntity extends SplitShaftBlockEntit
   private PoweredInvertedYawGovernorEntity at(BlockPos p){return level!=null&&p!=null&&level.hasChunkAt(p)&&level.getBlockEntity(p) instanceof PoweredInvertedYawGovernorEntity g?g:null;}
   public String systemAvailability(){
     if(master!=null&&!master.equals(worldPosition))return "Use the bound master governor";
-    String local=availability();if(local!=null)return local;
+    String local=drives.containsKey(worldPosition)?availability():null;if(local!=null)return local;
     if(drives.isEmpty()||route.isEmpty())return "Bind a completely governed powered circuit";
     var data=FoundationData.get((ServerLevel)level);
     for(var e:route.entrySet()){
-      var r=data.rails.stream().filter(a->a.id.equals(e.getKey())).findFirst().orElse(null);
-      if(r==null||!r.valid||r.geometryHash!=e.getValue())return "Powered route changed; retained hold";
+      var r=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(a->a.id.equals(e.getKey())).findFirst().orElse(null);
+      if(r==null||!r.valid||r.geometryHash!=e.getValue())return "Powered route changed; retained hold: "+e.getKey()+" expected="+e.getValue()+" actual="+(r==null?"missing":r.geometryHash);
     }
     for(var pos:drives.keySet()){var g=at(pos);if(g==null||!worldPosition.equals(g.master)||!Objects.equals(vehicle,g.vehicle))return "Route governor missing or rebound";String reason=g.availability();if(reason!=null)return reason;}
     return null;
   }
   public static List<FoundationData.Rail> route(ServerLevel l,FoundationData.Vehicle v){
-    var first=PoweredInvertedYawRuntime.rail(l,v);if(first==null)throw new IllegalArgumentException("Matching powered route unavailable");
-    var all=FoundationData.get(l).rails;var result=new ArrayList<FoundationData.Rail>();var todo=new ArrayDeque<FoundationData.Rail>();todo.add(first);
+    var first=dev.fourthdimension.moving.MovingRouteContext.start(l,v);if(first==null)first=PoweredInvertedYawRuntime.rail(l,v);if(first==null)throw new IllegalArgumentException("Matching powered route unavailable");
+    var all=dev.fourthdimension.moving.MovingRouteContext.rails(l);var result=new ArrayList<FoundationData.Rail>();var todo=new ArrayDeque<FoundationData.Rail>();todo.add(first);
     while(!todo.isEmpty()){var r=todo.removeFirst();if(result.contains(r))continue;if(result.size()>=64)throw new IllegalArgumentException("Powered circuit exceeds64 sections");result.add(r);
       for(var endpoint:List.of(r.from,r.to)){var adjacent=all.stream().filter(a->a.from.equals(endpoint)||a.to.equals(endpoint)).toList();if(adjacent.size()!=2)throw new IllegalArgumentException("Use one unbranched complete powered circuit");
         for(var next:adjacent){if(next.family!=v.family||!next.variant.equals(v.variant))throw new IllegalArgumentException("Mixed powered circuit");if(!result.contains(next))todo.add(next);}}
@@ -109,6 +109,16 @@ public final class PoweredInvertedYawGovernorEntity extends SplitShaftBlockEntit
     if(bound.stream().anyMatch(v->!PoweredInvertedYawVehicle.is(v)||!v.stopping||!v.carriers.getFirst().occupants.isEmpty()))throw new IllegalArgumentException("Bind an empty stopped matching train");
     if(vehicle!=null&&!new HashSet<>(cars).equals(new HashSet<>(bound.stream().map(v->v.chassis).toList())))throw new IllegalArgumentException("Governor already owns another consist");
     if(selected.authority.owner!=null&&!identity.equals(selected.authority.owner))throw new IllegalArgumentException("Another controller owns this ride");
+    var plan=inspectCircuit(server,selected,false);var discovered=plan.drives;var fingerprints=plan.route;var canonical=plan.directions;
+    vehicle=selected.chassis;cars=bound.stream().map(v->v.chassis).toList();drives.clear();drives.putAll(discovered);route.clear();route.putAll(fingerprints);routeDirections.clear();routeDirections.putAll(canonical);master=worldPosition;
+    for(var pos:drives.keySet()){var g=at(pos);g.anchor=g.discoverAnchor();g.master=worldPosition;g.vehicle=vehicle;g.cars=cars;g.setChanged();g.sendData();}
+    if(selected.authority.owner==null)token=RideAuthority.claim(server,worldPosition,vehicle,RideAuthority.NATIVE_CHAIN);
+    else if(!identity.equals(selected.authority.owner))throw new IllegalArgumentException("Another controller owns this ride");else token=RideAuthority.token(selected);
+    for(var v:bound){v.poweredYaw.controller=worldPosition.immutable();v.poweredYaw.consist=cars;}
+    fault="Held";FoundationData.get(server).setDirty();setChanged();sendData();
+  }
+  private record Circuit(Map<BlockPos,Integer> drives,Map<UUID,Long> route,Map<UUID,Integer> directions){}
+  private Circuit inspectCircuit(ServerLevel server,FoundationData.Vehicle selected,boolean moving){
     var circuit=route(server,selected);var canonical=new LinkedHashMap<UUID,Integer>();var first=circuit.getFirst();var current=first;var entry=first.from;
     do{int sign=current.from.equals(entry)?1:-1;canonical.put(current.id,sign);var exit=sign==1?current.to:current.from;var previous=current;
       current=circuit.stream().filter(r->r!=previous&&(r.from.equals(exit)||r.to.equals(exit))).findFirst().orElseThrow();entry=exit;
@@ -118,27 +128,79 @@ public final class PoweredInvertedYawGovernorEntity extends SplitShaftBlockEntit
     for(var r:circuit){
       var edge=dev.fourthdimension.track.TrackGeometry.resolve(server,r);if(edge==null||PoweredInvertedYawTrack.rejection(server,edge)!=null)throw new IllegalArgumentException("Invalid powered circuit geometry");
       var point=CoasterPathGraphManager.sampleEdgePosition(server,edge,.5);var hit=new CoasterPathTrackFrame.GraphHit(point,edge,.5);
-      var chain=ChainLiftSpanQuery.findAtGraphHit(server,hit,0);if(chain==null)throw new IllegalArgumentException("Every moving section needs native Chain coverage");
-      var a=chain.anchor();var path=a.resolveChainLiftSpanPath(0);var firstHit=new CoasterPathTrackFrame.GraphHit(CoasterPathGraphManager.sampleEdgePosition(server,edge,.01),edge,.01);var lastHit=new CoasterPathTrackFrame.GraphHit(CoasterPathGraphManager.sampleEdgePosition(server,edge,.99),edge,.99);
-      if(path==null||!ChainLiftSpanQuery.graphHitOnSpan(path,firstHit)||!ChainLiftSpanQuery.graphHitOnSpan(path,lastHit))throw new IllegalArgumentException("Complete the section's native Chain span");
+      boolean candidateBridge=moving&&dev.fourthdimension.moving.MovingRouteContext.neutralBridge(server,r);
+      var chain=ChainLiftSpanQuery.findAtGraphHit(server,hit,0);
+      var a=candidateBridge?committedBridgeAnchor(server,r):chain==null?null:chain.anchor();
+      if(a==null)throw new IllegalArgumentException("Every moving section needs native Chain coverage");
+      var path=a.resolveChainLiftSpanPath(0);var firstHit=new CoasterPathTrackFrame.GraphHit(CoasterPathGraphManager.sampleEdgePosition(server,edge,.01),edge,.01);var lastHit=new CoasterPathTrackFrame.GraphHit(CoasterPathGraphManager.sampleEdgePosition(server,edge,.99),edge,.99);
+      if(!candidateBridge&&(path==null||!ChainLiftSpanQuery.graphHitOnSpan(path,firstHit)||!ChainLiftSpanQuery.graphHitOnSpan(path,lastHit)))throw new IllegalArgumentException("Complete the section's native Chain span");
       PoweredInvertedYawGovernorEntity governor=null;
       for(var direction:Direction.values())if(direction.getAxis()==a.getChainLiftShaftAxis())for(int n=1;n<=16;n++){
         var candidate=at(a.getBlockPos().relative(direction,n));if(candidate!=null&&a.getBlockPos().equals(candidate.discoverAnchor())){if(governor!=null)throw new IllegalArgumentException("Competing governors at a Chain anchor");governor=candidate;}}
       if(governor==null)throw new IllegalArgumentException("Supply each Chain anchor through a powered yaw governor");
-      if(governor.master!=null&&!governor.master.equals(worldPosition))throw new IllegalArgumentException("A route governor belongs to another controller");
+      if((governor.master!=null&&!governor.master.equals(worldPosition))||(governor.vehicle!=null&&!Objects.equals(governor.vehicle,vehicle)))throw new IllegalArgumentException("A route governor belongs to another controller");
       int sign=a.getBlockPos().equals(r.from)?1:a.getBlockPos().equals(r.to)?-1:0;
       if(sign==0||discovered.put(governor.worldPosition,sign*canonical.get(r.id))!=null)throw new IllegalArgumentException("Use one governor and endpoint-anchored Chain span per section");
       fingerprints.put(r.id,r.geometryHash);
     }
-    if(!discovered.containsKey(worldPosition))throw new IllegalArgumentException("Master governor must drive this circuit");
+    if(!moving&&!discovered.containsKey(worldPosition))throw new IllegalArgumentException("Master governor must drive this circuit");
     // Validate supplied energy before publishing any ownership binding.
-    for(var pos:discovered.keySet()){var g=at(pos);g.anchor=g.discoverAnchor();var reason=g.availability();if(reason!=null||Math.abs(g.inputRpm())<128)throw new IllegalArgumentException(reason==null?"Supply128 RPM to every governor":reason);}
-    vehicle=selected.chassis;cars=bound.stream().map(v->v.chassis).toList();drives.clear();drives.putAll(discovered);route.clear();route.putAll(fingerprints);routeDirections.clear();routeDirections.putAll(canonical);master=worldPosition;
-    for(var pos:drives.keySet()){var g=at(pos);g.master=worldPosition;g.vehicle=vehicle;g.cars=cars;g.setChanged();g.sendData();}
-    if(selected.authority.owner==null)token=RideAuthority.claim(server,worldPosition,vehicle,RideAuthority.NATIVE_CHAIN);
-    else if(!identity.equals(selected.authority.owner))throw new IllegalArgumentException("Another controller owns this ride");else token=RideAuthority.token(selected);
-    for(var v:bound){v.poweredYaw.controller=worldPosition.immutable();v.poweredYaw.consist=cars;}
-    fault="Held";FoundationData.get(server).setDirty();setChanged();sendData();
+    for(var pos:discovered.keySet()){var g=at(pos);var actual=g.discoverAnchor();
+      if(actual==null||g.isOverStressed()||Math.abs(g.inputRpm())<128)throw new IllegalArgumentException("Supply128 RPM through every actual destination governor and shaft");
+      var a=(CoasterAnchorpointBlockEntity)server.getBlockEntity(actual);
+      if(a==null||a.getChainLiftCommittedLength()<8||Math.abs(a.getChainLiftTravelSign())!=1)throw new IllegalArgumentException("Restore the committed native Chain drive");
+    }
+    return new Circuit(discovered,fingerprints,canonical);
+  }
+  /** Prospective validation reads real committed endpoint spans; it grants no drive lease. */
+  public void validateMovingCircuit(FoundationData.Vehicle selected){
+    if(!(level instanceof ServerLevel server)||!server.getServer().isSameThread()
+        ||!authorizesRide(selected.chassis)||!identity.equals(selected.authority.owner))
+      throw new IllegalArgumentException("Retain the original Powered Yaw authority");
+    inspectCircuit(server,selected,true);
+  }
+  private static CoasterAnchorpointBlockEntity committedBridgeAnchor(ServerLevel server,FoundationData.Rail r){
+    CoasterAnchorpointBlockEntity found=null;
+    for(var p:List.of(r.from,r.to))if(server.getBlockEntity(p) instanceof CoasterAnchorpointBlockEntity a){
+      var segments=a.getChainLiftCommittedSegments();var end=a.getChainLiftEndRef();
+      if(segments.size()!=1||end==null||!Objects.equals(end.endAnchor(),p.equals(r.from)?r.to:r.from))continue;
+      var segment=segments.getFirst();
+      if(!r.matches(segment.edgeFrom(),segment.edgeTo())||Math.min(segment.tStart(),segment.tEnd())>1e-6
+          ||Math.max(segment.tStart(),segment.tEnd())<1-1e-6)continue;
+      var edge=dev.fourthdimension.track.TrackGeometry.resolve(server,r);
+      if(edge==null||Math.abs(a.getChainLiftCommittedLength()-dev.fourthdimension.track.TrackGeometry.table(server,edge).length())>.025)continue;
+      if(found!=null)throw new IllegalArgumentException("Competing endpoint Chain drives on the moving bridge");found=a;
+    }
+    if(found==null)throw new IllegalArgumentException("Author one complete native endpoint Chain span across the destination socket before transfer");return found;
+  }
+  /** Replace only this already-held owner's drive circuit after a measured, locked native dock. */
+  public void adoptMovingCircuit(dev.fourthdimension.moving.MovingAssemblyState state,
+      dev.fourthdimension.moving.MovingAssemblyState.Dock dock,FoundationData.Vehicle selected){
+    if(!(level instanceof ServerLevel server)||!server.getServer().isSameThread()
+        ||FoundationData.get(server).moving.assemblies.get(state.id)!=state||!state.retained()
+        ||dev.fourthdimension.moving.MovingNativeAdapter.liveDockEdge(server,state)==null
+        ||!state.cars.contains(selected.chassis)||!selected.authority.held
+        ||!identity.equals(selected.authority.owner)||!worldPosition.equals(selected.authority.controller))
+      throw new IllegalArgumentException("Retain the complete original Powered Yaw authority at a physically locked dock");
+    var live=dev.fourthdimension.moving.MovingNativeAdapter.liveDockEdge(server,state);
+    if(!(live.from().equals(dock.from())&&live.to().equals(dock.to())||live.from().equals(dock.to())&&live.to().equals(dock.from())))
+      throw new IllegalArgumentException("The selected destination is not the actual locked bridge");
+    var plans=new Circuit[1];dev.fourthdimension.moving.MovingRouteContext.validate(server,state,dock,()->plans[0]=inspectCircuit(server,selected,true));
+    var plan=plans[0];
+    // Candidate geometry is ideal socket geometry. Commit the measured locked bridge's fingerprint,
+    // whose sub-tolerance native pose differs from that preview; never authorize an ideal-only hash.
+    var actualBridge=dev.fourthdimension.moving.MovingRouteContext.rail(server,dock.from(),dock.to());
+    if(actualBridge==null||!plan.route.containsKey(actualBridge.id))
+      throw new IllegalArgumentException("Destination bridge is not the inspected native circuit");
+    plan.route.put(actualBridge.id,actualBridge.geometryHash);
+    // Real Chain must now resolve on the published native bridge, including both endpoints.
+    for(var p:plan.drives.keySet()){var g=at(p);var actual=g.discoverAnchor();var a=actual==null?null:(CoasterAnchorpointBlockEntity)server.getBlockEntity(actual);
+      if(a==null||a.resolveChainLiftSpanPath(0)==null)throw new IllegalArgumentException("Destination native Chain has not rebound to the locked bridge");}
+    for(var p:new ArrayList<>(drives.keySet())){var g=at(p);if(g==null)continue;g.setOutput(0);g.leaseTick=Long.MIN_VALUE;
+      if(!plan.drives.containsKey(p)&&g!=this){g.master=null;g.vehicle=null;g.cars=List.of();g.setChanged();g.sendData();}}
+    drives.clear();drives.putAll(plan.drives);route.clear();route.putAll(plan.route);routeDirections.clear();routeDirections.putAll(plan.directions);
+    for(var p:drives.keySet()){var g=at(p);g.setOutput(0);g.leaseTick=Long.MIN_VALUE;g.anchor=g.discoverAnchor();g.master=worldPosition;g.vehicle=vehicle;g.cars=cars;g.setChanged();g.sendData();}
+    token=RideAuthority.token(selected);fault="Destination circuit held; explicitly Dispatch";setChanged();sendData();FoundationData.get(server).setDirty();
   }
   @Override public void validateRelease(ServerLevel server,FoundationData.Vehicle selected){
     var reason=systemAvailability();if(reason!=null)throw new IllegalArgumentException(reason);

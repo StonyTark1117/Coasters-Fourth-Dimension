@@ -360,6 +360,8 @@ public final class RecoveryOperations {
     progress.keySet().retainAll(ids);
     for (var id : ids) {
       var cars = group(level, id);
+      if(cars.stream().anyMatch(v->data.moving.retaining(v.chassis)!=null
+          ||dev.fourthdimension.moving.MovingNativeRestoreSupport.held(level,v.chassis)))continue;
       var cart = container.getSubLevel(id);
       String fault = "";
       if (cars.size() > MAX_RECOVERY_CARS)

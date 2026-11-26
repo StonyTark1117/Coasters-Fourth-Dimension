@@ -16,14 +16,14 @@ public final class StandingTrack {
   public static String rejection(Level level,CoasterPathEdge edge){
     if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "Standing requires fixed world track";
     var data=EligibilityHooks.data(level);
-    var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
+    var rail=data==null?null:dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null||!rail.valid||rail.family!=Family.STANDING||!(StandingVehicle.STANDARD.equals(rail.variant)||StandingVehicle.SURF.equals(rail.variant)))
       return "Standing requires matching standing track and dock capability";
     if(!(StandingVehicle.SURF.equals(rail.variant)?TrackDesign.STANDING_SURF:TrackDesign.STANDING_STANDARD).nativeFit().accepts(StandingVehicle.FIT))return "Standing contact/mount/envelope mismatch";
     return SHAPES.computeIfAbsent(edge,e->shapeFits(level,e))?null:"Standing needs radius >=16, pitch/bank <=45 degrees and roll change <=5 degrees/block";
   }
   public static String rejection(Level level,CoasterPathEdge edge,TrackDesign design){
-    String result=rejection(level,edge);if(result!=null)return result;var data=EligibilityHooks.data(level);var rail=data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElseThrow();
+    String result=rejection(level,edge);if(result!=null)return result;var data=EligibilityHooks.data(level);var rail=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElseThrow();
     return rail.variant.equals(design==TrackDesign.STANDING_SURF?StandingVehicle.SURF:StandingVehicle.STANDARD)?null:"Standing configuration requires its exact matching track variant";
   }
   private static boolean shapeFits(Level level,CoasterPathEdge edge){

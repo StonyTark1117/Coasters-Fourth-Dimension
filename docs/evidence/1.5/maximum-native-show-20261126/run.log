@@ -1,0 +1,224 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :downloadAssets UP-TO-DATE
+> Task :writeGameTestServerLegacyClasspath UP-TO-DATE
+> Task :prepareGameTestServerRun UP-TO-DATE
+
+> Task :runGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[11:19:28] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.256, --fml.neoFormVersion, 20240808.144430]
+[11:19:28] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.1+2
+[11:19:28] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.1 by Arch Linux; OS Linux arch amd64 version 7.3.5-zen1-1-zen
+[11:19:28] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[11:19:28] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[11:19:28] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.3.2/3d4056e31dd8a06e35901c3b82210c3d471e1e48/veil-neoforge-1.21.1-4.3.2.jar
+[11:19:28] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[11:19:28] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.6/d095eff41df82fbd8b321c2467b712ff35cb6bf1/sable-sable_rapier-1.21.1-2.0.6.jar
+[11:19:28] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[11:19:28] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Fourth Dimension 1.1.0 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.256 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.6 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.3.2 (veil)
+[11:19:29] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[11:19:29] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[11:19:29] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[11:19:29] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[11:19:29] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[11:19:29] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[11:19:29] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[11:19:29] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/MotorDrive (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.MotorDrive)
+[11:19:29] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/CartAssembly (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.CartAssembly)
+[11:19:29] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/block/StationBlockEntity (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.block.StationBlockEntity)
+[11:19:29] [main/WARN] [mixin/]: Error loading class: dev/notzyvex/coasters_extras/track/TrackRepaint (java.lang.ClassNotFoundException: dev.notzyvex.coasters_extras.track.TrackRepaint)
+[11:19:29] [main/WARN] [mixin/]: Error loading class: dev/notzyvex/coasters_extras/net/ModNetwork (java.lang.ClassNotFoundException: dev.notzyvex.coasters_extras.net.ModNetwork)
+[11:19:29] [main/WARN] [mixin/]: Error loading class: medev/coaster/skins/skin/CartSkinTargets (java.lang.ClassNotFoundException: medev.coaster.skins.skin.CartSkinTargets)
+[11:19:29] [main/WARN] [mixin/]: Error loading class: medev/coaster/skins/skin/LinkedCartSkins (java.lang.ClassNotFoundException: medev.coaster.skins.skin.LinkedCartSkins)
+[11:19:29] [main/WARN] [mixin/]: Error loading class: medev/coaster/skins/skin/CartSkinData (java.lang.ClassNotFoundException: medev.coaster.skins.skin.CartSkinData)
+[11:19:29] [main/WARN] [mixin/]: Error loading class: medev/coaster/skins/item/ScrewDriverItem (java.lang.ClassNotFoundException: medev.coaster.skins.item.ScrewDriverItem)
+[11:19:29] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/block/CoasterSeatBlockEntity (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.block.CoasterSeatBlockEntity)
+[11:19:29] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/event/SeatDismountHandler (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.event.SeatDismountHandler)
+[11:19:29] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[11:19:29] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[11:19:33] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[11:19:33] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[11:19:33] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[11:19:33] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[11:19:33] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[11:19:33] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[11:19:33] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.256, for MC 1.21.1
+[11:19:33] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[11:19:33] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[11:19:33] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd15-maxworkload-20261126/build/classes/java/main/%23127!/
+[11:19:35] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[11:19:35] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[11:19:35] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd15-maxworkload-20261126/build/moddev/artifacts/neoforge-21.1.256.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[11:19:35] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd15-maxworkload-20261126/build/moddev/artifacts/neoforge-21.1.256.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[11:19:35] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[11:19:35] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[11:19:35] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [fourthdimension_fd2007_maxshow]
+[11:19:35] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[11:19:35] [main/INFO] [minecraft/RecipeManager]: Loaded 2913 recipes
+[11:19:35] [main/INFO] [minecraft/AdvancementTree]: Loaded 2522 advancements
+[11:19:36] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[11:19:36] [Server thread/INFO] [de.ry.sa.Sable/]: Using game directory relative Sable Rapier native directory /mnt/NVME4/fourthdimension-runs/fd15-maxworkload-20261126/build/runs/gametest/.sable/natives
+[2026-11-26T18:19:36.934088983Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[11:19:37] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-11-26T18:19:37.179849016Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[11:19:37] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-11-26T18:19:37.196821991Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[11:19:37] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[11:19:37] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[11:19:37] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 96 ms
+[11:19:37] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[11:19:37] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[11:19:37] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position 7760573, -59, -10940855!
+[11:19:37] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[11:19:37] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[11:19:37] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[11:19:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2001_ROLL_CONTACT id=35e26e7d-4f95-4772-b830-52979870aaa1 edge=BlockPos{x=-3260, y=180, z=-724}/BlockPos{x=-3260, y=180, z=-676}
+FD2001_ROLL_CONTACT id=a7420f56-7010-472c-9741-6d0d64213ded edge=BlockPos{x=-3260, y=180, z=-724}/BlockPos{x=-3260, y=180, z=-676}
+FD2001_ROLL_CONTACT id=4cc4623c-2076-4358-9ebc-a0c6b2e91053 edge=BlockPos{x=-3260, y=180, z=-724}/BlockPos{x=-3260, y=180, z=-676}
+FD2001_ROLL_CONTACT id=5054e695-5da9-488c-9b4b-c404fb3dc628 edge=BlockPos{x=-3260, y=180, z=-724}/BlockPos{x=-3260, y=180, z=-676}
+[11:19:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:39] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 35e26e7d-4f95-4772-b830-52979870aaa1 <-> a7420f56-7010-472c-9741-6d0d64213ded at distance 6.000
+[11:19:39] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts a7420f56-7010-472c-9741-6d0d64213ded <-> 4cc4623c-2076-4358-9ebc-a0c6b2e91053 at distance 6.000
+[11:19:39] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 4cc4623c-2076-4358-9ebc-a0c6b2e91053 <-> 5054e695-5da9-488c-9b4b-c404fb3dc628 at distance 6.000
+FD2001_MEASURE_LOAD label=max48-four-native-show450-20261126 bodies=5 nativeTotalMass=151.0 perLinearAxisForceCap=3624.0 perAngularAxisTorqueCap=36240.0
+FD2002_BEGIN mechanism=TURNTABLE id=ab2108f9-3450-40f8-92e5-e553248f324f duration=65.625 limits=Limits[linearSpeed=2.0, linearAcceleration=1.0, linearJerk=2.0, angularSpeed=0.2617993877991494, angularAcceleration=0.1308996938995747, angularJerk=0.2617993877991494]
+[11:19:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=200 phase=MOVING actual=Pose[x=-3259.500000070743, y=180.5000000000001, z=-699.4999999596054, qx=1.189458061412065E-8, qy=0.004680140947050758, qz=5.35697645575525E-8, qw=0.9999890480803842] v=(-1.533E-4 -4.507E-4  8.038E-6) w=(-2.131E-6  5.944E-3 -1.007E-4)
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=300 phase=MOVING actual=Pose[x=-3259.499996792544, y=180.49999999999434, z=-699.5000004226455, qx=-1.1250978254467985E-7, qy=0.07303758807829934, qz=-1.766836272377259E-6, qw=0.9973291887459076] v=( 2.547E-5 -4.508E-4 -1.100E-7) w=( 3.644E-6  4.651E-2  3.347E-5)
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=400 phase=MOVING actual=Pose[x=-3259.4999991565082, y=180.49999999999957, z=-699.5000005323654, qx=-1.4668553960557354E-7, qy=0.2989205183117683, qz=-5.150940970277951E-7, qw=0.9542780117617387] v=(-1.556E-4 -4.521E-4  9.779E-5) w=(-7.479E-5  1.256E-1 -1.149E-4)
+[11:19:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=500 phase=MOVING actual=Pose[x=-3259.499999912833, y=180.49999999999977, z=-699.5000007939257, qx=-2.888735605202438E-7, qy=0.674406875482204, qz=-3.133647176810652E-7, qw=0.7383599165055952] v=(-5.386E-6 -4.511E-4  3.097E-5) w=(-1.980E-5  2.050E-1 -1.307E-6)
+[11:19:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_INTERRUPT mechanism=TURNTABLE pose=Pose[x=-3259.499999983184, y=180.5000000000001, z=-699.4999999755061, qx=2.291027073452142E-8, qy=0.9119842537396806, qz=2.3792628022108848E-8, qw=0.41022520757612724] v=( 1.323E-4 -4.521E-4  1.486E-4) w=(-1.150E-4  2.419E-1  9.392E-5)
+[11:19:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=600 phase=FAULT_HOLD actual=Pose[x=-3259.4999951155587, y=180.4999999999709, z=-699.4999946047418, qx=3.6876948057839116E-6, qy=0.911984045246708, qz=1.624469332557727E-6, qw=0.410225671063151] v=( 3.150E-4 -4.502E-4  3.283E-4) w=(-2.879E-4  2.598E-5  2.613E-4)
+FD2002_RESUME mechanism=TURNTABLE pose=Pose[x=-3259.4999951155587, y=180.4999999999709, z=-699.4999946047418, qx=3.6876948057839116E-6, qy=0.911984045246708, qz=1.624469332557727E-6, qw=0.410225671063151]
+[11:19:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=700 phase=MOVING actual=Pose[x=-3259.5000007560234, y=180.49999999999943, z=-699.5000008258072, qx=-5.549703326169492E-7, qy=0.9172563276740013, qz=-2.3662514906804782E-7, qw=0.3982974131746788] v=(-1.569E-5 -4.508E-4 -1.819E-5) w=( 2.627E-5  1.801E-2 -2.407E-5)
+[11:19:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=800 phase=MOVING actual=Pose[x=-3259.5000000048535, y=180.50000000000014, z=-699.5000000073383, qx=8.175962491845357E-9, qy=0.9742229550309013, qz=9.91714824201147E-9, qw=0.22558730879829772] v=( 1.933E-4 -4.517E-4  1.002E-4) w=(-1.022E-4  1.267E-1  1.983E-4)
+[11:19:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=900 phase=MOVING actual=Pose[x=-3259.500000086182, y=180.5000000000001, z=-699.4999999254537, qx=-4.00166269219721E-8, qy=0.9659253209585063, qz=3.362365770608184E-8, qw=-0.2588209310144832] v=( 1.370E-5 -4.509E-4 -5.295E-6) w=( 3.580E-6  2.375E-1  3.911E-6)
+[11:19:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=1000 phase=MOVING actual=Pose[x=-3259.499999653102, y=180.49999999999864, z=-699.4999983852414, qx=-5.631211490891021E-7, qy=0.6202608955708655, qz=6.978072534128096E-7, qw=-0.7843955771323702] v=( 9.347E-6 -4.508E-4  5.614E-5) w=(-7.395E-5  2.358E-1  1.372E-5)
+[11:19:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=1100 phase=MOVING actual=Pose[x=-3259.499999950138, y=180.5000000000001, z=-699.4999999747242, qx=4.1779199536389E-9, qy=0.18575436129360678, qz=1.7393850533426687E-8, qw=-0.9825962127244354] v=(-5.151E-5 -4.510E-4 -1.988E-5) w=( 1.622E-5  1.232E-1 -4.151E-5)
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=1200 phase=MOVING actual=Pose[x=-3259.500000796306, y=180.49999999999977, z=-699.5000000310378, qx=2.24239295979017E-8, qy=0.011707542577897884, qz=-4.537775781482923E-7, qw=-0.999931464374724] v=(-4.015E-5 -4.511E-4 -2.523E-6) w=( 2.135E-6  1.681E-2 -3.862E-5)
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=1300 phase=MOVING actual=Pose[x=-3259.5000033432298, y=180.49999999999397, z=-699.5000000306351, qx=2.815331203303612E-8, qy=-5.324951633967196E-4, qz=-1.8589240262796064E-6, qw=-0.9999998582227122] v=(-8.871E-5 -4.513E-4 -3.293E-6) w=( 2.189E-6  3.203E-3 -1.051E-4)
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=1400 phase=MOVING actual=Pose[x=-3259.4999981520764, y=180.4999999999975, z=-699.500001161015, qx=3.071850536147403E-7, qy=-0.3028185746916168, qz=1.1488243986623028E-6, qw=-0.9530482206165244] v=(-1.011E-4 -4.525E-4  6.356E-5) w=(-6.202E-5  2.462E-1 -9.704E-5)
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2002_SAMPLE mechanism=TURNTABLE tick=1500 phase=MOVING actual=Pose[x=-3259.5000000389205, y=180.49999999999974, z=-699.5000008222439, qx=3.3776087917692526E-7, qy=-0.6966568505215751, qz=2.8315379662815926E-7, qw=-0.7174045111519479] v=(-6.955E-6 -4.515E-4  2.519E-5) w=(-1.693E-5  3.950E-2 -4.477E-6)
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD2007_MAXSHOW_WORKLOAD bedLength=48 cars=4 physicalBodies=5 callbacks=8604 addonNanos=3339187082 averageAddonCallbackNanos=388097 observedWorldTicks=1434 averageWorldTickNanos=3819629 maxWorldTickNanos=10538558 averageServerTickNanos=7008967 maxServerTickNanos=3124662182 serverSmoothedTickMsMax=35.498322 serverSmoothedTickMsFinal=3.254903 actualUnwrappedYaw=7.853981549680789 maxBodyPoseError=2.5159340037097166E-4
+FD2002_PASS mechanism=TURNTABLE actual=Pose[x=-3259.4999999814063, y=180.5000000000001, z=-699.500000025418, qx=-2.443247765117347E-10, qy=-0.7071067513842252, qz=-2.6985965563872897E-10, qw=-0.7071068109888685] target=Pose[x=-3259.5, y=180.5, z=-699.5, qx=0.0, qy=-0.7071067811865475, qz=0.0, qw=-0.7071067811865477] maxSpeed=0.0010041756226761695 maxAngular=0.2539197347477431 tickAcceleration=0.00963033273996917 tickAngularAcceleration=1.2317799296805332
+FD2001_MEASURE label=max48-four-native-show450-20261126 samples=2868 dt=0.025..0.025 motionMax[v,w,a,alpha,j,angularJerk]=[0.0011144830267934035, 0.2539197347477431, 0.03403508080101707, 0.06920488377194975, 2.1686078167686484, 2.0093963845823195] brakeMax=[6.593092415976413E-4, 0.2418715515514408, 0.014915004241527854, 1.2331783784600867, 0.8520984686807697, 70.04313319309364] stopExcursion=7.2483721403035445E-6 angularExcursion=0.023685057172384966 firstStoppedSeconds=0.7499999999999574
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: [+]
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 12.42 s ======================
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: All 1 required tests passed :)
+[11:19:49] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[11:19:49] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[11:19:49] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[11:19:49] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[11:19:50] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[11:19:50] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[11:19:52] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[11:19:52] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[11:19:52] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[11:19:52] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[11:19:52] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[11:19:52] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[11:19:52] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[11:19:52] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[11:19:52] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///mnt/NVME4/fourthdimension-runs/fd15-maxworkload-20261126/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 31s
+7 actionable tasks: 2 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

@@ -55,7 +55,7 @@ public final class SuspendedRuntime {
         && container.physicsSystem().getPipeline().getLinearVelocity(parent,new Vector3d()).length()<=.05;
   }
   public static FoundationData.Rail rail(ServerLevel level,FoundationData.Vehicle v) {
-    return FoundationData.get(level).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
+    return dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
   }
   /** Deliberate stationary dock rebind accepts a changed train without masking an in-motion loss. */
   public static void rebindDock(ServerLevel level,FoundationData.Vehicle selected,net.minecraft.core.BlockPos pos) {
@@ -87,7 +87,7 @@ public final class SuspendedRuntime {
   /** A latched station may retain its cabin through the next contiguous lift approach. */
   public static FoundationData.Rail departureLift(ServerLevel level,FoundationData.Vehicle vehicle) {
     var current=rail(level,vehicle);if(current==null)return null;if(current.liftLock)return current;
-    var candidates=FoundationData.get(level).rails.stream().filter(r->r!=current && r.liftLock && r.valid
+    var candidates=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r!=current && r.liftLock && r.valid
         && r.family==vehicle.family && r.variant.equals(vehicle.variant)
         && (r.from.equals(current.from)||r.to.equals(current.from)||r.from.equals(current.to)||r.to.equals(current.to))).toList();
     return candidates.size()==1?candidates.getFirst():null;
@@ -120,7 +120,7 @@ public final class SuspendedRuntime {
     if(span!=null && drive<.001)return "Suspended Chain power lost; lock retained, restore and explicitly resume";
     if(rail.liftLock && (span==null || drive>2.01))return "Suspended lift needs powered Chain at no more than 2 blocks/s";
     if(c.liftHeld && c.liftFrom!=null) {
-      var saved=FoundationData.get(level).rails.stream().filter(r->r.matches(c.liftFrom,c.liftTo)).findFirst().orElse(null);
+      var saved=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(c.liftFrom,c.liftTo)).findFirst().orElse(null);
       if(saved==null || !saved.valid || saved.geometryHash!=c.liftGeometry || TrackGeometry.resolve(level,saved)==null)
         return "Suspended locked lift identity changed";
     }
@@ -177,7 +177,7 @@ public final class SuspendedRuntime {
         .subtract(dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphManager.sampleEdgePosition(level,edge,Math.max(0,hit.t()-.001))).normalize();
     double signed=velocity.dot(tangent.x,tangent.y,tangent.z),speed=velocity.length();
     double look=speed*speed/12+2.5;
-    return FoundationData.get(level).rails.stream().filter(next->next!=rail && next.liftLock && next.valid
+    return dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(next->next!=rail && next.liftLock && next.valid
         && ((s<=look && signed<=.01 && (next.from.equals(edge.from())||next.to.equals(edge.from())))
           || (table.length()-s<=look && signed>=-.01 && (next.from.equals(edge.to())||next.to.equals(edge.to()))))).findFirst().orElse(null);
   }

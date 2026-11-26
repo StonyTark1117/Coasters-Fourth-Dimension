@@ -21,8 +21,12 @@ public final class StandingRuntime {
   private static final Map<ServerSubLevel,Long> CHECKED=new WeakHashMap<>();
   private static final Map<ServerSubLevel,GenericConstraintHandle> HOLDS=new WeakHashMap<>();
   private StandingRuntime(){}
+  /** Transfer only the fixed-world chassis hold after a moving bed has retained every body. */
+  public static void releaseMovingWorldHold(ServerSubLevel parent) {
+    var hold=HOLDS.remove(parent);if(hold!=null&&hold.isValid())hold.remove();
+  }
   public static FoundationData.Rail rail(ServerLevel level,FoundationData.Vehicle v){
-    return FoundationData.get(level).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
+    return dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
   }
   public static void fault(ServerLevel level,FoundationData.Vehicle v,String reason){
     var ids=new HashSet<>(v.fixedConsist);ids.add(v.chassis);
@@ -35,7 +39,7 @@ public final class StandingRuntime {
   private static java.util.Map<BlockPos,Integer> driveDirections(ServerLevel level,FoundationData.Vehicle v){
     var result=new java.util.HashMap<BlockPos,Integer>();var visited=new java.util.HashSet<BlockPos>();
     var queue=new java.util.ArrayDeque<BlockPos>();if(v.boundFrom!=null)queue.add(v.boundFrom);
-    var rails=FoundationData.get(level).rails;
+    var rails=dev.fourthdimension.moving.MovingRouteContext.rails(level);
     while(!queue.isEmpty()){
       var p=queue.remove();if(!visited.add(p))continue;
       if(!level.hasChunkAt(p))throw new IllegalArgumentException("Load the complete Standing route before direction validation");
@@ -151,7 +155,7 @@ public final class StandingRuntime {
     double remaining=signed>=0?table.length()-at:at;
     if(Math.abs(signed)>.01&&remaining<=look){
       var endpoint=signed>0?edge.to():edge.from();
-      var next=FoundationData.get(level).rails.stream().filter(r->r!=rail&&(r.from.equals(endpoint)||r.to.equals(endpoint))).toList();
+      var next=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r!=rail&&(r.from.equals(endpoint)||r.to.equals(endpoint))).toList();
       if(next.size()!=1)return "Standing end or ambiguous route; stop and inspect";
       var following=TrackGeometry.resolve(level,next.getFirst());
       if(following==null||StandingTrack.rejection(level,following,StandingVehicle.design(v))!=null)return "Standing incompatible route ahead";

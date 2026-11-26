@@ -55,6 +55,8 @@ public final class WingTrack {
   public static CoasterPathEdge support(Level level, FoundationData.Vehicle vehicle) {
     if (vehicle.boundFrom == null || !level.hasChunkAt(vehicle.boundFrom)
         || !level.hasChunkAt(vehicle.boundTo)) return null;
+    var moving = dev.fourthdimension.moving.MovingRouteContext.liveEdge(level,vehicle.boundFrom,vehicle.boundTo);
+    if (moving != null) return rejection(level,moving) == null ? moving : null;
     var anchor = level.getBlockEntity(vehicle.boundFrom);
     if (!(anchor instanceof dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity a))
       return null;

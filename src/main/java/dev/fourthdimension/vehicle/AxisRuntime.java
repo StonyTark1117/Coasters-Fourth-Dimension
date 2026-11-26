@@ -21,7 +21,7 @@ public final class AxisRuntime {
   private static final class Live { final DockCapture latch=new DockCapture(); long checked=Long.MIN_VALUE; boolean started, aligning; }
   private static final Map<ServerSubLevel,Live> LIVE=new WeakHashMap<>();
   private AxisRuntime(){}
-  public static FoundationData.Rail rail(ServerLevel level,FoundationData.Vehicle v){return FoundationData.get(level).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);}
+  public static FoundationData.Rail rail(ServerLevel level,FoundationData.Vehicle v){return dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);}
   public static void fault(ServerLevel level,FoundationData.Vehicle v,String reason){
     var ids=new HashSet<>(v.axis.consist);ids.add(v.chassis);
     var body=SubLevelContainer.getContainer(level).getSubLevel(v.chassis);
@@ -105,7 +105,7 @@ public final class AxisRuntime {
     var basis=CoasterPathTrackFrame.trackBasisAtHit(level,hit);double signed=velocity.dot(basis.forward().x,basis.forward().y,basis.forward().z);
     double remaining=signed>=0?table.length()-at:at;
     if(Math.abs(signed)>.01&&remaining<=look){
-      var endpoint=signed>0?edge.to():edge.from();var following=FoundationData.get(level).rails.stream().filter(n->n!=r&&(n.from.equals(endpoint)||n.to.equals(endpoint))).toList();
+      var endpoint=signed>0?edge.to():edge.from();var following=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(n->n!=r&&(n.from.equals(endpoint)||n.to.equals(endpoint))).toList();
       if(following.size()!=1)return "Axis route end or ambiguous connection";
       var next=TrackGeometry.resolve(level,following.getFirst());if(next==null||AxisTrack.rejection(level,next)!=null)return "Axis incompatible route ahead";
       var nt=TrackGeometry.table(level,next);for(double s=0;s<=Math.min(look-remaining,nt.length());s+=.5){double t=nt.parameterAt(next.from().equals(endpoint)?s:nt.length()-s);

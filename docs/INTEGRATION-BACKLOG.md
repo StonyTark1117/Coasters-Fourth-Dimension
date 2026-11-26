@@ -7,8 +7,8 @@ pause is superseded by explicit package prerequisites in [ROADMAP.md](../ROADMAP
 All former-through-1.5 agreed capabilities remain in the stable 1.0 target.
 All adopted vehicle/cart styles, including Fixed Inverted, Dive, both Flying
 variants and Powered Inverted Yaw, also deliver before 1.0. FD2001–FD2007 moving
-tracks remain post-1.0; independent tools and multi-train management keep their
-later allocations below. Planning adoption is not
+tracks are allocated to 1.5 by the 2026-11-22 plan; independent tools and
+multi-train management keep their later allocations below. Planning adoption is not
 runtime activation, compatibility certification, a dependency upgrade or publication.
 
 **Artifact inventory verified 2026-11-02** for Minecraft 1.21.1 / NeoForge.
@@ -203,7 +203,8 @@ migration run. A blocked optional adapter does not block a sufficient core basel
 | 1.0 stable / FD1001–FD1003 | Accurate support docs and reproducible artifacts | Clean install/package checks; publication remains separate. |
 | 1.1 / FD1602–FD1605 | Shareable presets, colors/liveries and operator panel | Consume integrated appearance, editing and control contracts. Skin is optional; panel commands preserve server authority and original choices work standalone. |
 | 1.2 / FD1701B–C, FD1703 | Ride-local multi-train block/dispatch management | Consume FD1701A authority from 0.8. Declare one owner, one circuit and finite train/profile limits; no park-wide or arbitrary-junction control. |
-| Post-1.0 moving-track program / FD2001–FD2007 | Transfer, turntable, drop, tilt and finite additional styles; provider graph/retention adapters | Inspect native connection hooks and prove occupied moving-segment lifecycle first. Release numbers follow feasibility; no dependency from 1.0 or fixed-track vehicle gates. |
+| 1.5 / FD2001–FD2007 | Transfer, turntable, drop, tilt, elevator, teeter-totter, side-drop and yaw-plus-pitch table | Follow the [design/matrix](specs/FD2001-moving-track-1.5.md): native moving-support/retention adapters first, exact rail/car pairings, player compatibility readback, fixed-span optional propulsion handoff and explicit unsupported cases. FD2007 reconciles all eight; earlier accepted cases remain closed. |
+| Future / FD2008 | Launch Systems moving-track interoperability | Consume accepted native moving-track and external authority contracts. Define and qualify actual consumer handoff separately; no 1.5 dependency or assigned release number. |
 | Independent FD801 | Inspectable functional Track Styles Arrow 4D adapter | Measured mechanism/geometry equivalence and applicable terms; unavailable upstream release never blocks standalone 1.0. |
 
 FD501B supplies common Additions prerequisites to FD810/FD911; seat-only changes

@@ -40,6 +40,7 @@ public final class ConsistRules {
     if (a == null || b == null) return false;
     var data = EligibilityHooks.data(level);
     if (data == null || a.getUniqueId().equals(b.getUniqueId())) return false;
+    if (data.moving.retaining(a.getUniqueId()) != null || data.moving.retaining(b.getUniqueId()) != null) return false;
     var first = data.vehicles.get(a.getUniqueId());
     var second = data.vehicles.get(b.getUniqueId());
     if (first == null && second == null)
@@ -106,7 +107,7 @@ public final class ConsistRules {
         continue;
       }
       var support =
-          data.rails.stream()
+          dev.fourthdimension.moving.MovingRouteContext.rails(level).stream()
               .filter(r -> r.matches(other.boundFrom, other.boundTo))
               .findFirst()
               .orElse(null);

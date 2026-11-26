@@ -16,7 +16,7 @@ public final class RollerBallTrack {
   public static String rejection(Level level,CoasterPathEdge edge){
     if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "Roller Ball requires fixed world track";
     var data=EligibilityHooks.data(level);
-    var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
+    var rail=data==null?null:dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null||!rail.valid||rail.family!=Family.ROLLER_BALL||!RollerBallVehicle.VARIANT.equals(rail.variant))
       return "Roller Ball requires matching outboard track with capture and drive capability";
     if(!TrackDesign.ROLLER_BALL.nativeFit().accepts(RollerBallVehicle.FIT))return "Roller Ball contact/mount/envelope mismatch";
@@ -113,9 +113,10 @@ public final class RollerBallTrack {
   private static List<Leg> route(Level level, FoundationData.Vehicle vehicle, boolean requireValid) {
     var data = EligibilityHooks.data(level);
     var state = vehicle.roller;
-    if (data == null || state.dockFrom == null)
+    if (data == null || state.dockFrom == null && dev.fourthdimension.moving.MovingRouteContext.start(level, vehicle) == null)
       throw new IllegalArgumentException("Bind a Roller Ball dock before validating its route");
-    var dock = data.rails.stream().filter(r -> r.matches(state.dockFrom, state.dockTo)).findFirst().orElse(null);
+    var dock = dev.fourthdimension.moving.MovingRouteContext.start(level, vehicle);
+    if (dock == null) dock = dev.fourthdimension.moving.MovingRouteContext.rail(level,state.dockFrom,state.dockTo);
     if (dock == null || dock.rollerSection != RollerBallState.Section.DOCK)
       throw new IllegalArgumentException("Roller Ball dock section is unavailable");
     var result = walk(level, data, dock, dock.from, requireValid);
@@ -137,7 +138,7 @@ public final class RollerBallTrack {
       result.add(new Leg(rail, edge, edge.from().equals(at)));
       var end = rail.from.equals(at) ? rail.to : rail.from;
       var current = rail;
-      var following = data.rails.stream().filter(r -> r != current && (r.from.equals(end) || r.to.equals(end))).toList();
+      var following = dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r -> r != current && (r.from.equals(end) || r.to.equals(end))).toList();
       if (following.size() != 1) throw new IllegalArgumentException("Roller Ball requires one closed unbranched route");
       rail = following.getFirst();
       at = end;

@@ -16,7 +16,7 @@ public final class FlyingTrack {
   public static String rejection(Level level,CoasterPathEdge edge){
     if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "Conventional Flying requires fixed world track";
     var data=EligibilityHooks.data(level);
-    var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
+    var rail=data==null?null:dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null||!rail.valid||rail.family!=Family.FLYING||!FlyingVehicle.VARIANT.equals(rail.variant))
       return "Conventional Flying requires matching overhead track and station posture capability";
     if(!TrackDesign.FLYING.nativeFit().accepts(FlyingVehicle.FIT))return "Conventional Flying contact/mount/envelope mismatch";

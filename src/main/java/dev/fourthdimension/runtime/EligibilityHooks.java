@@ -21,6 +21,7 @@ public final class EligibilityHooks {
     if (hit == null) return false;
     var data = data(level);
     if (data == null) return true;
+    if (!dev.fourthdimension.moving.MovingReservations.permits(data,chassis.getUniqueId(),hit.edge())) return false;
     var vehicle = data.vehicles.get(chassis.getUniqueId());
     var markers = FamilyControllers.find(chassis);
     if (vehicle != null && (markers.size() != 1 || !markers.contains(vehicle.family))) return false;
@@ -29,7 +30,7 @@ public final class EligibilityHooks {
         && (vehicle == null || markers.size() != 1 || !markers.contains(vehicle.family)))
       return false;
     var rail =
-        data.rails.stream()
+        dev.fourthdimension.moving.MovingRouteContext.rails(level).stream()
             .filter(r -> r.matches(hit.edge().from(), hit.edge().to()))
             .findFirst()
             .orElse(null);
@@ -98,7 +99,7 @@ public final class EligibilityHooks {
       return;
     }
     var rail =
-        data.rails.stream()
+        dev.fourthdimension.moving.MovingRouteContext.rails(level).stream()
             .filter(r -> r.matches(hit.edge().from(), hit.edge().to()))
             .findFirst()
             .orElse(null);

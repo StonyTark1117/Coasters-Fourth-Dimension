@@ -29,7 +29,12 @@ public final class NewGenerationFlyingRuntime {
   }
   private static final Map<ServerSubLevel,Motion> MOTION=new WeakHashMap<>();
   private NewGenerationFlyingRuntime(){}
-  public static FoundationData.Rail rail(ServerLevel l,FoundationData.Vehicle v){return FoundationData.get(l).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);}
+  /** Keep yaw/posture joints; only detach the chassis from its old fixed show location. */
+  public static void releaseMovingWorldHold(ServerSubLevel parent) {
+    var motion=MOTION.get(parent);if(motion==null||motion.showHold==null)return;
+    if(motion.showHold.isValid())motion.showHold.remove();motion.showHold=null;
+  }
+  public static FoundationData.Rail rail(ServerLevel l,FoundationData.Vehicle v){return dev.fourthdimension.moving.MovingRouteContext.rails(l).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);}
   private static ServerSubLevel body(ServerLevel l,UUID id){if(id==null)return null;var b=SubLevelContainer.getContainer(l).getSubLevel(id);return b instanceof ServerSubLevel s&&!s.isRemoved()?s:null;}
   private static double speed(ServerSubLevel b){return SubLevelContainer.getContainer(b.getLevel()).physicsSystem().getPipeline().getLinearVelocity(b,new Vector3d()).length();}
   public static void refresh(ServerLevel l,FoundationData.Vehicle v){
@@ -214,8 +219,16 @@ public final class NewGenerationFlyingRuntime {
     car.yaw.epoch++;car.revision++;
   }changed(l);}
   public static void restraints(ServerLevel l,FoundationData.Vehicle v,boolean body,boolean closed){
-    var parent=body(l,v.chassis);if(parent==null||!ready(l,parent,v))throw new IllegalArgumentException("Settle seated and unwind to actual zero at the clear dock first");
-    for(var car:VehicleOperations.consist(l,v)){if(body)car.flying.body=closed;else car.flying.legs=closed;car.restraints=car.flying.body||car.flying.legs;car.revision++;}changed(l);
+    boolean authorizedSurvivor=dev.fourthdimension.moving.MovingEvacuation.authorized(l,v);
+    var cars=authorizedSurvivor?List.of(v):VehicleOperations.consist(l,v);
+    boolean service=authorizedSurvivor||cars.stream().anyMatch(car->dev.fourthdimension.moving.MovingRuntime.retained(l,car.chassis)
+        ||dev.fourthdimension.moving.MovingServiceRuntime.applies(l,car));
+    if(service&&cars.stream().anyMatch(car->!dev.fourthdimension.moving.MovingEvacuation.authorized(l,car)
+        ||car.flying.lock==FlyingState.Lock.NONE||car.flying.transitioning()
+        ||Math.abs(car.yaw.velocity)>.05||car.carriers.stream().anyMatch(c->Math.abs(c.omega)>.05)))
+      throw new IllegalArgumentException("Enable stationary held-posture service access before operating restraints");
+    var parent=body(l,v.chassis);if(!service&&(parent==null||!ready(l,parent,v)))throw new IllegalArgumentException("Settle seated and unwind to actual zero at the clear dock first");
+    for(var car:cars){if(body)car.flying.body=closed;else car.flying.legs=closed;car.restraints=car.flying.body||car.flying.legs;car.revision++;}changed(l);
   }
   public static void unwind(ServerLevel l,FoundationData.Vehicle v){
     if(!dock(l,v))throw new IllegalArgumentException("Stop at the clear bound dock before unwinding");

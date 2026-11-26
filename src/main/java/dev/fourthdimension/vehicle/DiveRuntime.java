@@ -21,8 +21,12 @@ public final class DiveRuntime {
   private static final Map<ServerSubLevel,Long> CHECKED=new WeakHashMap<>();
   private static final Map<ServerSubLevel,GenericConstraintHandle> HOLDS=new WeakHashMap<>();
   private DiveRuntime(){}
+  /** Transfer only the fixed-world chassis hold after a moving bed has retained every body. */
+  public static void releaseMovingWorldHold(ServerSubLevel parent) {
+    var hold=HOLDS.remove(parent);if(hold!=null&&hold.isValid())hold.remove();
+  }
   public static FoundationData.Rail rail(ServerLevel level,FoundationData.Vehicle v){
-    return FoundationData.get(level).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
+    return dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
   }
   public static void fault(ServerLevel level,FoundationData.Vehicle v,String reason){
     var ids=new HashSet<>(v.fixedConsist);ids.add(v.chassis);
@@ -113,7 +117,7 @@ public final class DiveRuntime {
     double remaining=signed>=0?table.length()-at:at;
     if(Math.abs(signed)>.01&&remaining<=look){
       var endpoint=signed>0?edge.to():edge.from();
-      var next=FoundationData.get(level).rails.stream().filter(r->r!=rail&&(r.from.equals(endpoint)||r.to.equals(endpoint))).toList();
+      var next=dev.fourthdimension.moving.MovingRouteContext.rails(level).stream().filter(r->r!=rail&&(r.from.equals(endpoint)||r.to.equals(endpoint))).toList();
       if(next.size()!=1)return "Dive end or ambiguous route; stop and inspect";
       var following=TrackGeometry.resolve(level,next.getFirst());
       if(following==null||DiveTrack.rejection(level,following)!=null)return "Dive incompatible route ahead";
@@ -198,7 +202,7 @@ public final class DiveRuntime {
       if(car.dive.phase!=DiveState.Phase.DROP&&car.dive.phase!=DiveState.Phase.BRAKING
           &&!Objects.equals(car.boundFrom,controller.from))throw new IllegalArgumentException("Every Dive car must fit on the hold section");
     }
-    var next=FoundationData.get(l).rails.stream().filter(r->!r.matches(edge.from(),edge.to())&&(r.from.equals(edge.to())||r.to.equals(edge.to()))).toList();
+    var next=dev.fourthdimension.moving.MovingRouteContext.rails(l).stream().filter(r->!r.matches(edge.from(),edge.to())&&(r.from.equals(edge.to())||r.to.equals(edge.to()))).toList();
     if(next.size()!=1)throw new IllegalArgumentException("Dive exit unavailable or ambiguous");
     var exit=TrackGeometry.resolve(l,next.getFirst());if(exit==null||DiveTrack.rejection(l,exit)!=null)throw new IllegalArgumentException("Dive exit must be matching supported track");
     // Finite local hold/exit clearance; this is not a park-wide route reservation.

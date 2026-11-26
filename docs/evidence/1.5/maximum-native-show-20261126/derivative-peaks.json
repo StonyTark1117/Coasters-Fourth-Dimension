@@ -1,0 +1,46 @@
+{
+  "motion": {
+    "angular_acceleration": {
+      "maximum": 0.06920488377194975,
+      "seconds": 62.52499999999752,
+      "phase": "MOVING"
+    },
+    "angular_jerk": {
+      "maximum": 2.0093963845823195,
+      "seconds": 50.92499999999818,
+      "phase": "MOVING"
+    },
+    "linear_acceleration": {
+      "maximum": 0.03403508080101707,
+      "seconds": 50.92499999999818,
+      "phase": "MOVING"
+    },
+    "linear_jerk": {
+      "maximum": 2.1686078167686484,
+      "seconds": 50.92499999999818,
+      "phase": "MOVING"
+    }
+  },
+  "braking": {
+    "angular_acceleration": {
+      "maximum": 1.2331783784600867,
+      "seconds": 23.04999999999976,
+      "phase": "FAULT_HOLD"
+    },
+    "angular_jerk": {
+      "maximum": 70.04313319309364,
+      "seconds": 23.649999999999725,
+      "phase": "FAULT_HOLD"
+    },
+    "linear_acceleration": {
+      "maximum": 0.014915004241527854,
+      "seconds": 23.74999999999972,
+      "phase": "FAULT_HOLD"
+    },
+    "linear_jerk": {
+      "maximum": 0.8520984686807697,
+      "seconds": 23.424999999999738,
+      "phase": "FAULT_HOLD"
+    }
+  }
+}

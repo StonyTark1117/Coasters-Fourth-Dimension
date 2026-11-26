@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "facing=north,locked=false": {
+      "model": "fourthdimension:block/moving_pipeline_brace"
+    },
+    "facing=north,locked=true": {
+      "model": "fourthdimension:block/moving_pipeline_brace_locked"
+    },
+    "facing=east,locked=false": {
+      "model": "fourthdimension:block/moving_pipeline_brace",
+      "y": 90
+    },
+    "facing=east,locked=true": {
+      "model": "fourthdimension:block/moving_pipeline_brace_locked",
+      "y": 90
+    },
+    "facing=south,locked=false": {
+      "model": "fourthdimension:block/moving_pipeline_brace",
+      "y": 180
+    },
+    "facing=south,locked=true": {
+      "model": "fourthdimension:block/moving_pipeline_brace_locked",
+      "y": 180
+    },
+    "facing=west,locked=false": {
+      "model": "fourthdimension:block/moving_pipeline_brace",
+      "y": 270
+    },
+    "facing=west,locked=true": {
+      "model": "fourthdimension:block/moving_pipeline_brace_locked",
+      "y": 270
+    },
+    "facing=up,locked=false": {
+      "model": "fourthdimension:block/moving_pipeline_brace",
+      "x": 270
+    },
+    "facing=up,locked=true": {
+      "model": "fourthdimension:block/moving_pipeline_brace_locked",
+      "x": 270
+    },
+    "facing=down,locked=false": {
+      "model": "fourthdimension:block/moving_pipeline_brace",
+      "x": 90
+    },
+    "facing=down,locked=true": {
+      "model": "fourthdimension:block/moving_pipeline_brace_locked",
+      "x": 90
+    }
+  }
+}
