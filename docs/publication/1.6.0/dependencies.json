@@ -1,0 +1,136 @@
+{
+  "dependencies": [
+    {
+      "name": "Create",
+      "relationship": "required",
+      "qualified_version": "6.0.10",
+      "modrinth_project": "LNytGWDc",
+      "modrinth_version": "UjX6dr61",
+      "curseforge_slug": "create",
+      "curseforge_project": 328085
+    },
+    {
+      "name": "Create: Coasters Simulated",
+      "relationship": "required",
+      "qualified_version": "0.1.5",
+      "modrinth_project": "W1ZUfWdr",
+      "modrinth_version": "PGhQoSBq",
+      "curseforge_slug": "create-coasters-simulated",
+      "curseforge_project": 1601871
+    },
+    {
+      "name": "Sable",
+      "relationship": "required",
+      "qualified_version": "2.0.6",
+      "modrinth_project": "T9PomCSv",
+      "modrinth_version": "fg9dTRz9",
+      "curseforge_slug": "sable",
+      "curseforge_project": 1312371
+    },
+    {
+      "name": "Veil",
+      "relationship": "required",
+      "qualified_version": "4.3.2",
+      "modrinth_project": "3KUWeVhG",
+      "modrinth_version": "EcZhFl38",
+      "curseforge_slug": null,
+      "curseforge_project": null
+    },
+    {
+      "name": "Track Styles",
+      "relationship": "optional",
+      "qualified_version": "1.2.0",
+      "modrinth_project": "CXohJaWn",
+      "modrinth_version": "dr8YaB54",
+      "curseforge_slug": "coasters-simulated-track-styles",
+      "curseforge_project": 1642719
+    },
+    {
+      "name": "Engineered",
+      "relationship": "optional",
+      "qualified_version": "1.1.1",
+      "modrinth_project": "guKf87OB",
+      "modrinth_version": "pzBMM4ER",
+      "curseforge_slug": "coasters-engineered",
+      "curseforge_project": 1643631
+    },
+    {
+      "name": "Simulated Additions",
+      "relationship": "optional",
+      "qualified_version": "distribution 0.2.5; runtime 0.2.2",
+      "modrinth_project": null,
+      "modrinth_version": null,
+      "curseforge_slug": "create-coasters-simulated-additions",
+      "curseforge_project": 1661497
+    },
+    {
+      "name": "CTNB",
+      "relationship": "optional",
+      "qualified_version": "1.2",
+      "modrinth_project": null,
+      "modrinth_version": null,
+      "curseforge_slug": "ctnb",
+      "curseforge_project": 1649197
+    },
+    {
+      "name": "Magnetized",
+      "relationship": "optional",
+      "qualified_version": "1.1.0",
+      "modrinth_project": "9sljYUsa",
+      "modrinth_version": "jVuUgvkG",
+      "curseforge_slug": "coasters-magnetized",
+      "curseforge_project": 1642979
+    },
+    {
+      "name": "Coaster Skin",
+      "relationship": "optional",
+      "qualified_version": "1.1.0",
+      "modrinth_project": null,
+      "modrinth_version": null,
+      "curseforge_slug": "create-coaster-skin",
+      "curseforge_project": 1741580
+    },
+    {
+      "name": "Immersion",
+      "relationship": "optional",
+      "qualified_version": "1.1.1; client only",
+      "modrinth_project": null,
+      "modrinth_version": null,
+      "curseforge_slug": "coasters-immersion",
+      "curseforge_project": 1672383
+    },
+    {
+      "name": "Waterparked",
+      "relationship": "optional",
+      "qualified_version": "0.2.8-beta-hotfix1",
+      "modrinth_project": "Tyky5agj",
+      "modrinth_version": "stmCORbD",
+      "curseforge_slug": "create-waterparked",
+      "curseforge_project": 1648876
+    },
+    {
+      "name": "Create Coasters",
+      "relationship": "optional",
+      "qualified_version": "2.0",
+      "modrinth_project": "i6E8U3vp",
+      "modrinth_version": "ssnvgDum",
+      "curseforge_slug": "create-coasters",
+      "curseforge_project": 1298151
+    },
+    {
+      "name": "Launch Systems",
+      "relationship": "optional",
+      "qualified_version": "1.0.1 for new moving handoffs",
+      "modrinth_project": null,
+      "curseforge_project": null,
+      "source_url": "https://github.com/StonyTark1117/Coasters-Launch-Systems"
+    }
+  ],
+  "notes": [
+    "Veil and Sable Companion are embedded in qualified Sable2.0.6. Veil is a client hard dependency in addon metadata; no verified standalone CurseForge project was found.",
+    "Create supplies its Flywheel/Ponder/Registrate stack; do not add unrelated replacement libraries.",
+    "Optional support libraries belong to the optional addon dependency chains.",
+    "Missing Modrinth projects retain verified existing CurseForge IDs/links rather than unrelated search matches.",
+    "LS is separately published and not bundled. No verified Modrinth or CurseForge project ID is available for a direct relation; release notes link its separate GitHub project. Existing verified relationships carry forward from 1.5.0."
+  ]
+}

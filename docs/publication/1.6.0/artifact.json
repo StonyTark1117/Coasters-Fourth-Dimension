@@ -1,0 +1,15 @@
+{
+  "version": "1.6.0",
+  "channel": "release",
+  "source_commit": "656cd9c08c46abab9675f6e1ffb0b96cce282f58",
+  "implementation_commit": "126022a8bc4e549bd7380adc5e2b23c883f135c8",
+  "java": 21,
+  "artifact": "/mnt/NVME4/fourthdimension-runs/fd16-20261127/artifacts/coasters-fourth-dimension-1.6.0.jar",
+  "filename": "coasters-fourth-dimension-1.6.0.jar",
+  "bytes": 3828789,
+  "sha256": "c9fd469c9ac7fbcdb074ac1f97153a8fd9d8676bb04712197d7105164d12d84c",
+  "sha512": "6cbcabc49a9814f5b535eb1cf0c0131493df4dbd48289b2b04bef961e55bf9e2b0dbb904e7feb5ec9a4859ad418561a813751ad4982cb29a728c57764ceabf39",
+  "reproducible": true,
+  "acceptance": "../../evidence/1.6/README.md",
+  "launch_systems": "optional, separately distributed; integration qualified with 1.0.1"
+}
