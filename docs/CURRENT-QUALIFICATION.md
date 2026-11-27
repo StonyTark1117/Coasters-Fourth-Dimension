@@ -39,6 +39,15 @@ will carry unaffected acceptance forward; no new JAR or run is required here.
 
 ## Current work queue
 
+### Completed external route/operator seam integration — 2026-11-26
+
+Primary `main` integrates overlay `9f0bbf47` with current moving/specialty guards
+preserved. Java21 focused family-authority, Arrow-route and panel fixtures pass
+3/3; the server saved and stopped. [Evidence](evidence/launch-systems-route-main-20261126/README.md).
+This closes only the FD seam integration. LS601/LS602 combined native/occupied
+acceptance remains with Launch Systems, using its unchanged pinned overlay JAR.
+Published 1.5.0 artifacts and FD2008 scope remain unchanged.
+
 ### Completed external family authority integration — 2026-11-26
 
 Primary `main` now includes the additive `EXTERNAL_FAMILY_API = 1` extension from

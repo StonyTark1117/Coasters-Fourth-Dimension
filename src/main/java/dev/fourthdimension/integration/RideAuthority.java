@@ -8,17 +8,26 @@ import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import java.util.*;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import org.joml.Vector3d;
 
-/** One ride-local longitudinal owner. No route reservation or multi-train scheduling. */
+/** One longitudinal owner; managed route admission and reservations remain native-owned. */
 public final class RideAuthority {
   public static final int EXTERNAL_API = 1;
   /** Optional family power contract; API1 controllers remain binary compatible. */
   public static final int EXTERNAL_FAMILY_API = 1;
+  public static final int EXTERNAL_ROUTE_API = 1;
   /** Optional integrations register a real controller adapter, never borrow another provider's identity. */
   public interface ExternalProvider {
     Controller controller(ServerLevel level, BlockPos position);
+    default boolean supportsManagedRoutes() { return false; }
+    /** Direction relative to the current declared rail, from -> to; zero denies travel. */
+    default int routeDirection(ServerLevel level, BlockPos controller, FoundationData.Vehicle vehicle) { return 0; }
+    default CompoundTag operatorStatus(ServerLevel level, FoundationData.Vehicle vehicle) { return new CompoundTag(); }
+    default void operatorAction(ServerLevel level, FoundationData.Vehicle vehicle, int action, long requestRevision) {
+      throw new IllegalArgumentException("External operator controls unavailable");
+    }
     boolean supports(ServerLevel level, FoundationData.Vehicle vehicle);
     /** Actual live accessory supply, independent of longitudinal hold or stored launch energy. */
     default boolean accessoryPowerAvailable(ServerLevel level, FoundationData.Vehicle vehicle) { return false; }
@@ -50,7 +59,7 @@ public final class RideAuthority {
     if (!externalSelected(v) || !EXTERNAL.containsKey(v.authority.provider)) return false;
     try {
       var cars = complete(level, v);
-      validateExternal(level, cars, v.authority.provider);
+      validateExternal(level, cars, v.authority.provider, v.authority.controller);
       var controller = controller(level, v.authority.controller, v.chassis, v.authority.provider);
       for (var car : cars) if (!Objects.equals(car.authority.owner, controller.authorityId())
           || car.authority.epoch != v.authority.epoch || !car.authority.provider.equals(v.authority.provider)) return false;
@@ -74,7 +83,7 @@ public final class RideAuthority {
       throw new IllegalArgumentException("Unsupported longitudinal provider");
     var v = vehicle(level,id); var owner = controller(level,pos,id,provider); var cars = complete(level,v);
     stopped(level,cars);
-    validateExternal(level,cars,provider);
+    validateExternal(level,cars,provider,pos);
     if(MAGNETIZED.equals(provider)){
       if(!OptionalIntegrations.installed(OptionalIntegrations.MAGNETIZED).mayInspect())throw new IllegalArgumentException("Supported Magnetized installation required");
       if(cars.stream().anyMatch(c->!dev.fourthdimension.vehicle.WingVehicle.is(c)&&!dev.fourthdimension.vehicle.S2SpinningVehicle.is(c)))
@@ -93,12 +102,22 @@ public final class RideAuthority {
     if(!token(v).equals(token)||!Objects.equals(pos,v.authority.controller))
       throw new IllegalArgumentException("Stale authority transfer");
     var cars=complete(level,v);
-    validateExternal(level,cars,v.authority.provider);
     if (!v.authority.held) throw new IllegalArgumentException("Hold before transferring authority");
     stopped(level,cars); var owner = controller(level,next,id,v.authority.provider);
+    var provider=EXTERNAL.get(v.authority.provider);
+    boolean managed=provider!=null && managedProvider(provider) && RideLocalOperations.hasRouteInterest(level,id);
+    if(managed) {
+      validateRouteOwner(v,cars);
+      externalOperator(level,v);
+      for(var car:cars) {
+        if(!provider.supports(level,car)) throw new IllegalArgumentException("Unsupported route handoff consist");
+        RideLocalOperations.validateRetainedExternal(level,car,provider.routeDirection(level,next,car));
+      }
+    } else validateExternal(level,cars,v.authority.provider,v.authority.controller);
     int direction=v.authority.direction;
     assign(level,cars,next,owner.authorityId(),v.authority.provider,v.authority.epoch+1);
     for(var car:cars)car.authority.direction=direction;
+    if(managed) suspend(level,v,"Route handoff held; explicit Resume and a fresh request required");
     return token(v);
   }
 
@@ -109,7 +128,7 @@ public final class RideAuthority {
 
   public static Token resume(ServerLevel level, BlockPos pos, UUID id, Token token) {
     var v = checked(level,pos,id,token,true); var cars = complete(level,v); stopped(level,cars);
-    validateExternal(level,cars,v.authority.provider);
+    validateExternal(level,cars,v.authority.provider,v.authority.controller);
     controller(level,pos,id,v.authority.provider).validateRelease(level,v);
     for (var car : cars) {
       car.authority.epoch++; car.authority.sequence++; car.authority.held=true;
@@ -143,10 +162,24 @@ public final class RideAuthority {
   }
 
   /** Native capture under the same fresh owner token; seats, restraints and rotor alignment stay vehicle-owned. */
-  public static Token capture(ServerLevel level, BlockPos pos, UUID id, Token token) {
-    var v=checked(level,pos,id,token,false);
-    stopped(level,complete(level,v));
+  public static Token capture(ServerLevel level, BlockPos pos, UUID id, Token expected) {
+    thread(level); var v=vehicle(level,id);
+    var provider=EXTERNAL.get(v.authority.provider);
+    boolean retainedRoute=provider!=null && managedProvider(provider) && RideLocalOperations.hasRouteInterest(level,id);
+    if(retainedRoute) {
+      refresh(level,v);
+      if(!token(v).equals(expected)||!Objects.equals(pos,v.authority.controller))
+        throw new IllegalArgumentException("Stale or foreign route capture");
+      externalOperator(level,v);
+    } else v=checked(level,pos,id,expected,false);
+    var cars=complete(level,v); stopped(level,cars);
+    if(retainedRoute) {
+      validateRouteOwner(v,cars);
+      for(var car:cars) if(!provider.supports(level,car))
+        throw new IllegalArgumentException("External provider does not support captured consist");
+    }
     VehicleOperations.capture(level,v);
+    if(retainedRoute) suspend(level,v,"Native route captured; explicit Resume and a fresh request required");
     return token(v);
   }
 
@@ -264,7 +297,7 @@ public final class RideAuthority {
       var c=controller(level,v.authority.controller,v.chassis,v.authority.provider);
       if(!c.authorityId().equals(v.authority.owner))throw new IllegalArgumentException("Controller identity changed");
       var cars=complete(level,v);
-      validateExternal(level,cars,v.authority.provider);
+      validateExternal(level,cars,v.authority.provider,v.authority.controller);
       for(var car:cars) if(!Objects.equals(car.authority.owner,v.authority.owner)
           ||car.authority.epoch!=v.authority.epoch||!car.authority.provider.equals(v.authority.provider))
         throw new IllegalArgumentException("Consist authority changed");
@@ -298,7 +331,7 @@ public final class RideAuthority {
       throw new IllegalArgumentException("Bound authority controller unavailable");
     return result;
   }
-  private static void validateExternal(ServerLevel l,List<FoundationData.Vehicle> cars,String id) {
+  private static void validateExternal(ServerLevel l,List<FoundationData.Vehicle> cars,String id,BlockPos pos) {
     if (!NATIVE_CHAIN.equals(id) && cars.stream().anyMatch(car -> car.family.specialty()))
       throw new IllegalArgumentException("Specialty vehicles require native Chain propulsion");
     var provider=EXTERNAL.get(id);
@@ -307,8 +340,97 @@ public final class RideAuthority {
         throw new IllegalArgumentException("Saved longitudinal provider is unavailable");
       return;
     }
-    for(var car:cars)if(!provider.supports(l,car)||RideLocalOperations.isManaged(l,car))
-      throw new IllegalArgumentException("External provider does not support this vehicle or managed route");
+    for(var car:cars) {
+      if(!provider.supports(l,car)) throw new IllegalArgumentException("External provider does not support this vehicle");
+      if(RideLocalOperations.hasRouteInterest(l,car.chassis)) {
+        if(!managedProvider(provider)) throw new IllegalArgumentException("External provider does not support managed routes");
+        var route=RideLocalOperations.externalStatus(l,car.chassis,provider.routeDirection(l,pos,car));
+        if(!route.permitted()) throw new IllegalArgumentException(route.reason());
+      }
+    }
+  }
+
+  /** Explicit stopped admission. This does not claim longitudinal authority or dispatch. */
+  public static RideLocalOperations.RouteStatus requestRoute(ServerLevel l,BlockPos pos,UUID id,String providerId) {
+    thread(l); var v=vehicle(l,id); var provider=routeProvider(providerId);
+    controller(l,pos,id,providerId); var cars=complete(l,v); stopped(l,cars);
+    for(var car:cars) if(car.authority.owner!=null || !provider.supports(l,car))
+      throw new IllegalArgumentException("Route admission requires an unowned supported complete consist");
+    RideLocalOperations.validateExternalDirection(l,v,provider.routeDirection(l,pos,v));
+    RideLocalOperations.admit(l,v);
+    RideLocalOperations.acceptExternal(l,v);
+    var result=RideLocalOperations.externalStatus(l,id,provider.routeDirection(l,pos,v));
+    if(!result.permitted()) throw new IllegalArgumentException(result.reason());
+    return result;
+  }
+
+  /** Explicit recovery retains native ownership and still requires a separate fresh dispatch. */
+  public static RideLocalOperations.RouteStatus resumeRoute(ServerLevel l,BlockPos pos,UUID id,Token expected) {
+    var v=checked(l,pos,id,expected,true); var provider=routeProvider(v.authority.provider);
+    var cars=complete(l,v); stopped(l,cars); validateRouteOwner(v,cars);
+    if(!v.authority.held) throw new IllegalArgumentException("Hold before route recovery");
+    for(var car:cars) if(!provider.supports(l,car)) throw new IllegalArgumentException("Unsupported route consist");
+    RideLocalOperations.validateExternalDirection(l,v,provider.routeDirection(l,pos,v));
+    var status=RideLocalOperations.routeTrain(l,id);
+    if(status==null) throw new IllegalArgumentException("Unknown route admission");
+    RideLocalOperations.validateExternalConsist(l,status);
+    RideLocalOperations.resume(l,status.chassis);
+    RideLocalOperations.acceptExternal(l,vehicle(l,status.chassis));
+    return RideLocalOperations.externalStatus(l,id,provider.routeDirection(l,pos,v));
+  }
+
+  /** Live safety refresh, never automatic admission or recovery. */
+  public static RideLocalOperations.RouteStatus routeStatus(ServerLevel l,UUID id) {
+    thread(l); var v=FoundationData.get(l).vehicles.get(id);
+    if(!RideLocalOperations.hasRouteInterest(l,id))
+      return new RideLocalOperations.RouteStatus(false,false,null,-1,-1,"",false);
+    var provider=v==null?null:EXTERNAL.get(v.authority.provider);
+    if(provider==null||!managedProvider(provider)||!externalSelected(v)) {
+      var train=RideLocalOperations.routeTrain(l,id);
+      return new RideLocalOperations.RouteStatus(true,false,train==null?null:train.chassis,
+          train==null?-1:train.block,train==null?-1:train.nextBlock,
+          "Native route requires an opted-in external owner and explicit admission",true);
+    }
+    return RideLocalOperations.externalStatus(l,id,provider.routeDirection(l,v.authority.controller,v));
+  }
+
+  private static void validateRouteOwner(FoundationData.Vehicle lead,List<FoundationData.Vehicle> cars) {
+    for(var car:cars) if(!token(car).equals(token(lead))
+        ||!Objects.equals(car.authority.controller,lead.authority.controller)
+        ||!Objects.equals(car.authority.provider,lead.authority.provider))
+      throw new IllegalArgumentException("Whole-consist route authority changed");
+  }
+  private static boolean managedProvider(ExternalProvider provider) {
+    if(provider==null) return false;
+    try { return provider.supportsManagedRoutes(); }
+    catch(UnsupportedOperationException | AbstractMethodError oldProvider) { return false; }
+  }
+  private static ExternalProvider routeProvider(String id) {
+    var provider=EXTERNAL.get(id);
+    if(provider==null||!managedProvider(provider)) throw new IllegalArgumentException("Managed-route provider unavailable");
+    return provider;
+  }
+
+  private static ExternalProvider externalOperator(ServerLevel l,FoundationData.Vehicle v) {
+    thread(l); var provider=EXTERNAL.get(v.authority.provider); var pos=v.authority.controller;
+    if(!externalSelected(v)||provider==null||pos==null||!l.hasChunkAt(pos))
+      throw new IllegalArgumentException("External operator owner unavailable");
+    var owner=provider.controller(l,pos);
+    if(owner==null||!Objects.equals(owner.authorityId(),v.authority.owner)||!owner.authorizesRide(v.chassis))
+      throw new IllegalArgumentException("External operator owner changed");
+    return provider;
+  }
+  public static CompoundTag externalOperatorStatus(ServerLevel l,FoundationData.Vehicle v) {
+    try { return externalOperator(l,v).operatorStatus(l,v).copy(); }
+    catch(UnsupportedOperationException | AbstractMethodError oldProvider) {
+      throw new IllegalArgumentException("External provider has no shared operator status");
+    }
+  }
+  public static void externalOperatorAction(ServerLevel l,FoundationData.Vehicle v,int action,long requestRevision) {
+    try { externalOperator(l,v).operatorAction(l,v,action,requestRevision); }
+    catch(UnsupportedOperationException | AbstractMethodError oldProvider) {
+      throw new IllegalArgumentException("External provider has no shared operator requests");
+    }
   }
   private static FoundationData.Vehicle vehicle(ServerLevel l,UUID id) {
     var v=FoundationData.get(l).vehicles.get(id);
