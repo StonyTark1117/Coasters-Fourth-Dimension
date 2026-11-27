@@ -54,10 +54,12 @@ public final class ExternalRouteAuthorityGameTests {
       h.assertTrue(grant.managed()&&grant.permitted()&&grant.owner().equals(v.chassis),"Real Arrow route not granted: "+grant);
       token[0]=RideAuthority.claim(level,pos,v.chassis,allowed);
       VehicleOperations.restraints(level,v,true);
+      h.assertTrue(!RideAuthority.dispatchReady(level,v.chassis,token[0]),"Fresh claim advertised dispatch before five stopped ticks");
       h.assertTrue(v.authority.owner.equals(owner)&&RideAuthority.holds(level,v),"Admission changed owner or dispatched");
     });
     h.runAtTickTime(70,()->{
       System.out.println("LS006_STAGE tick=70 dispatch status="+RideAuthority.routeStatus(level,v.chassis));
+      h.assertTrue(RideAuthority.dispatchReady(level,v.chassis,token[0]),"Settled native train did not advertise dispatch readiness");
       RideAuthority.dispatch(level,pos,v.chassis,token[0]);token[0]=RideAuthority.token(v);
       h.assertTrue(RideAuthority.permits(level,v.chassis,token[0],allowed),"Live delegated route did not permit drive");
       token[0]=RideAuthority.capture(level,pos,v.chassis,token[0]);
@@ -114,7 +116,7 @@ public final class ExternalRouteAuthorityGameTests {
       container.removeSubLevel(body,SubLevelRemovalReason.UNLOADED);
       h.assertTrue(!RideAuthority.routeStatus(level,v.chassis).permitted(),"Unloaded articulated body retained permission");
       h.assertTrue(RideAuthority.holds(level,v)&&v.authority.owner.equals(owner)&&state.reservations.equals(reservations),"Unloaded-body denial lost hold/identity/reservations");
-      System.out.println("LS006_ROUTE PASS actualArrowCircuit=true explicitOptIn=true oneOwner=true liveGrant=true captureResume=true changedReservationDenied=true coherentPairDenied=true savedConsistDenied=true replacedOwnerDenied=true opposingDenied=true unloadedBodyHeld=true freshRequestRequired=true");h.succeed();
+      System.out.println("LS006_ROUTE PASS actualArrowCircuit=true stoppedReadiness=true explicitOptIn=true oneOwner=true liveGrant=true captureResume=true changedReservationDenied=true coherentPairDenied=true savedConsistDenied=true replacedOwnerDenied=true opposingDenied=true unloadedBodyHeld=true freshRequestRequired=true");h.succeed();
     });
   }
   private static void denied(GameTestHelper h,Runnable action,String name){try{action.run();}catch(IllegalArgumentException expected){return;}h.fail("Accepted "+name);}

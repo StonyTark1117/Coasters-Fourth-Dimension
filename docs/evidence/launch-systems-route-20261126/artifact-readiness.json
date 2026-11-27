@@ -1,0 +1,12 @@
+{
+  "artifact": "/mnt/NVME4/launchsystems-runs/ls06-operator-20261126/artifacts/fourthdimension-route-operator-readiness-api1.jar",
+  "sha256": "fd267b3d627c8db3a4d4b71d70ecb465bcf9a54768405d7ffb72af607884a167",
+  "base_commit": "9f0bbf47",
+  "change": "RideAuthority.dispatchReady exposes native exact token/held/complete/stopped/safeRelease/vehicle guards and stoppedTicks>=5. Fixture denies readiness immediately after claim and successfully dispatches at tick70.",
+  "selected_test": "fourthdimension_ls006.delegatedrouteretainsoneownerandfailsclosed",
+  "result": "PASS 1/1",
+  "java": "21.0.13.1",
+  "save_and_exit_utc": "2026-11-27T04:34:29Z",
+  "previous_artifact_retained": "97772d1d9cba7a843ecb845a442841fe0d553edacd1dae951aef8e1777c8e010",
+  "source_manifest": "source-readiness.sha256"
+}

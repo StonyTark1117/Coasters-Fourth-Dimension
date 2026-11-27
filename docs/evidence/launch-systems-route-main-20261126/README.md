@@ -48,3 +48,30 @@ Published 1.5.0 artifacts/tags remain unchanged. No broad qualification was repe
 Server saved all dimensions and exited successfully; process inspection found no
 Java runtime using this run root. No GUI client/display/service was created.
 Historical worlds, worktrees, raw logs and pre-existing untracked `logs/` remain.
+
+## Native dispatch readiness follow-up
+
+Overlay `79119987a600f8f427656bda7b404546ede3ab47` applied cleanly on main
+`9c9d4538ea08b55ed2f960b68f465107d197689e`. The additive `dispatchReady` query uses
+the exact native token, held state, complete bodies, stopped motion, safe release,
+family dispatch preconditions and five stopped ticks. Existing current-main
+moving retention and specialty restrictions are preserved.
+
+This query never releases or dispatches. It is not strictly side-effect-free:
+`checked` performs safety refresh, which can suspend invalid authority, and route
+validation may reconcile native state. Final dispatch still validates equipment
+and optional-provider guards. The API comment now makes this distinction explicit.
+
+The focused Arrow route test passed **1/1** on current main, with assertions that
+readiness is false immediately after claim and true before the successful tick70
+dispatch. All existing route guard assertions also pass. [Raw log](readiness-main.txt).
+Java21 launcher/Gradle verified; the command uses the preceding reproduction with
+run root `/mnt/NVME4/fourthdimension-runs/fd-ls-ready-main-20261126` and only
+`-PfdGameTestNamespaces=fourthdimension_ls006`.
+Server saved all dimensions, exited successfully, and no owned Java runtime
+remained. No client/display started, and no unrelated checks ran.
+
+Launch Systems reports its readiness overlay JAR as
+`fd267b3d627c8db3a4d4b71d70ecb465bcf9a54768405d7ffb72af607884a167`;
+this main integration does not rebuild or replace that consumer artifact.
+LS601/LS602 acceptance remains separate. Published FD1.5.0 artifacts remain unchanged.

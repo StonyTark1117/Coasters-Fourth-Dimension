@@ -44,6 +44,9 @@ will carry unaffected acceptance forward; no new JAR or run is required here.
 Primary `main` integrates overlay `9f0bbf47` with current moving/specialty guards
 preserved. Java21 focused family-authority, Arrow-route and panel fixtures pass
 3/3; the server saved and stopped. [Evidence](evidence/launch-systems-route-main-20261126/README.md).
+Readiness follow-up `79119987` is also integrated: the targeted route check passes
+1/1, including false immediately after claim and true before native dispatch.
+Safety refresh may suspend/reconcile invalid state; the query never dispatches.
 This closes only the FD seam integration. LS601/LS602 combined native/occupied
 acceptance remains with Launch Systems, using its unchanged pinned overlay JAR.
 Published 1.5.0 artifacts and FD2008 scope remain unchanged.

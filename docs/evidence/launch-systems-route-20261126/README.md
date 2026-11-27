@@ -30,3 +30,9 @@ export PATH="$JAVA_HOME/bin:$PATH"
 ```
 
 For the final safety refinement only `fourthdimension_ls006` was selected. `artifact.json` identifies the frozen final JAR (`97772d1d9cba7a843ecb845a442841fe0d553edacd1dae951aef8e1777c8e010`); `source.sha256` records its relevant source snapshot. The GameTest server saved every dimension and exited successfully at 2026-11-27 04:21:44 UTC. No client, display or service was created; `shutdown.json` verifies no matching Java runtime remained. Worlds and full raw logs remain in the persistent run root.
+
+## Native readiness refinement
+
+The consuming LS first-READY request exposed a real readiness mismatch: the native authority required five stopped ticks, while the consumer could advertise ready earlier. `RideAuthority.dispatchReady` now exposes the existing native release guards, including exact token, held/complete/stopped/safe-release/vehicle checks and `stoppedTicks >= 5`, without calling the equipment adapter recursively. LS consumes the native result; this adds no consumer delay.
+
+The route-only selector passed again, asserting not ready immediately after claim and successfully dispatching at tick70, while preserving every accepted reservation/identity/unload guard. See [route-readiness.txt](route-readiness.txt), [artifact-readiness.json](artifact-readiness.json) and `source-readiness.sha256`. The new immutable readiness JAR supersedes 97772d for subsequent combined runs; the earlier artifact and evidence remain preserved. Existing panel/LS operator passes remain valid. Server saved all dimensions and exited successfully at 2026-11-27 04:34:29 UTC; no matching Java process remained and no display/service was created.
