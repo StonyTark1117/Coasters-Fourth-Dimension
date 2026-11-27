@@ -59,27 +59,34 @@ public final class ExternalOperatorGameTests {
       var v=cars[0]; var p=FakePlayerFactory.get(l,new com.mojang.authlib.GameProfile(UUID.randomUUID(),"LS602Panel"));
       p.setGameMode(GameType.CREATIVE);p.setPos(position.getX(),position.getY(),position.getZ());
       RideAuthority.claim(l,position,v.chassis,provider);VehicleOperations.restraints(l,v,true);
+      long beforeCapture=v.revision;
+      EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,10,"Fixed seats — ordinary Coasters track"));
+      h.assertTrue(v.revision>beforeCapture&&v.stopping&&v.carriers.stream().allMatch(c->c.capture)
+          &&requests[0]==0&&revision[0]==42,"Native editor Stop was intercepted as an external request");
+      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,"42")),"untagged dispatch");
+      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,61,"42")),"untagged resume");
       var low=OperatorPanel.sample(p,v.chassis);
       h.assertTrue(!low.getBoolean("dispatch")&&low.getString("denial").contains("charging"),"Panel lost external charge denial");
       h.assertTrue(low.getCompound("operator").getUUID("owner").equals(owner)&&low.getString("controller").contains(owner.toString()),"Panel reports different owner");
       h.assertTrue(low.getString("power").equals("0 / 100 work"),"Panel reports different charge");
-      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,"41")),"stale request");
-      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,"42")),"uncharged request");
+      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,EditorNetwork.OPERATOR_REQUEST_PREFIX+"41")),"stale request");
+      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,EditorNetwork.OPERATOR_REQUEST_PREFIX+"42")),"uncharged request");
       charged[0]=true;
       var ready=OperatorPanel.sample(p,v.chassis);
       h.assertTrue(ready.getBoolean("dispatch")&&!ready.getString("denial").contains("Restore"),"Registered adapter not ready: "+ready.getString("denial"));
-      EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,"42"));
+      EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,EditorNetwork.OPERATOR_REQUEST_PREFIX+"42"));
       h.assertTrue(requests[0]==1&&v.authority.held,"Panel bypassed queue and released native hold");
-      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,"42")),"replayed request");
-      EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,10,"43"));
-      EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,61,"44"));
+      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,EditorNetwork.OPERATOR_REQUEST_PREFIX+"42")),"replayed request");
+      EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,10,EditorNetwork.OPERATOR_REQUEST_PREFIX+"43"));
+      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,10,EditorNetwork.OPERATOR_REQUEST_PREFIX+"43")),"replayed tagged hold");
+      EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,61,EditorNetwork.OPERATOR_REQUEST_PREFIX+"44"));
       h.assertTrue(requests[0]==3&&v.authority.held,"Explicit service replayed dispatch");
       p.setPos(position.getX()+30,position.getY(),position.getZ());
-      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,"45")),"distant request");
+      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,EditorNetwork.OPERATOR_REQUEST_PREFIX+"45")),"distant request");
       p.setPos(position.getX(),position.getY(),position.getZ());l.setBlockAndUpdate(position,Blocks.AIR.defaultBlockState());
       h.assertTrue(!OperatorPanel.sample(p,v.chassis).getBoolean("dispatch"),"Missing external controller is ready");
-      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,"45")),"missing controller");
-      System.out.println("LS602_OPERATOR PASS statusParity=true chargeGuard=true registeredAdapter=true staleReplayDenied=true queueOnly=true explicitService=true rangeGuard=true missingController=true");h.succeed();
+      denied(h,()->EditorNetwork.apply(p,new EditorNetwork.Edit(v.chassis,v.revision,13,EditorNetwork.OPERATOR_REQUEST_PREFIX+"45")),"missing controller");
+      System.out.println("LS602_OPERATOR PASS nativeEditorCapture=true taggedPanelOnly=true untaggedDispatchResumeDenied=true statusParity=true chargeGuard=true registeredAdapter=true staleReplayDenied=true queueOnly=true explicitService=true rangeGuard=true missingController=true");h.succeed();
     });
   }
   private static void denied(GameTestHelper h,Runnable action,String name){try{action.run();}catch(IllegalArgumentException expected){return;}h.fail("Accepted "+name);}

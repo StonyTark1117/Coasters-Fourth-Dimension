@@ -21,6 +21,8 @@ import org.slf4j.Logger;
 public final class EditorNetwork {
   private EditorNetwork() {}
 
+  public static final String OPERATOR_REQUEST_PREFIX = "ls-operator:";
+
   private static final boolean VALIDATION = Boolean.getBoolean("fourthdimension.validation");
   private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -208,13 +210,16 @@ public final class EditorNetwork {
       if(request.action>=71&&request.action<=74&&!PoweredInvertedYawVehicle.is(vehicle))throw new IllegalArgumentException("Powered controls require their matching vehicle");
       if(request.action>=40&&request.action<=42&&!NewGenerationFlyingVehicle.is(vehicle))throw new IllegalArgumentException("Compound Flying control requires its matching car");
       if(dev.fourthdimension.integration.RideAuthority.externalSelected(vehicle)
-          && ((request.action==10&&!request.value.isBlank())||request.action==13||request.action==61)) {
+          && ((request.action==10&&request.value.startsWith(OPERATOR_REQUEST_PREFIX))||request.action==13||request.action==61)) {
         var pos=vehicle.authority.controller;
         if(pos==null||!player.mayBuild()||!level.mayInteract(player,pos)
             ||player.distanceToSqr(pos.getCenter())>144)
           throw new IllegalArgumentException("Stand within twelve blocks of the bound controller");
         final long requestRevision;
-        try { requestRevision=Long.parseLong(request.value); }
+        try {
+          if(!request.value.startsWith(OPERATOR_REQUEST_PREFIX))throw new NumberFormatException();
+          requestRevision=Long.parseLong(request.value.substring(OPERATOR_REQUEST_PREFIX.length()));
+        }
         catch(NumberFormatException invalid){throw new IllegalArgumentException("Refresh the operator panel before an equipment request");}
         dev.fourthdimension.integration.RideAuthority.externalOperatorAction(level,vehicle,request.action,requestRevision);
         return;
