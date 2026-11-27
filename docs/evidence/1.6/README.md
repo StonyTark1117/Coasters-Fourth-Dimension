@@ -1,9 +1,11 @@
 # FD 1.6 — Launch Systems moving handoff
 
-FD2008 acceptance complete, 2026-11-27. This is an unpublished implementation
-package. The [artifact manifest](artifacts.json) identifies FD 1.6.0 and its
-required LS 1.0.1 companion; unchanged published LS 1.0.0 cannot read FD schema 9.
-No tags, platform uploads or releases were created by this assignment.
+FD2008 acceptance complete, 2026-11-27. This record describes the implementation
+package before publication. The [artifact manifest](artifacts.json) identifies
+FD 1.6.0 and the separately distributed, optional LS 1.0.1 used for integration
+checks; LS 1.0.0 cannot read FD schema 9. FD operates without LS. No releases
+were created by the acceptance assignment. Subsequent human-authorized
+[FD 1.6.0 publication](../../publication/1.6.0/README.md) reuses the same JAR.
 
 Original Arrow and Wing retain their existing native inserts, bed/train limits,
 restraints and eight moving-mechanism permissions. LS operates only on its

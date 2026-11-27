@@ -2,13 +2,14 @@
 
 Updated 2026-11-26. This is the single artifact index for the active roadmap.
 
-**Publication update:** the human-authorized 1.5.0 release is published on GitHub
-from tag `v1.5.0`; the downloaded artifact matches its SHA-256. Modrinth and
-CurseForge APIs accepted 1.5.0 with required/optional dependency relationships.
-Modrinth dependency readback and downloaded checksum match; its project remains
-under moderation. CurseForge returned file `9839671`; public readback/approval
-remain unverified because its public page returns HTTP 403. [Publication record](publication/1.5.0/README.md).
-The 1.0 record below remains historical and is not a claim about 1.5 availability.
+**Publication update:** human-authorized 1.6.0 is published on GitHub from
+`v1.6.0`; its downloaded JAR hash matches. Modrinth and CurseForge APIs accepted
+1.6.0 with required/optional dependency relationships. Modrinth readback and
+artifact hash match; its project remains under moderation. CurseForge returned
+file `9844858`; public readback returns HTTP 403, so approval/availability and
+stored relations remain unverified. [Publication record](publication/1.6.0/README.md).
+LS remains optional and separately published. Prior publication records below
+are historical.
 
 **1.0 release readiness is complete; 1.0.0 is Beta on both platforms; stable
 promotion remains pending.** FD1000, FD901–FD905 and FD1001–FD1003 are closed
@@ -49,8 +50,10 @@ and dismount. Dependency-loss 1/1 and targeted FD 12 / LS 8+7 unit checks pass.
 [Acceptance/package record](evidence/1.6/README.md). All owned runtimes stopped.
 The existing LS development owner supplied the bounded Arrow mounting helper;
 root integrated the companion adapter on its existing codex/launch-systems-0-4-0
-branch. Required companion1.0.1 is unpublished; published1.0.0 cannot read FD
-schema9. No tags/uploads/releases or unrelated acceptance campaigns were run.
+branch. LS is optional: only the new LS integration needs its separately
+distributed 1.0.1; LS1.0.0 cannot read FD schema9. The acceptance assignment
+created no releases. Subsequent human-authorized FD1.6 publication is recorded
+above; no LS publication or unrelated acceptance campaign was part of it.
 
 ### Completed external route/operator seam integration — 2026-11-26
 
