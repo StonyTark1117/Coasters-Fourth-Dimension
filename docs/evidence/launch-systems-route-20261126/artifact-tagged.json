@@ -1,0 +1,18 @@
+{
+  "artifact": "/mnt/NVME4/launchsystems-runs/ls06-operator-20261126/artifacts/fourthdimension-route-operator-tagged-api1.jar",
+  "sha256": "d676d730a02c6f9abe217985db03a3bca424892f06236a0cf64e066b82e87738",
+  "base_commit": "79119987a600f8f427656bda7b404546ede3ab47",
+  "change": "Explicit ls-operator: panel request prefix preserves native Capture action10 text; untagged external Dispatch/Resume fail closed.",
+  "test": "fourthdimension_ls602.externalpanelsharesstatusandfreshrequests",
+  "result": "PASS 1/1",
+  "native_capture_text": "Fixed seats \u2014 ordinary Coasters track",
+  "assertions": [
+    "Native stopping/carrier capture and increased native revision; external callback count and request revision unchanged",
+    "Tagged dispatch/hold/resume callbacks and stale/replay/charge/range/controller guards",
+    "Untagged external dispatch/resume denied"
+  ],
+  "java": "21.0.13.1",
+  "saved_exit_utc": "2026-11-27T04:43:34Z",
+  "readiness_included": "fd267b3d guards unchanged; no route rerun",
+  "source_manifest": "source-tagged.sha256"
+}

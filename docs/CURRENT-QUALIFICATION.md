@@ -47,6 +47,8 @@ preserved. Java21 focused family-authority, Arrow-route and panel fixtures pass
 Readiness follow-up `79119987` is also integrated: the targeted route check passes
 1/1, including false immediately after claim and true before native dispatch.
 Safety refresh may suspend/reconcile invalid state; the query never dispatches.
+Tagged operator correction `b6147959` is integrated; panel regression passes 1/1,
+preserving native editor Capture and nonce checks for explicit equipment requests.
 This closes only the FD seam integration. LS601/LS602 combined native/occupied
 acceptance remains with Launch Systems, using its unchanged pinned overlay JAR.
 Published 1.5.0 artifacts and FD2008 scope remain unchanged.

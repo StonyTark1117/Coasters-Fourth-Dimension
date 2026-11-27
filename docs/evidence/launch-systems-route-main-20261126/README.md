@@ -75,3 +75,32 @@ Launch Systems reports its readiness overlay JAR as
 `fd267b3d627c8db3a4d4b71d70ecb465bcf9a54768405d7ffb72af607884a167`;
 this main integration does not rebuild or replace that consumer artifact.
 LS601/LS602 acceptance remains separate. Published FD1.5.0 artifacts remain unchanged.
+
+## Tagged operator requests preserve native Capture
+
+Applied overlay `b6147959c16c89170067829e57deaa174bd36baf` on main baseline
+`05d38b81e84cab6d4b436c5d584f95e97154f99c`. Resolved the one conditional overlap
+by retaining both the current `moving == null` guard and the new explicit
+`ls-operator:` prefix. OperatorPanel-origin Hold/Dispatch/Resume sends the prefix
+plus request revision. Ordinary editor action10 with vehicle text continues to
+native Capture; it does not become an equipment request. Untagged external
+Dispatch/Resume is denied. Existing readiness assertion/comment and all other
+moving/specialty guards are unchanged.
+
+The affected panel namespace `fourthdimension_ls602` passed **1/1**, including
+native Capture with actual Wing editor text, native revision/stopping/carrier
+capture changes without external request/nonce mutation, tagged requests,
+untagged Dispatch/Resume denial, stale/replayed requests, charge, range and missing
+controller denial. [Raw log](panel-tagged-main.txt). This is a native handler
+fixture, not proof of real player GUI input or consuming LS acceptance.
+
+Java21 launcher/Gradle verified. Reproduction uses the earlier command with run
+root `/mnt/NVME4/fourthdimension-runs/fd-ls-tagged-main-20261126` and only
+`-PfdGameTestNamespaces=fourthdimension_ls602`. The server saved all dimensions
+and exited successfully; process inspection found no owned Java runtime. No
+client/display launched and no route or release sweeps ran.
+
+LS's frozen tagged consumer JAR
+`d676d730a02c6f9abe217985db03a3bca424892f06236a0cf64e066b82e87738`
+is unchanged by this integration, as are all published FD1.5.0 artifacts.
+Pre-existing untracked `logs/` remains preserved.

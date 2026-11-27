@@ -37,7 +37,7 @@ public final class OperatorScreen extends Screen {
   }
   private void action(String label,int action){
     int index=nextControl++,x=panelX+4+(index%3)*(buttonW+4),y=controlTop+(index/3)*(buttonH+controlGap);
-    var b=addRenderableWidget(Button.builder(Component.literal(label),w->{if(pending!=null)return;pending=new EditorNetwork.Edit(target.id(),state.getLong("revision"),action,state.getBoolean("external")&&(action==10||action==13||action==61)?Long.toString(state.getCompound("operator").getLong("request_revision")):"");feedback="Waiting for server…";PacketDistributor.sendToServer(pending);rebuildWidgets();}).bounds(x,y,buttonW,buttonH).build());
+    var b=addRenderableWidget(Button.builder(Component.literal(label),w->{if(pending!=null)return;pending=new EditorNetwork.Edit(target.id(),state.getLong("revision"),action,state.getBoolean("external")&&(action==10||action==13||action==61)?EditorNetwork.OPERATOR_REQUEST_PREFIX+Long.toString(state.getCompound("operator").getLong("request_revision")):"");feedback="Waiting for server…";PacketDistributor.sendToServer(pending);rebuildWidgets();}).bounds(x,y,buttonW,buttonH).build());
     var snapshot=RideTelemetry.load(state);
     b.active=pending==null&&ticks-received<60&&snapshot.available()
       &&(action!=13||snapshot.dispatchReady())
