@@ -25,11 +25,11 @@ public final class OperatorScreen extends Screen {
     buttonW=Math.max(1,(panelW-16)/3); buttonH=compact?14:20; controlGap=compact?2:3;
     int statusBottom=panelY+21+11*(compact?9:11);
     controlTop=statusBottom+(compact?4:8); nextControl=0;
-    action("Capture / stop",10); action("Close restraints",11); action("Open restraints",12);
+    action(state.getBoolean("external")?"Hold equipment":"Capture / stop",10); action("Close restraints",11); action("Open restraints",12);
     action("Dispatch",13); action("Retain",14); action("Release retention",15);
     if(state.getBoolean("pax")){action("Resume shuttle",92);action("Recover shuttle",93);}
     else if(state.getBoolean("powered"))action("Resume powered",71);
-    else if(state.getBoolean("authority"))action("Resume authority",62);
+    else if(state.getBoolean("authority"))action("Resume authority",state.getBoolean("external")?61:62);
     action("Brake recovery tow",22); action("Admit route train",94); action("Resume route",95);
     screen(compact?"Vehicle / recovery":"Vehicle / recovery controls",this::onClose);
     screen("Close",()->minecraft.setScreen(null));
@@ -37,7 +37,7 @@ public final class OperatorScreen extends Screen {
   }
   private void action(String label,int action){
     int index=nextControl++,x=panelX+4+(index%3)*(buttonW+4),y=controlTop+(index/3)*(buttonH+controlGap);
-    var b=addRenderableWidget(Button.builder(Component.literal(label),w->{if(pending!=null)return;pending=new EditorNetwork.Edit(target.id(),state.getLong("revision"),action,"");feedback="Waiting for server…";PacketDistributor.sendToServer(pending);rebuildWidgets();}).bounds(x,y,buttonW,buttonH).build());
+    var b=addRenderableWidget(Button.builder(Component.literal(label),w->{if(pending!=null)return;pending=new EditorNetwork.Edit(target.id(),state.getLong("revision"),action,state.getBoolean("external")&&(action==10||action==13||action==61)?Long.toString(state.getCompound("operator").getLong("request_revision")):"");feedback="Waiting for server…";PacketDistributor.sendToServer(pending);rebuildWidgets();}).bounds(x,y,buttonW,buttonH).build());
     var snapshot=RideTelemetry.load(state);
     b.active=pending==null&&ticks-received<60&&snapshot.available()
       &&(action!=13||snapshot.dispatchReady())

@@ -207,6 +207,18 @@ public final class EditorNetwork {
       if(PoweredInvertedYawVehicle.is(vehicle))PoweredInvertedYawEditor.operator(player,vehicle);
       if(request.action>=71&&request.action<=74&&!PoweredInvertedYawVehicle.is(vehicle))throw new IllegalArgumentException("Powered controls require their matching vehicle");
       if(request.action>=40&&request.action<=42&&!NewGenerationFlyingVehicle.is(vehicle))throw new IllegalArgumentException("Compound Flying control requires its matching car");
+      if(dev.fourthdimension.integration.RideAuthority.externalSelected(vehicle)
+          && ((request.action==10&&!request.value.isBlank())||request.action==13||request.action==61)) {
+        var pos=vehicle.authority.controller;
+        if(pos==null||!player.mayBuild()||!level.mayInteract(player,pos)
+            ||player.distanceToSqr(pos.getCenter())>144)
+          throw new IllegalArgumentException("Stand within twelve blocks of the bound controller");
+        final long requestRevision;
+        try { requestRevision=Long.parseLong(request.value); }
+        catch(NumberFormatException invalid){throw new IllegalArgumentException("Refresh the operator panel before an equipment request");}
+        dev.fourthdimension.integration.RideAuthority.externalOperatorAction(level,vehicle,request.action,requestRevision);
+        return;
+      }
       switch (request.action) {
         case 81 -> dev.fourthdimension.tools.PaletteService.apply(player,vehicle,request.value);
         case 82 -> dev.fourthdimension.tools.BodyService.apply(player,vehicle,request.value);

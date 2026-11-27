@@ -15,9 +15,21 @@ public final class OperatorPanel {
   public static CompoundTag sample(ServerPlayer player,UUID id){
     var vehicle=VehicleOperations.accessible(player,id);var level=player.serverLevel();
     var telemetry=RideTelemetry.sample(level,id);
+    var external = new CompoundTag();
+    boolean externalOwner = RideAuthority.externalSelected(vehicle);
     String power="External propulsion; power telemetry unavailable",controller="Vehicle controls";
     var winch=ShuttleRuntime.owner(level,id);
     if(winch!=null){telemetry=RideTelemetry.atController(level,winch.getBlockPos(),id);controller="PAX shuttle winch";power=winch.getSpeed()+" RPM";}
+    else if(externalOwner){
+      controller=vehicle.authority.provider+" / "+vehicle.authority.owner;
+      try {
+        external=RideAuthority.externalOperatorStatus(level,vehicle);
+        controller+=" / "+external.getString("phase");
+        power=external.getString("charge");
+        if(!external.getBoolean("dispatch_ready"))telemetry=telemetry.denyDispatch(external.getString("blocked_reason").isBlank()
+            ? external.getString("request") : external.getString("blocked_reason"));
+      }catch(IllegalArgumentException | IllegalStateException unavailable){telemetry=telemetry.denyDispatch(unavailable.getMessage());}
+    }
     else if(vehicle.authority.owner!=null){
       controller=vehicle.authority.provider+" / "+(vehicle.authority.suspended?"suspended":vehicle.authority.held?"held":"active");
       var pos=vehicle.authority.controller;
@@ -34,7 +46,7 @@ public final class OperatorPanel {
       var governor=PoweredInvertedYawRuntime.governor(level,vehicle);
       power=governor==null?"Powered governor unavailable":governor.inputRpm()+" input RPM";
     }
-    var result=telemetry.save();result.putLong("revision",vehicle.revision);result.putString("controller",controller);result.putString("power",power);
+    var result=telemetry.save();result.putBoolean("external",externalOwner);result.put("operator",external);result.putLong("revision",vehicle.revision);result.putString("controller",controller);result.putString("power",power);
     var route = FoundationData.get(level).rideLocal;
     if (dev.fourthdimension.integration.RideLocalOperations.ROUTE_ID.equals(route.routeId)
         && vehicle.family == dev.fourthdimension.contract.Family.ARROW) {
@@ -42,7 +54,10 @@ public final class OperatorPanel {
       result.putString("route", route.routeId); result.putInt("route_trains", route.trains.size());
       result.putInt("route_block", train == null ? -1 : train.block);
       result.putBoolean("route_managed", dev.fourthdimension.integration.RideLocalOperations.isManaged(level, vehicle));
-      if (train == null) result.putString("route_denial", "Admit this complete Arrow train before dispatch");
+      if (externalOwner && external.getBoolean("route_managed")) {
+        result.putString("route_denial", external.getString("route_denial"));
+        result.putInt("route_block", external.getInt("route_block"));
+      } else if (train == null) result.putString("route_denial", "Admit this complete Arrow train before dispatch");
       else if (train.unresolved || train.restored || train.braking)
         result.putString("route_denial", "Route reservation is braking or unresolved; recover before dispatch");
       if (!result.getString("route_denial").isBlank()) {
@@ -55,7 +70,7 @@ public final class OperatorPanel {
     result.putString("recovery",recovery);
     result.putBoolean("pax",winch!=null);result.putBoolean("authority",vehicle.authority.owner!=null);
     result.putBoolean("powered",PoweredInvertedYawVehicle.is(vehicle));result.putBoolean("flying",FlyingVehicle.is(vehicle)||NewGenerationFlyingVehicle.is(vehicle));
-    result.putString("optional","Optional drive controls require an installed, bound provider; use vehicle controls to bind.");
+    result.putString("optional",externalOwner ? "Request: "+external.getString("request") : "Optional drive controls require an installed, bound provider; use vehicle controls to bind.");
     return result;
   }
   public static void shuttle(ServerPlayer player,UUID id,long revision,boolean recover){
