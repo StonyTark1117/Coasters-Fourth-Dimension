@@ -138,6 +138,20 @@ public final class RideAuthority {
     FoundationData.get(level).setDirty(); return token(v);
   }
 
+  /** Native readiness without releasing a hold or inventing a consumer-side settling timer.
+   * Final dispatch still validates the controller's equipment and optional-provider guards. */
+  public static boolean dispatchReady(ServerLevel level,UUID id,Token expected) {
+    thread(level);
+    try {
+      var selected=vehicle(level,id);
+      var v=checked(level,selected.authority.controller,id,expected,false);
+      if(!v.authority.held) return false;
+      var cars=complete(level,v); safeRelease(level,cars);
+      VehicleOperations.validateDispatch(level,v);
+      return cars.stream().allMatch(car->car.authority.stoppedTicks>=5);
+    } catch(IllegalArgumentException | IllegalStateException unavailable) { return false; }
+  }
+
   public static Token release(ServerLevel level, BlockPos pos, UUID id, Token token) {
     var v = checked(level,pos,id,token,false);
     if (!v.authority.held) throw new IllegalArgumentException("Ride hold is already released");
