@@ -111,6 +111,8 @@ public final class FlyingRuntime {
     }changed(l);
   }
   public static boolean powered(ServerLevel l,FoundationData.Vehicle v){
+    if(dev.fourthdimension.integration.RideAuthority.externalSelected(v))
+      return dev.fourthdimension.integration.RideAuthority.externalAccessoryPower(l,v);
     var r=rail(l,v);var edge=r==null?null:TrackGeometry.resolve(l,r);var body=SubLevelContainer.getContainer(l).getSubLevel(v.chassis);
     var center=body==null?null:CoasterCartResolve.cartCenterWorld(body);if(edge==null||center==null)return false;
     var hit=CoasterPathTrackFrame.closestHitOnEdge(l,edge,new Vec3(center.x,center.y,center.z));if(hit==null)return false;

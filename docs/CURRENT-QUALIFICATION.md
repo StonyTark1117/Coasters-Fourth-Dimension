@@ -39,6 +39,15 @@ will carry unaffected acceptance forward; no new JAR or run is required here.
 
 ## Current work queue
 
+### Completed external family authority integration — 2026-11-26
+
+Primary `main` now includes the additive `EXTERNAL_FAMILY_API = 1` extension from
+`dc1c83a`, preserving later moving-track and specialty guards. The focused native
+authority fixture passes 1/1 on current schema 9; its server saved and stopped.
+[Integration evidence](evidence/launch-systems-family-power-20261126/README.md).
+Launch Systems retains its pinned consumer-tested overlay artifact. This does not
+expand FD2008, reopen completed 1.5 cases, or alter published 1.5.0 artifacts.
+
 <a id="active-15--moving-track-implementation"></a>
 ### Completed 1.5 — accepted 2026-11-26
 
