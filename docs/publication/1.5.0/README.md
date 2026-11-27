@@ -13,9 +13,22 @@ All compiled classes and gameplay assets are identical. No runtime replay is nee
 - GitHub: [1.5.0 published](https://github.com/StonyTark1117/Coasters-Fourth-Dimension/releases/tag/v1.5.0).
   Published release channel, both JAR/checksum assets uploaded; downloaded JAR SHA-256 matches.
   [Receipt](github-release.json) records source tag and verification.
-- Modrinth: upload prepared; authentication required. Public API currently returns
-  404 for existing project `4eicZbtp`; owner access must resolve its current status.
-- CurseForge: upload prepared for existing project `1809752`; author sign-in required.
+- Modrinth: [1.5.0 uploaded](https://modrinth.com/mod/coasters-fourth-dimension/version/81HExJHB)
+  to existing project `4eicZbtp`. Authenticated readback verifies release/listed status,
+  four required and five optional exact-version dependency links, and the downloaded
+  JAR SHA-256. The project remains `processing` (awaiting moderation), so the public
+  page may return 404. [Verification](modrinth-verification.json).
+- CurseForge: [1.5.0 uploaded](https://www.curseforge.com/minecraft/mc-mods/coasters-fourth-dimension/files/9839671)
+  to existing project `1809752`. The Upload API returned HTTP 200 and file ID
+  `9839671`, accepting release metadata with three required and nine optional
+  dependency relationships. Public-page readback returned HTTP 403; approval,
+  public availability and stored relationship readback are not independently
+  confirmed. [Receipt](curseforge-upload-response.json) and
+  [verification limits](curseforge-verification.json).
+
+Both API uploads used the existing service-specific credential files in the user's
+home directory; credentials are not copied into these records. No browser login
+was needed. Uploads completed on 2026-11-27 UTC (2026-11-26 local).
 
 [Release notes](changelog.md), [dependency map](dependencies.json) and exact upload
 metadata are retained here. Modrinth supports exact version references; CurseForge

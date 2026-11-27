@@ -4,8 +4,10 @@ Updated 2026-11-26. This is the single artifact index for the active roadmap.
 
 **Publication update:** the human-authorized 1.5.0 release is published on GitHub
 from tag `v1.5.0`; the downloaded artifact matches its SHA-256. Modrinth and
-CurseForge upload metadata is prepared, with required/optional relationships,
-but both await authenticated owner access. [Publication record](publication/1.5.0/README.md).
+CurseForge APIs accepted 1.5.0 with required/optional dependency relationships.
+Modrinth dependency readback and downloaded checksum match; its project remains
+under moderation. CurseForge returned file `9839671`; public readback/approval
+remain unverified because its public page returns HTTP 403. [Publication record](publication/1.5.0/README.md).
 The 1.0 record below remains historical and is not a claim about 1.5 availability.
 
 **1.0 release readiness is complete; 1.0.0 is Beta on both platforms; stable
