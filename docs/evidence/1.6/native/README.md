@@ -2,7 +2,7 @@
 
 Native consumer and dependency-loss cases accepted, 2026-11-27. Package integration is recorded in the parent record.
 
-The original Wing case passes in `wing-consumer.log` (1/1, saved server shutdown).
+The original Wing case passes in `wing-consumer.log.gz` (1/1, saved server shutdown).
 It uses the real LS local controller, kinetic tire cabinets and friction fins,
 with disclosed Creative construction and a fake operator. It does not prove
 player input or occupancy. Original car/authority identities are asserted.
