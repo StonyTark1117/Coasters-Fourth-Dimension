@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.0 — 2026-11-26
+
+- Deliver eight native moving-track mechanisms: transfer platform, turntable, drop, tilt, elevator, teeter-totter, side-drop and simultaneous yaw/pitch table, with recipes, construction preview, compatibility guidance and guarded normal controls.
+- Include the previously accepted 1.1 builder/operator tools, 1.2 fixed Arrow multi-train circuit, 1.3 model repairs/selectable bodies, and 1.4 Standing Standard/Surf, Motorbike and Flying Bike configurations (21 total FD configurations).
+- Preserve complete-train retention, physical docking, exclusive destination reservation, explicit interruption recovery and occupied cold restoration. Qualify bounded Powered, Magnetized, Engineered and original PAX handoffs.
+- Saves now write schema9; editor protocol9 and moving protocol1 require matching client/server versions. Back up worlds before upgrading; do not downgrade upgraded saves in place.
+- Keep Minecraft1.21.1, NeoForge21.1.256, Create6.0.10, Coasters Simulated0.1.5 and Sable2.0.6 pinned. Optional addons retain their documented finite compatibility roles.
+- Moving beds support 16/32/48 blocks and up to four homogeneous whole-consist cars, subject to smaller family limits. Maximum-size synchronous validation can pause the server; measured worst transition was about3.125seconds. Capacity is not a smoothness guarantee.
+- [Accepted scope and measurements](docs/evidence/1.5/integration.md) and [publication provenance](docs/publication/1.5.0/README.md) identify the source and exact package. Historical unpublished checkpoint labels below describe their status at that time.
+
 ## 1.4 milestone — verified 2026-11-22, unpublished
 
 - Add original Standard and Surf-style standing configurations, straddle Motorbike and suspended prone Flying Bike, each with matching track, recipes, controls and playable examples.

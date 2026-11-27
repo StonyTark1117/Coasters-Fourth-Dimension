@@ -1,0 +1,66 @@
+{
+  "project_id": "4eicZbtp",
+  "name": "Coasters: Fourth Dimension 1.5.0",
+  "version_number": "1.5.0",
+  "changelog": "# Coasters: Fourth Dimension 1.5.0\n\nFor **Minecraft 1.21.1, NeoForge 21.1.256 and Java 21**. Install matching Fourth Dimension builds on clients and servers.\n\n## New in this release\n\n- Eight native moving-track mechanisms: transfer platform, turntable, drop track, tilt track, elevator, teeter-totter, side-drop and simultaneous yaw/pitch table.\n- Original machinery, recipes, paid Survival construction, swept-clearance preview, compatibility guidance and guarded operator controls.\n- Physical whole-train retention, exclusive destination reservations, locked docking, interrupted recovery and occupied cold restoration.\n- Includes the accepted 1.1 builder/operator tools, 1.2 fixed Arrow multi-train circuit, 1.3 model repairs/selectable bodies, and 1.4 Standing Standard/Surf, Motorbike and Flying Bike: **21 FD vehicle configurations** in total.\n- Bounded fixed-span Powered, Magnetized and Engineered handoffs, plus four-car PAX full-turn recovery to its original winch station.\n\n## Required stack\n\n- [Create 6.0.10](https://modrinth.com/mod/create/version/UjX6dr61)\n- [Create: Coasters Simulated 0.1.5](https://modrinth.com/mod/create-coasters-simulated/version/PGhQoSBq) \u2014 0.1.6 is not part of this qualified stack.\n- [Sable 2.0.6](https://modrinth.com/mod/sable/version/fg9dTRz9), which includes Sable Companion 1.6.0 and Veil 4.3.2.\n- [Veil 4.3.2](https://modrinth.com/mod/veil/version/EcZhFl38) is required on clients and already included by the pinned Sable distribution. Do not replace it with a newer standalone Veil.\n- Use Create's matching Flywheel/Ponder/Registrate support stack. Fourth Dimension does not bundle upstream mods.\n\n## Optional integrations\n\nThese are optional, never required to use standalone Fourth Dimension. Listed compatibility is finite; it does not grant every vehicle/moving-mechanism combination.\n\n| Addon | Qualified version | Links |\n| --- | --- | --- |\n| Track Styles | 1.2.0 | [Modrinth](https://modrinth.com/mod/coaster-track-styles/version/dr8YaB54) \u00b7 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/coasters-simulated-track-styles/files/9020601) |\n| Engineered | 1.1.1 | [Modrinth](https://modrinth.com/mod/coasters-engineered/version/pzBMM4ER) \u00b7 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/coasters-engineered/files/8863559) |\n| Simulated Additions | distribution 0.2.5 / runtime 0.2.2 | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/create-coasters-simulated-additions/files/9243346) |\n| CTNB | 1.2 | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/ctnb/files/8718286) |\n| Magnetized | 1.1.0 | [Modrinth](https://modrinth.com/mod/coasters-magnetized/version/jVuUgvkG) \u00b7 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/coasters-magnetized/files/8668703) |\n| Coaster Skin | 1.1.0 | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/create-coaster-skin/files/9409938) |\n| Immersion | 1.1.1; client only | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/coasters-immersion/files/9542588) |\n| Waterparked | 0.2.8-beta-hotfix1 | [Modrinth](https://modrinth.com/mod/create-waterparked/version/stmCORbD) \u00b7 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/create-waterparked/files/9058331) |\n| Create Coasters | 2.0 | [Modrinth](https://modrinth.com/mod/create-coasters/version/ssnvgDum) \u00b7 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/create-coasters/files/8110328) |\n\nAdditions also needs Aeronautics 1.3.2 and Interiors 0.6.1; Waterparked needs KotlinForForge 5.10.0. Follow those addons' dependencies. Keep Immersion off dedicated servers. Optional relations are linked directly wherever a verified platform project exists; the remaining addons retain CurseForge links here.\n\n## Upgrade and operating limits\n\nBack up existing worlds and test upgrades on a copy. Saves write schema9; matching client/server builds are required. Do not downgrade upgraded saves in place. Repairing a fault does not restart motion automatically; use explicit recovery.\n\nMoving beds are straight 16/32/48-block assemblies with at most four homogeneous whole-consist cars, subject to each family's smaller limits and exact compatibility. Some families support only level-deck motion. Ordinary native service carts must be empty. Arbitrary contraptions, CTNB moving-bed materials, managed 1.2 dynamic routes and Launch Systems moving-track ownership are excluded.\n\nAt maximum size, synchronous geometry validation can pause the server; the observed worst transition was approximately **3.125 seconds**. Capacity is not a smoothness or FPS guarantee. The measured workload and physical stopping/derivative limits are retained in the acceptance record.\n\n[Moving-track guide](https://github.com/StonyTark1117/Coasters-Fourth-Dimension/blob/v1.5.0/docs/MOVING-TRACK.md) \u00b7 [All vehicle guides](https://github.com/StonyTark1117/Coasters-Fourth-Dimension/tree/v1.5.0#vehicles-and-guides) \u00b7 [Acceptance and measurements](https://github.com/StonyTark1117/Coasters-Fourth-Dimension/blob/v1.5.0/docs/evidence/1.5/integration.md)\n\nValidated with 75 unit tests and cumulative targeted native/occupied cases. The release JAR differs from the accepted checkpoint only in version/description metadata; all gameplay code and assets are identical. Independent Java21 builds are byte-identical.\n\n**License:** CC0-1.0. Upstream dependencies retain their own licenses.\n\n**JAR SHA-256:** `d52cadc6f385daae02d1a8006fd18002865bd814f17d9a8ee611a524926ebe2b`\n",
+  "dependencies": [
+    {
+      "project_id": "LNytGWDc",
+      "version_id": "UjX6dr61",
+      "dependency_type": "required"
+    },
+    {
+      "project_id": "W1ZUfWdr",
+      "version_id": "PGhQoSBq",
+      "dependency_type": "required"
+    },
+    {
+      "project_id": "T9PomCSv",
+      "version_id": "fg9dTRz9",
+      "dependency_type": "required"
+    },
+    {
+      "project_id": "3KUWeVhG",
+      "version_id": "EcZhFl38",
+      "dependency_type": "required"
+    },
+    {
+      "project_id": "CXohJaWn",
+      "version_id": "dr8YaB54",
+      "dependency_type": "optional"
+    },
+    {
+      "project_id": "guKf87OB",
+      "version_id": "pzBMM4ER",
+      "dependency_type": "optional"
+    },
+    {
+      "project_id": "9sljYUsa",
+      "version_id": "jVuUgvkG",
+      "dependency_type": "optional"
+    },
+    {
+      "project_id": "Tyky5agj",
+      "version_id": "stmCORbD",
+      "dependency_type": "optional"
+    },
+    {
+      "project_id": "i6E8U3vp",
+      "version_id": "ssnvgDum",
+      "dependency_type": "optional"
+    }
+  ],
+  "game_versions": [
+    "1.21.1"
+  ],
+  "version_type": "release",
+  "loaders": [
+    "neoforge"
+  ],
+  "featured": true,
+  "status": "listed",
+  "file_parts": [
+    "file"
+  ],
+  "primary_file": "file"
+}

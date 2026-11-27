@@ -1,49 +1,31 @@
 # Coasters: Fourth Dimension
 
-A Minecraft/Create: Coasters Simulated addon with **17 vehicle styles**, matching
-functional track, native moving seats and mechanisms, station/restraint controls,
-saved ride programs and optional integrations. The rides are independently authored
-game interpretations inspired by coaster concepts; manufacturer names do not imply
-endorsed assets, exact engineering or verified real-world coupling.
+A Minecraft/Create: Coasters Simulated addon with **21 vehicle configurations**,
+matching functional track, native moving seats, **eight moving-track mechanisms**,
+station/restraint controls, saved ride programs and optional integrations. The rides
+are independently authored game interpretations; manufacturer names do not imply
+endorsement or verified real-world engineering.
 
-**Version 1.0.0 Beta has been submitted to [Modrinth](https://modrinth.com/mod/coasters-fourth-dimension)
-and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/coasters-fourth-dimension).**
-Project visibility and downloads depend on each platform's moderation approval.
-[Beta promotion record](docs/publication/1.0.0-beta/README.md) identifies both existing files.
+**1.5.0** is the current release package for Minecraft **1.21.1 / NeoForge**.
+[GitHub releases](https://github.com/StonyTark1117/Coasters-Fourth-Dimension/releases)
+· [Modrinth](https://modrinth.com/mod/coasters-fourth-dimension)
+· [CurseForge](https://www.curseforge.com/minecraft/mc-mods/coasters-fourth-dimension).
+[Publication status and exact artifact](docs/publication/1.5.0/README.md) distinguish
+verified uploads from platform moderation or availability.
 
-[Release readiness](docs/evidence/1.0/lead/release-readiness.md) reconciles the
-completed compatibility, lifecycle, migration, rendering and performance gates.
-[Packaging and clean-install verification](docs/evidence/1.0/lead/release/README.md)
-record the accepted builds and representative occupied ride on clean production
-client/server installs. The published candidate was rebuilt after the CC0
-license change; [archive comparison](docs/publication/1.0.0-alpha/artifact.json)
-confirms that only license text and license metadata changed. Code and game assets
-remain identical to the accepted build. Artifact:
-`coasters-fourth-dimension-1.0.0.jar`; [SHA-256](docs/publication/1.0.0-alpha/SHA256SUMS)
-`5a5754f192b61cac016d06cec88313c8b64d2febc669407c5ddfa12c22f6e6f4`.
-[ROADMAP](ROADMAP.md) and [the current queue](docs/CURRENT-QUALIFICATION.md#current-work-queue)
-retain the completed qualification history.
+This release combines the accepted milestones through 1.5:
 
-[Frozen inputs](docs/evidence/1.0/lead/freeze.md) and
-[accepted amendments](docs/evidence/1.0/lead/freeze-amendments.md) define the
-qualified scope and dependencies. Earlier checkpoint limitations remain historical
-evidence in the [changelog](CHANGELOG.md); they do not reopen completed cases.
+- [Builder/operator tools](docs/BUILDER-TOOLS.md): shareable presets, upholstery palettes and a unified ride panel.
+- [Ride-local multi-train operation](docs/roadmap/1.2-multi-train.md): the finite fixed Arrow circuit.
+- [Model repairs and selectable bodies](docs/evidence/1.3/integration-manifest.md).
+- [Standing Standard/Surf](docs/STANDING.md), [Motorbike](docs/MOTORBIKE.md) and [Flying Bike](docs/FLYING-BIKE.md), adding four configurations to the original17.
+- [Moving track](docs/MOVING-TRACK.md): transfer, turntable, drop, tilt, elevator, teeter-totter, side-drop and simultaneous yaw/pitch, with finite car/rail compatibility and physical recovery.
 
-The verified, unpublished 1.1 build adds [builder and operator tools](docs/BUILDER-TOOLS.md):
-shareable presets, original upholstery colors and a unified ride panel. It is not
-yet a published release. [Qualification and package](docs/evidence/1.1/README.md)
-record its targeted checks and support limits. The public 1.0.0 Beta files remain unchanged.
-
-The current development checkout also contains accepted 1.2 multi-train operation
-and [1.3 model repairs/body choices](docs/evidence/1.3/integration-manifest.md).
-The accepted 1.4 specialty package adds Standard and Surf-style
-[standing cars](docs/STANDING.md), [Motorbike](docs/MOTORBIKE.md) and
-[suspended Flying Bike](docs/FLYING-BIKE.md): four configurations in addition to the
-original 17. These development additions are unpublished; the [1.4 record](docs/evidence/1.4/integration.md)
-records completed checks, exact support limits and the reproducible package. Each uses its exact matching
-track and native Chain propulsion, with one car and explicit restraint/recovery
-controls. Flying Bike has two ordered launches; a stranded car on an unpowered
-coast uses the guide’s platform-and-station evacuation procedure.
+[1.5 acceptance](docs/evidence/1.5/integration.md) records cumulative checks, measured
+limits and the accepted development package. [ROADMAP](ROADMAP.md) and the
+[current queue](docs/CURRENT-QUALIFICATION.md#current-work-queue) preserve prior
+acceptance and separate future scope. Publication metadata changes do not alter
+accepted gameplay code or assets.
 
 ## Install
 
@@ -65,8 +47,8 @@ optional coaster addon is required for standalone Fourth Dimension rides or bund
 inside this addon. Keep **Immersion off dedicated servers**.
 
 Before opening an existing world, follow [backup, copied-world upgrade and restore](docs/MIGRATION.md).
-Current saves use schema8. Foundation synchronization uses protocol7, editor
-messages8 and the PAX presentation snapshot1; matching client/server builds are
+Current saves use schema9. Foundation synchronization uses protocol7, editor
+messages9, moving messages1 and the PAX presentation snapshot1; matching client/server builds are
 required. Do not downgrade an upgraded world in place.
 
 ## Vehicles and guides

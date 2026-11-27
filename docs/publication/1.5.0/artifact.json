@@ -1,0 +1,18 @@
+{
+  "version": "1.5.0",
+  "channel": "release",
+  "acceptance_commit": "5575438aa3eb87b3d4c184c05508654aeb2dddd6",
+  "java": 21,
+  "artifact": "/mnt/NVME4/fourthdimension-runs/fd15-publication-20261126/build/libs/coasters-fourth-dimension-1.5.0.jar",
+  "filename": "coasters-fourth-dimension-1.5.0.jar",
+  "bytes": 3767700,
+  "sha256": "d52cadc6f385daae02d1a8006fd18002865bd814f17d9a8ee611a524926ebe2b",
+  "sha512": "634864e536b1bdbf110d852f671a461946e44cf6f10d2fb61d9d6d7bb124dbc65e397d34d2383ca64c9aa4055e664fa16d0347e7ba9ebf76740ce37c3a7981ca",
+  "repro_artifact": "/mnt/NVME4/fourthdimension-runs/fd15-publication-20261126/repro-build/libs/coasters-fourth-dimension-1.5.0.jar",
+  "reproducible": true,
+  "accepted_development_sha256": "451b5736277fcb1331fa1616b9c613e535155395b6fd50d46f78e6b4ae092689",
+  "changed_archive_entries": [
+    "META-INF/neoforge.mods.toml"
+  ],
+  "changes": "Only release version and descriptive metadata; all compiled classes and gameplay resources byte-identical to accepted 1.5 checkpoint."
+}
