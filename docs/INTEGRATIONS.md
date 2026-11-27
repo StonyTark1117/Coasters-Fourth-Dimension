@@ -65,7 +65,7 @@ multi-train management retains 1.2. The FD2001–FD2007 program is assigned to
 yaw-plus-pitch table. The [design/matrix](specs/FD2001-moving-track-1.5.md)
 defines accepted finite car/track eligibility and native moving-support adapters,
 player guidance and retained optional fixed-span handoffs. Launch Systems
-moving-track interoperability is future FD2008, outside 1.5; its existing
+moving-track interoperability is assigned FD2008 in 1.6, outside 1.5; its existing
 external longitudinal bridge keeps its separately accepted scope. Native
 route/retention feasibility comes first. Moving-track packages never feed the 1.0
 gate; the added vehicle outcomes do. Existing evidence does not certify new
@@ -536,3 +536,7 @@ certify this revised adapter.
 ## Veil scheduler and revised styled replay (dev.12)
 
 The [scheduler checkpoint](evidence/0.4/scheduler-acceptance.md) records a client-only initialization fix for pinned Veil 4.1.4, 512 native schedule checks, 64 completed reload/chat/query cycles and a normal occupied revised double-spine level circuit with recapture, dismount and clean exit. It preserves profiles and saved mechanical identities. The original freed-bitmap crash remained unresolved at that scheduler checkpoint. Later FD401 evidence now supplies bounded banked vehicle/vanilla-player interpolation, exact-candidate FAST/FABULOUS modes, a post-F3+T occupied styled ride, the saved Arrow operator/wired-FE replay, exact-candidate Legacy, Free Spin, Revised and coupled-Arrow occupied operator loops, and an occupied exact-candidate PAX authority cycle; their stated equipped-player, native-GPU, tracing/reliability and per-car-callback limits still apply.
+
+The finite FD 1.6 / LS 1.0.1 moving adapter and installation boundaries are
+described in [the moving handoff guide](MOVING-TRACK.md#launch-systems-handoff-16).
+Published LS 1.0.0 is not compatible with FD schema 9.

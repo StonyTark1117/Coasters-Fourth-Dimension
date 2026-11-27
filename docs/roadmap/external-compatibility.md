@@ -3,7 +3,7 @@
 [Guide index and execution rules](README.md) · [Canonical roadmap](../../ROADMAP.md) · [Active assignments](../CURRENT-QUALIFICATION.md#current-work-queue)
 
 FD801 depends on an inspectable functional upstream release and applicable terms. Its availability never blocks standalone 1.0.
-FD2008 is future Launch Systems moving-track interoperability, outside 1.5;
+FD2008 is the assigned 1.6 Launch Systems moving-track interoperability, outside completed 1.5;
 the already accepted fixed-track external authority bridge retains its scope.
 
 Card order helps navigation; actual prerequisites determine readiness. These are
@@ -13,7 +13,7 @@ rules to every step; already-covered steps do not require another run.
 ## Packages
 
 - [FD801 — Integrate a released Track Styles Arrow 4D](#fd801)
-- [FD2008 — Future Launch Systems moving-track interoperability](#fd2008)
+- [FD2008 — 1.6 Launch Systems moving-track interoperability](#fd2008)
 
 ## FD801
 
@@ -38,7 +38,7 @@ rules to every step; already-covered steps do not require another run.
 ## FD2008
 
 **Outcome:** Explicitly supported Launch Systems handoff to/from the named
-moving-track mechanisms. Future task; no release number and no 1.5 dependency.
+moving-track mechanisms. Assigned to 1.6; no 1.5 dependency. See the [finite contract](../specs/FD2008-launch-systems-1.6.md).
 
 **Start conditions:** Accepted FD2001 moving-support contract and consuming
 mechanism(s), plus an inspectable Launch Systems controller/authority contract.
@@ -65,5 +65,5 @@ and [existing external authority evidence](../evidence/launch-systems-authority-
 **Validation:** Distinct native consumer/authority checks and connected occupied
 handoff on the declared combination; no unrelated mechanism or family sweep.
 
-**Finish and handoff:** Close this future adapter only with actual integration
+**Finish and handoff:** Close this adapter only with actual integration
 evidence. FD2007 never waits for it, and publication remains separate.

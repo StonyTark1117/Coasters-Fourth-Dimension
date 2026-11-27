@@ -15,6 +15,8 @@ public final class MovingServiceState {
   }
   public final Map<UUID,Car> cars=new LinkedHashMap<>();
   public String dock="";
+  /** Receiver identity survives disk save; dispatch permission never does. */
+  public UUID externalOwner;
   public void validate(MovingAssemblyState state){
     if(cars.isEmpty())return;
     if(!state.docks.containsKey(dock)||!state.cars.containsAll(cars.keySet()))throw new IllegalArgumentException("Service dock/train identity is missing");
@@ -24,7 +26,7 @@ public final class MovingServiceState {
     }
   }
   public CompoundTag save(boolean disk){
-    var t=new CompoundTag();t.putInt("version",1);t.putString("dock",dock);var list=new ListTag();
+    var t=new CompoundTag();if(externalOwner!=null)t.putUUID("external_owner",externalOwner);t.putInt("version",1);t.putString("dock",dock);var list=new ListTag();
     for(var car:cars.values()){
       var n=new CompoundTag();n.putUUID("chassis",car.chassis);n.putBoolean("dispatched",!disk&&car.dispatched);n.putString("fault",car.fault);var holds=new ListTag();
       for(var h:car.holds){var a=new CompoundTag();a.putUUID("parent",h.parent);a.putUUID("child",h.child);a.put("a",h.parentFrame.save());a.put("b",h.childFrame.save());holds.add(a);}
@@ -33,6 +35,7 @@ public final class MovingServiceState {
   }
   public static MovingServiceState read(CompoundTag tag){
     var s=new MovingServiceState();if(tag.isEmpty())return s;
+    if(tag.hasUUID("external_owner"))s.externalOwner=tag.getUUID("external_owner");
     if(tag.getInt("version")!=1)throw new IllegalArgumentException("Unknown moving service state");s.dock=tag.getString("dock");
     var list=tag.getList("cars",Tag.TAG_COMPOUND);if(list.size()>4)throw new IllegalArgumentException("Too many service cars");
     var children=new HashSet<UUID>();

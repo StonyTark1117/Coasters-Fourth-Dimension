@@ -102,6 +102,9 @@ public final class MovingRuntime {
       FoundationData.get(level).moving.reserve(s,keys);
       try{MovingNativeAdapter.capture(level,s,c.bodies());}
       catch(RuntimeException failure){FoundationData.get(level).moving.releaseReservation(s.id);throw failure;}
+      for(var id:s.cars){var car=FoundationData.get(level).vehicles.get(id);
+        if(car!=null&&dev.fourthdimension.integration.RideAuthority.externalSelected(car))
+          dev.fourthdimension.integration.RideAuthority.suspend(level,car,"Moving capture: release at a locked dock and explicitly arm the receiving controller");}
       MovingPaxRecovery.captured(level,s);
       s.receivingLength=trainLength(c.train().occupiedBounds());s.released=false;
       s.phase=CAPTURED;s.fault="";s.programSeconds=0;s.returning=false;

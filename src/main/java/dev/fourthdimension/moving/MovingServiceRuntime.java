@@ -161,6 +161,12 @@ public final class MovingServiceRuntime {
   private static void departureDrive(ServerLevel l,FoundationData.Vehicle v,MovingAssemblyState s){
     if(v.family==dev.fourthdimension.contract.Family.PAX)return; // Actual stopped carriage/catch handoff belongs to the winch.
     String provider=v.authority.provider;
+    if(dev.fourthdimension.integration.RideAuthority.externalSelected(v)){
+      if(!Objects.equals(s.service.externalOwner,v.authority.owner)
+          ||!dev.fourthdimension.integration.RideAuthority.externalAvailable(l,v))
+        throw new IllegalArgumentException("Explicitly arm the supported receiving Launch Systems controller");
+      return; // The actual external controller checks equipment, power and stopping coverage.
+    }
     if(v.authority.owner!=null&&(provider.equals(dev.fourthdimension.integration.RideAuthority.ENGINEERED)
         ||provider.equals(dev.fourthdimension.integration.RideAuthority.MAGNETIZED)))return; // Existing authority checks its real fixed consumer.
     var hit=serviceHit(l,v,s);var span=ChainLiftSpanQuery.findAtGraphHit(l,hit,0);

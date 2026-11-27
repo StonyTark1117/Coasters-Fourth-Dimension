@@ -1,0 +1,372 @@
+{
+  "data": {
+    "schema": 9,
+    "vehicles": [
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": -115173844631422,
+        "carriers": [
+          {
+            "side": 0.0,
+            "control_coupled": 0,
+            "rider_seats": [
+              {
+                "seat": 1099511627777,
+                "player": [
+                  940439953,
+                  -167562164,
+                  -1601161573,
+                  -1389718966
+                ]
+              }
+            ],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              -1101551275,
+              -990887776,
+              -1369710084,
+              1626632425
+            ],
+            "axis": "X",
+            "seats": [
+              -1099511627775,
+              -824633720831,
+              824633720833,
+              1099511627777
+            ],
+            "ballast": 0.0,
+            "omega": 0.0,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": 0.0,
+            "angle": 0.0,
+            "capture_target": 0.0,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "child_pivot_x": 0.0,
+            "child_pivot_z": 0.0,
+            "occupants": [
+              [
+                940439953,
+                -167562164,
+                -1601161573,
+                -1389718966
+              ]
+            ]
+          }
+        ],
+        "chassis": [
+          -1101551275,
+          -990887776,
+          -1369710084,
+          1626632425
+        ],
+        "ctnb": {
+          "kind": "",
+          "remaining": 0
+        },
+        "damping": 0.0,
+        "body": "base",
+        "boundFrom": -115173844828030,
+        "ballast": 0.0,
+        "revision": 3,
+        "appearance": "original",
+        "boarding_ready": 0,
+        "stopping": 1,
+        "authority": {
+          "owner": [
+            717324483,
+            -483573730,
+            -1701210320,
+            1900725748
+          ],
+          "sequence": 1,
+          "reason": "Moving capture: release at a locked dock and explicitly arm the receiving controller",
+          "cars": [
+            [
+              -1101551275,
+              -990887776,
+              -1369710084,
+              1626632425
+            ]
+          ],
+          "controller": -117922623799168,
+          "provider": "coasterslaunchsystems:local_controller",
+          "held": 1,
+          "epoch": 2,
+          "suspended": 1,
+          "direction": 1
+        },
+        "variant": "wing_fixed_v1",
+        "restraints": 1,
+        "shuttle_detached": 0,
+        "palette": "ORIGINAL",
+        "family": "wing_fixed",
+        "suspended_consist": [],
+        "maintenance": 0
+      }
+    ],
+    "rails": [],
+    "moving_assemblies": [
+      {
+        "bed": [
+          -220734076,
+          -792705817,
+          -1401816120,
+          1824291788
+        ],
+        "receiving_length": 7.500000565291796,
+        "configuration": "wing",
+        "bodies": [
+          {
+            "qw": -2.8264588891602203e-08,
+            "qx": -6.970971150835753e-23,
+            "anchor": {
+              "x": 20481032.828125015,
+              "y": 129.04980468750009,
+              "z": 20483080.500000007
+            },
+            "x": -0.3281555436551571,
+            "qy": 0.9999999999999996,
+            "y": 0.6748199462890057,
+            "qz": 2.4663296681411657e-15,
+            "z": -16.0032348819077,
+            "id": [
+              -1101551275,
+              -990887776,
+              -1369710084,
+              1626632425
+            ]
+          }
+        ],
+        "origin": {
+          "qw": 1.0,
+          "qx": 0.0,
+          "x": -419.5,
+          "qy": 0.0,
+          "y": 130.5,
+          "qz": 0.0,
+          "z": -419.5
+        },
+        "destination": "end",
+        "receiving_envelope": {
+          "max_x": 4.999969570172084,
+          "max_z": -14.25323461035985,
+          "min_x": -5.000030627680076,
+          "max_y": 3.5125152587889397,
+          "min_z": -17.753235175651646,
+          "min_y": -1.37498474121106
+        },
+        "epoch": 3,
+        "source": "start",
+        "program": {
+          "show": 0,
+          "amount": 8,
+          "from": 0,
+          "to": 0,
+          "mechanism": "transfer",
+          "version": 1
+        },
+        "locks": 0,
+        "rail_to": 5629783292103491712,
+        "program_seconds": 7.40000000000005,
+        "docks": [
+          {
+            "name": "start",
+            "from": -115173844828030,
+            "socket": [
+              -558119999,
+              1352027384,
+              -1314978334,
+              166880109
+            ],
+            "to": -115173844631422,
+            "pose": {
+              "qw": 1.0,
+              "qx": 0.0,
+              "x": -419.5,
+              "qy": 0.0,
+              "y": 130.5,
+              "qz": 0.0,
+              "z": -419.5
+            }
+          },
+          {
+            "name": "end",
+            "from": -112974821572478,
+            "socket": [
+              -84220629,
+              108216886,
+              -1957809146,
+              -2071468870
+            ],
+            "to": -112974821375870,
+            "pose": {
+              "qw": 1.0,
+              "qx": 0.0,
+              "x": -411.5,
+              "qy": 0.0,
+              "y": 130.5,
+              "qz": 0.0,
+              "z": -419.5
+            }
+          }
+        ],
+        "rail_from": 5629783292103295104,
+        "variant": "wing_fixed_v1",
+        "fixed_parts": [
+          {
+            "pos": -115448722751360,
+            "block": "fourthdimension:moving_guide"
+          },
+          {
+            "pos": -115723600658304,
+            "block": "fourthdimension:moving_lock"
+          },
+          {
+            "pos": -115448722755456,
+            "block": "fourthdimension:moving_socket"
+          },
+          {
+            "pos": -113249699495808,
+            "block": "fourthdimension:moving_guide"
+          },
+          {
+            "pos": -113524577402752,
+            "block": "fourthdimension:moving_lock"
+          },
+          {
+            "pos": -113249699499904,
+            "block": "fourthdimension:moving_socket"
+          },
+          {
+            "pos": -115448722521984,
+            "block": "fourthdimension:moving_guide"
+          },
+          {
+            "pos": -115723600428928,
+            "block": "fourthdimension:moving_lock"
+          },
+          {
+            "pos": -115448722517888,
+            "block": "fourthdimension:moving_socket"
+          },
+          {
+            "pos": -113249699266432,
+            "block": "fourthdimension:moving_guide"
+          },
+          {
+            "pos": -113524577173376,
+            "block": "fourthdimension:moving_lock"
+          },
+          {
+            "pos": -113249699262336,
+            "block": "fourthdimension:moving_socket"
+          },
+          {
+            "pos": -114898966937472,
+            "block": "fourthdimension:moving_guide"
+          },
+          {
+            "pos": -114624089030528,
+            "block": "fourthdimension:moving_lock"
+          },
+          {
+            "pos": -114898966941568,
+            "block": "fourthdimension:moving_socket"
+          },
+          {
+            "pos": -112699943681920,
+            "block": "fourthdimension:moving_guide"
+          },
+          {
+            "pos": -112425065774976,
+            "block": "fourthdimension:moving_lock"
+          },
+          {
+            "pos": -112699943686016,
+            "block": "fourthdimension:moving_socket"
+          },
+          {
+            "pos": -114898966708096,
+            "block": "fourthdimension:moving_guide"
+          },
+          {
+            "pos": -114624088801152,
+            "block": "fourthdimension:moving_lock"
+          },
+          {
+            "pos": -114898966704000,
+            "block": "fourthdimension:moving_socket"
+          },
+          {
+            "pos": -112699943452544,
+            "block": "fourthdimension:moving_guide"
+          },
+          {
+            "pos": -112425065545600,
+            "block": "fourthdimension:moving_lock"
+          },
+          {
+            "pos": -112699943448448,
+            "block": "fourthdimension:moving_socket"
+          }
+        ],
+        "id": [
+          1617515534,
+          -759410899,
+          -2118668961,
+          -762760431
+        ],
+        "mechanism": "transfer",
+        "released": 0,
+        "phase": "FAULT_HOLD",
+        "controller": -119022135426942,
+        "linear": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "restore": 1,
+        "pose": {
+          "qw": 0.9999999994391631,
+          "qx": -6.610556507370004e-07,
+          "x": -411.6162410836945,
+          "qy": -2.3418131420893846e-07,
+          "y": 130.49999999796896,
+          "qz": 3.3484055147120824e-05,
+          "z": -419.50003169712926
+        },
+        "length": 48,
+        "fault": "Restore stationary Create drive power, then explicitly Resume",
+        "version": 1,
+        "sequence": 3,
+        "angular": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "cars": [
+          [
+            -1101551275,
+            -990887776,
+            -1369710084,
+            1626632425
+          ]
+        ],
+        "materials": {},
+        "returning": 0,
+        "service": {
+          "dock": "",
+          "cars": [],
+          "version": 1
+        }
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

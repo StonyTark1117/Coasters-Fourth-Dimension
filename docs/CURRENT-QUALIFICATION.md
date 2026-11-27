@@ -39,6 +39,19 @@ will carry unaffected acceptance forward; no new JAR or run is required here.
 
 ## Current work queue
 
+### Completed 1.6 — Launch Systems interoperability, 2026-11-27
+
+Root completed FD2008 in primary main from baseline3ac29538. Original Arrow and
+Wing native consumers pass, with actual LS force, zero retained propulsion,
+stale/competing denial and full moving-service exit. Two real clients prove
+occupied handoff, power interruption, cold restart, normal receiver arm/launch
+and dismount. Dependency-loss 1/1 and targeted FD 12 / LS 8+7 unit checks pass.
+[Acceptance/package record](evidence/1.6/README.md). All owned runtimes stopped.
+The existing LS development owner supplied the bounded Arrow mounting helper;
+root integrated the companion adapter on its existing codex/launch-systems-0-4-0
+branch. Required companion1.0.1 is unpublished; published1.0.0 cannot read FD
+schema9. No tags/uploads/releases or unrelated acceptance campaigns were run.
+
 ### Completed external route/operator seam integration — 2026-11-26
 
 Primary `main` integrates overlay `9f0bbf47` with current moving/specialty guards

@@ -107,7 +107,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 1.3 | FD2101, FD2104, FD2102, FD2103 | Complete 2026-11-22 | Repair unsupported-looking car/seat structures and add two original, selectable body variants for existing Wing and Fixed Inverted vehicles without changing their ride contracts. |
 | 1.4 | FD2201–FD2204 | Complete 2026-11-22; unpublished | Add standard and Surf-style standing configurations, plus motorbike and suspended flying-bike/Thrill Glider-inspired coasters, with distinct boarding, restraints, fit and recovery. |
 | 1.5 | FD2001–FD2007 | Complete 2026-11-26 | Eight moving-track mechanisms: transfer, turntable, drop, tilt, elevator, teeter-totter, side-drop and yaw-plus-pitch table; explicit track/car compatibility, original content, player guidance and recovery. [Design and matrix](docs/specs/FD2001-moving-track-1.5.md). |
-| Future; version unassigned | FD2008 | Planned; outside 1.5 | Moving-track compatibility with sister mod Launch Systems, consuming the accepted native mechanism and external authority contracts. |
+| 1.6 | FD2008 | Complete 2026-11-27; unpublished | Moving-track compatibility with sister mod Launch Systems, consuming the accepted native mechanism and external authority contracts. |
 | Independent compatibility | FD801 | Planned | Inspectable functional Track Styles Arrow 4D adapter; upstream availability never blocks standalone release. |
 
 Milestone labels are delivery targets, not dates, JAR version changes or universal
@@ -1763,11 +1763,11 @@ distinguishes installed examples (including TH13TEEN, Gravity Max, Cobra's Curse
 Voltron and Uncharted) from manufacturer concepts. Our assets and game-scale
 limits are original, and real-world examples do not certify cross-family support.
 
-### Future — Launch Systems moving-track compatibility
+### Version 1.6 — Launch Systems moving-track compatibility
 
 | Package / status | Actual prerequisites | Ordered work and completion condition |
 | --- | --- | --- |
-| <a id="fd2008"></a> **FD2008 Launch Systems moving-track interoperability — planned; future, outside 1.5** [Steps](docs/roadmap/external-compatibility.md#fd2008) | Accepted FD2001 contract and consuming mechanism(s); inspectable Launch Systems controller/authority handoff | Specify a finite controller/car/track list, approach and exit force ownership, retained handoff, stale-token rejection, power-loss/restart and missing-mod behavior. Implement the adapter in both consuming projects and prove actual propulsion plus occupied handoff before advertising compatibility. No release number assigned; never blocks FD2007. |
+| <a id="fd2008"></a> **FD2008 Launch Systems moving-track interoperability — complete 2026-11-27** [Steps](docs/roadmap/external-compatibility.md#fd2008) | Accepted FD2001 contract and consuming mechanism(s); inspectable Launch Systems controller/authority handoff | Specify a finite controller/car/track list, approach and exit force ownership, retained handoff, stale-token rejection, power-loss/restart and missing-mod behavior. Implement the adapter in both consuming projects and prove actual propulsion plus occupied handoff before advertising compatibility. Accepted native Arrow/Wing consumers, two-client occupied power/restart/handoff, dependency-loss guards and package evidence close 1.6; no publication. [Evidence](docs/evidence/1.6/README.md). Never blocks FD2007. See the [finite contract](docs/specs/FD2008-launch-systems-1.6.md). |
 
 The [existing external longitudinal bridge](docs/evidence/launch-systems-authority-20261122/README.md)
 remains accepted within its recorded scope. FD2008 concerns new moving-track

@@ -397,7 +397,7 @@ sequence is:
 | 1.3 | FD2101, FD2104, FD2102, FD2103 | Repair model defects, review/refine existing base models against references, then deliver two selectable original body variants on Wing and Fixed Inverted. |
 | 1.4 | FD2201–FD2204 | Standard and Surf-style standing configurations, plus motorbike and suspended flying-bike vehicles, with complete player and recovery behavior. |
 | 1.5 | FD2001–FD2007 | Eight moving-track mechanisms with explicit rail/car eligibility, player compatibility guidance, occupied retention and recovery; see [design and matrix](docs/specs/FD2001-moving-track-1.5.md). |
-| Future; version unassigned | FD2008 | Launch Systems moving-track interoperability; outside 1.5. |
+| 1.6 | FD2008 | Complete 2026-11-27: finite Arrow/Wing Launch Systems moving handoff; unpublished. [Evidence](docs/evidence/1.6/README.md). Outside completed 1.5. See [contract](docs/specs/FD2008-launch-systems-1.6.md). |
 | Independent | FD801 | Inspectable functional Track Styles adapter; unavailable upstream work does not block release. |
 
 Milestone 0.5 is complete: [FD503 reconciliation](docs/evidence/0.5/acceptance.md).

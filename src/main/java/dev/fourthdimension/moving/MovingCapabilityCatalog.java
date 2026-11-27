@@ -122,7 +122,7 @@ public final class MovingCapabilityCatalog {
     var permission=e.permission(request.program.mechanism(),request.program.maxAbsPitch());
     if(!permission.allowed())return permission;
     var ready=request.readiness;
-    if(ready.launchSystemsOwner)return deny(Code.LAUNCH_SYSTEMS,"Launch Systems moving-track adapter is not available; release that owner on fixed track");
+    if(ready.launchSystemsOwner)return deny(Code.LAUNCH_SYSTEMS,"Launch Systems needs a live certified moving handoff; a declared owner flag alone cannot authorize capture");
     if(ready.managedCircuit)return deny(Code.MANAGED_CIRCUIT,"Moving assemblies are unavailable inside the 1.2 managed Arrow circuit; use a standalone route");
     for(var where:List.of(Map.entry("Bed",request.bed),Map.entry("Source dock",request.source),Map.entry("Destination dock",request.destination))){
       var check=checkInsert(e,where.getValue(),where.getKey());if(!check.allowed())return check;

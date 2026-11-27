@@ -108,7 +108,7 @@ neoForge {
             programArgument '--nogui'
             systemProperty 'fourthdimension.freezeOnStart', project.hasProperty('fdFrozen').toString()
             if (project.hasProperty('fdNamedGameTestServer'))
-                systemProperty 'neoforge.enabledGameTestNamespaces', 'fourthdimension'
+                systemProperty 'neoforge.enabledGameTestNamespaces', project.findProperty('fdGameTestNamespaces') ?: 'fourthdimension'
         }
         gameTestServer {
             type = 'gameTestServer'
@@ -211,6 +211,7 @@ dependencies {
         runtimeOnly 'curse.maven:interiors-906239:8974633'
     }
     // Validation-only FE producer and wiring; no addon dependency is bundled or advertised.
+    if (project.hasProperty('fdLaunchSystemsJar')) runtimeOnly files(project.property('fdLaunchSystemsJar'))
     if (project.hasProperty('fdFeNetwork')) runtimeOnly 'curse.maven:createaddition-439890:8188476'
     if (project.hasProperty('fdPackaged')) packagedRuntimeOnly files(layout.buildDirectory.file("libs/coasters-fourth-dimension-${mod_version}.jar"))
     implementation('com.simibubi.create:create-1.21.1:6.0.10-280:slim') { transitive = false }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.fourthdimension.moving.MovingProgramTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-11-27T09:17:59.557Z" hostname="Hades" time="0.066">
+  <properties/>
+  <testcase name="finitePresetsAndBadInputsFailClosed()" classname="dev.fourthdimension.moving.MovingProgramTest" time="0.002"/>
+  <testcase name="continuousSweepIncludesIntermediateRotatedCorners()" classname="dev.fourthdimension.moving.MovingProgramTest" time="0.042"/>
+  <testcase name="allEightProgramsHaveBoundedDerivativesAndRestEndpoints()" classname="dev.fourthdimension.moving.MovingProgramTest" time="0.014"/>
+  <testcase name="compoundIsConcurrentAndClockwiseTieBreakIsStable()" classname="dev.fourthdimension.moving.MovingProgramTest" time="0.0"/>
+  <testcase name="measuredLagProjectsOnlyOntoSavedLegAndCannotJumpShowBranches()" classname="dev.fourthdimension.moving.MovingProgramTest" time="0.003"/>
+  <testcase name="repeatedInterruptionsMapToOriginalPathWithoutDerivativeJump()" classname="dev.fourthdimension.moving.MovingProgramTest" time="0.001"/>
+  <testcase name="derivativesAreDerivativesOfThePhysicalTarget()" classname="dev.fourthdimension.moving.MovingProgramTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

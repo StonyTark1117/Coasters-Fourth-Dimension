@@ -18,6 +18,7 @@ public final class RideAuthority {
   /** Optional family power contract; API1 controllers remain binary compatible. */
   public static final int EXTERNAL_FAMILY_API = 1;
   public static final int EXTERNAL_ROUTE_API = 1;
+  public static final int EXTERNAL_MOVING_API = 1;
   /** Optional integrations register a real controller adapter, never borrow another provider's identity. */
   public interface ExternalProvider {
     Controller controller(ServerLevel level, BlockPos position);
@@ -29,6 +30,8 @@ public final class RideAuthority {
       throw new IllegalArgumentException("External operator controls unavailable");
     }
     boolean supports(ServerLevel level, FoundationData.Vehicle vehicle);
+    /** Explicit finite moving-support opt-in; ordinary API1 providers remain denied. */
+    default boolean supportsMoving(ServerLevel level, BlockPos controller, FoundationData.Vehicle vehicle) { return false; }
     /** Actual live accessory supply, independent of longitudinal hold or stored launch energy. */
     default boolean accessoryPowerAvailable(ServerLevel level, FoundationData.Vehicle vehicle) { return false; }
   }
@@ -77,6 +80,70 @@ public final class RideAuthority {
     return new Token(v.authority.owner, v.authority.epoch, v.authority.sequence);
   }
 
+  /** Complete stopped source ownership is checked before any physical moving capture. */
+  public static void validateMovingCapture(ServerLevel l, FoundationData.Vehicle v) {
+    thread(l); var cars=complete(l,v); stopped(l,cars); validateRouteOwner(v,cars);
+    if(!externalSelected(v)||!v.authority.held||v.authority.suspended||v.authority.restored)
+      throw new IllegalArgumentException("Inspect and resume the exact held Launch Systems owner before moving capture");
+    var owner=controller(l,v.authority.controller,v.chassis,v.authority.provider);
+    if(!owner.authorityId().equals(v.authority.owner))throw new IllegalArgumentException("Moving source owner changed");
+    for(var car:cars)validateMovingProvider(l,car,v.authority.controller);
+  }
+  private static void validateMovingProvider(ServerLevel l,FoundationData.Vehicle v,BlockPos pos) {
+    var provider=EXTERNAL.get(v.authority.provider);
+    if(!"coasterslaunchsystems:local_controller".equals(v.authority.provider)||provider==null
+        ||!(v.family==Family.ARROW&&"arrow_four_rail_v1".equals(v.variant)
+          ||dev.fourthdimension.vehicle.WingVehicle.is(v))
+        ||RideLocalOperations.hasRouteInterest(l,v.chassis))
+      throw new IllegalArgumentException("Moving launch handoff supports standalone original Arrow and Wing only");
+    try { if(provider.supportsMoving(l,pos,v))return; }
+    catch(UnsupportedOperationException | AbstractMethodError oldProvider) { /* Missing opt-in denies. */ }
+    throw new IllegalArgumentException("Launch Systems controller/program has no moving handoff certificate");
+  }
+  /** Only the current physical dock edge can exempt its two intended anchor contacts. */
+  public static boolean movingFixedEdge(ServerLevel l,BlockPos from,BlockPos to) {
+    for(var state:FoundationData.get(l).moving.assemblies.values()){
+      var edge=dev.fourthdimension.moving.MovingNativeAdapter.liveDockEdge(l,state);
+      if(edge!=null&&(edge.from().equals(from)&&edge.to().equals(to)||edge.from().equals(to)&&edge.to().equals(from)))return true;
+    }
+    return false;
+  }
+  public static boolean movingRetained(ServerLevel l,UUID id) {
+    return FoundationData.get(l).moving.retaining(id)!=null;
+  }
+  public static boolean movingService(ServerLevel l,UUID id) {
+    var v=FoundationData.get(l).vehicles.get(id);
+    return v!=null&&dev.fourthdimension.moving.MovingServiceRuntime.applies(l,v);
+  }
+  /** Posture stays locally locked on the bridge; this is not a released carrier assertion. */
+  public static boolean movingDeparture(ServerLevel l,UUID id) {
+    var v=FoundationData.get(l).vehicles.get(id);if(v==null)return false;
+    var state=dev.fourthdimension.moving.MovingServiceRuntime.owner(l,v);
+    var car=state==null?null:state.service.cars.get(id);
+    return car!=null&&car.dispatched&&Objects.equals(state.service.externalOwner,v.authority.owner)
+        &&state.released&&dev.fourthdimension.moving.MovingNativeAdapter.liveDockEdge(l,state)!=null;
+  }
+  /** Explicit receiving-controller acknowledgement, never a launch or automatic ownership steal. */
+  public static Token returnFromMoving(ServerLevel l,UUID id,Token expected,BlockPos next) {
+    thread(l);var v=vehicle(l,id);var cars=complete(l,v);stopped(l,cars);validateRouteOwner(v,cars);
+    if(!token(v).equals(expected)||!v.authority.held)
+      throw new IllegalArgumentException("Stale or unheld moving handoff");
+    var state=dev.fourthdimension.moving.MovingServiceRuntime.owner(l,v);
+    if(state==null||!state.released||state.service.externalOwner!=null
+        ||!state.service.cars.keySet().equals(new HashSet<>(state.cars))
+        ||!new HashSet<>(state.cars).equals(new HashSet<>(v.authority.cars))
+        ||dev.fourthdimension.moving.MovingNativeAdapter.liveDockEdge(l,state)==null)
+      throw new IllegalArgumentException("Release the complete train onto its locked receiving bridge first");
+    var keys=dev.fourthdimension.moving.MovingReservations.validate(l,state,state.docks.get(state.service.dock),Math.max(4,state.receivingLength));
+    if(!FoundationData.get(l).moving.owns(state.id,keys))throw new IllegalArgumentException("Receiving reservation is unavailable");
+    for(var car:cars)validateMovingProvider(l,car,next);
+    var receiver=controller(l,next,id,v.authority.provider);receiver.validateRelease(l,v);
+    safeRelease(l,cars);
+    assign(l,cars,next,receiver.authorityId(),v.authority.provider,v.authority.epoch+1);
+    state.service.externalOwner=receiver.authorityId();FoundationData.get(l).setDirty();
+    return token(v);
+  }
+
   public static Token claim(ServerLevel level, BlockPos pos, UUID id, String provider) {
     thread(level);
     if (provider==null || !Set.of(NATIVE_CHAIN, ENGINEERED, MAGNETIZED, CTNB).contains(provider) && !EXTERNAL.containsKey(provider))
@@ -99,6 +166,7 @@ public final class RideAuthority {
 
   public static Token transfer(ServerLevel level, BlockPos pos, UUID id, Token token, BlockPos next) {
     thread(level); var v=vehicle(level,id); refresh(level,v);
+    if(movingService(level,id))throw new IllegalArgumentException("Use the explicit moving receiving-controller handoff");
     if(!token(v).equals(token)||!Objects.equals(pos,v.authority.controller))
       throw new IllegalArgumentException("Stale authority transfer");
     var cars=complete(level,v);

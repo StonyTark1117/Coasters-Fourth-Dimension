@@ -315,6 +315,9 @@ public final class MovingNativeAdapter {
   public static CoasterPathEdge hostedEdge(ServerLevel level,MovingAssemblyState state){return binding(level,state).hosted;}
   /** Existing physically locked bridge only; this method never restores handles or looks up the graph. */
   public static CoasterPathEdge liveDockEdge(ServerLevel level,MovingAssemblyState state){
+    return lockedDockEdge(level,state,true);
+  }
+  private static CoasterPathEdge lockedDockEdge(ServerLevel level,MovingAssemblyState state,boolean requireStopped){
     if(dev.fourthdimension.runtime.FoundationData.get(level).moving.assemblies.get(state.id)!=state
         ||!state.locksEngaged||state.restored)return null;
     if(state.phase!=MovingAssemblyState.Phase.DOCKED&&state.phase!=MovingAssemblyState.Phase.RECONNECTED
@@ -322,7 +325,8 @@ public final class MovingNativeAdapter {
     var b=BINDINGS.getOrDefault(level,Map.of()).get(state.id);
     if(b==null||b.state!=state||b.partialFaultHold||b.docked==null||b.actuator==null||!b.actuator.isValid()||b.dockLocks.size()!=4||b.dockLocks.stream().anyMatch(lock->!lock.isValid()))return null;
     try{
-      if(!stopped(level,state))return null;
+      boolean stopped=stopped(level,state);
+      if(requireStopped&&!stopped)return null;
       for(var dock:state.docks.values())if(pair(b.docked,dock.from(),dock.to())
           &&state.actualPose.position().distance(dock.pose().position())<=POSITION_TOLERANCE
           &&angularError(state.actualPose.orientation(),dock.pose().orientation())<=ANGLE_TOLERANCE){
@@ -353,7 +357,10 @@ public final class MovingNativeAdapter {
     var data=dev.fourthdimension.runtime.FoundationData.get(level);var physics=SubLevelContainer.getContainer(level).physicsSystem();
     var car=data.vehicles.get(chassis.getUniqueId());
     for(var b:BINDINGS.getOrDefault(level,Map.of()).values()) {
-      boolean allowed=false;var live=liveDockEdge(level,b.state);
+      // Contact exclusion is not movement permission. The native guide and four live
+      // geometrically aligned dock locks authenticate this pair even during a solver
+      // contact transient; requiring zero velocity here prevents its own stabilization.
+      boolean allowed=false;var live=lockedDockEdge(level,b.state,false);
       if(live!=null&&!b.state.bodies.containsKey(chassis.getUniqueId())) {
         var entry=MovingCapabilityCatalog.entry(MovingCapabilityCatalog.Configuration.byId(b.state.configuration));
         boolean configuration=car==null?entry.configuration()==MovingCapabilityCatalog.Configuration.NATIVE_SERVICE

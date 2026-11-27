@@ -238,8 +238,8 @@ public final class MovingAdmission {
     if(data.rideLocal.trains.values().stream().anyMatch(t->t.cars.contains(car.chassis)))
       throw new IllegalArgumentException("Managed 1.2 circuit trains cannot enter moving support");
     var provider=car.authority.provider;
-    if(provider.contains("launch"))throw new IllegalArgumentException("Launch Systems moving-track adapter is not available");
-    if(car.authority.owner!=null&&!Set.of(RideAuthority.NATIVE_CHAIN,RideAuthority.ENGINEERED,RideAuthority.MAGNETIZED).contains(provider))
+    if(RideAuthority.externalSelected(car))RideAuthority.validateMovingCapture(level,car);
+    if(car.authority.owner!=null&&!RideAuthority.externalSelected(car)&&!Set.of(RideAuthority.NATIVE_CHAIN,RideAuthority.ENGINEERED,RideAuthority.MAGNETIZED).contains(provider))
       throw new IllegalArgumentException("Unsupported longitudinal owner must release before moving support");
     if(car.authority.owner!=null&&!car.authority.held)throw new IllegalArgumentException("Hold and transfer fixed-span propulsion before capture");
     validateShape(car,entry.configuration());

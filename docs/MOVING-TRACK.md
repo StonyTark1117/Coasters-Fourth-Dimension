@@ -129,3 +129,46 @@ upper headers clear; they retain the native anchor blocks as part of the same
 moving structure without putting a floor through the hanging cabin. The **Server
 message** button opens the full latest validation/error text when the small panel
 summary does not fit.
+
+## Launch Systems handoff (1.6)
+
+Use the matching FD 1.6.0 and companion LS 1.0.1 candidate. Published LS 1.0.0
+requires an older FD schema and cannot supply this adapter. Both mods remain
+separate; standalone moving track does not require LS. Package acceptance is
+tracked in the [1.6 record](evidence/1.6/README.md).
+
+Only original Arrow/four-rail insert and original Wing/native insert are moving
+handoff configurations. Retain the existing bed, consist, restraint, posture and
+mechanism limits. LS hardware stays in the fixed world. Its local straight,
+level section may use Tire, LSM or LIM drive and fin brakes. A configured Tire
+exit may transfer onto a separate fixed LS section after docking. Cable launch,
+swing programs, already-active section transfers, managed circuits and other
+vehicle configurations do not receive moving permission.
+
+1. Provide enough real fixed braking length for the complete train. Put all
+   cabinets and Create motors outside the entire moving sweep, including the
+   original Arrow carrier/rider clearance below its bed. Ordinary cabinets must
+   remain within three blocks of their rail contact. Tire/Fin/LSM/LIM cabinets
+   below a live authenticated FD fixed dock may use four blocks total reach and
+   1.025 blocks horizontal reach (one block plus the native 25 mm socket allowance).
+   This exception is revoked when that dock is absent/unlocked; a saved bind is
+   not permission. Place Arrow's dock cabinets one block lower where needed.
+2. Stop and hold the train with its source LS controller, close restraints and
+   inspect readiness. For this qualified handoff, keep that exact LS owner;
+   **Capture** on the moving panel revokes its old launch token and retains the
+   complete train. Neither LS traction nor LS braking acts on the moving bodies.
+3. **Move**, wait for the actual locked destination, then **Release**. Inspect
+   the receiving fixed LS section and explicitly arm its controller. Fresh arm
+   accepts the receiving identity while keeping the train held. READY or
+   READY_EXIT depends on whether the train is already in its brake/exit zone.
+4. Issue a separate fresh launch request. LS redstone requests use the block
+   **above the controller**; a side lever is not its request input. For a paired
+   Tire exit, provide a new low-to-high input when READY_EXIT. Keep the downstream
+   receiving controller armed and its full braking reservation clear. Wait until
+   the complete train leaves the moving-service span before returning the bed.
+5. On power loss or restart, restore the original hardware/support and inspect
+   the held train. Explicitly **Resume** the moving assembly, complete docking,
+   and re-arm the receiving LS controller before a new launch request. Old
+   saved owners, missing mods/controllers and old requests cannot create native
+   fallback propulsion. At the final fixed hold, Stop, open restraints and
+   dismount normally.
